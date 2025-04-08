@@ -5,7 +5,7 @@ export default function RootLayout() {
   return (
     <>
       <MainNavBar />
-      <main className="flex flex-col items-center" >
+      <main >
         <Outlet />
       </main>
     </>
