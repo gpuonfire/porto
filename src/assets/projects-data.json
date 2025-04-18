@@ -248,5 +248,10 @@
         }
       ]
     }
-  ]
+  ],
+  "about-me": {
+    "hobbies": "These things are my hobbies:...",
+    "education": "I study Interactive Media at ..., I'm currently in my 6th semester",
+    "interests": "I'm interested in cats, computer stuff..."
+  }
 }

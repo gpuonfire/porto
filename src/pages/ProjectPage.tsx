@@ -1,23 +1,15 @@
 import data from "../assets/projects-data.json"
+import ProjectOutput from "../components/ProjectOutput";
 
 export default function ProjectPage() {
 const projects = data.projects
 
     return (
-      <>
-        <h1>All Projects</h1>
+      <div className="flex flex-col items-center justify-center p-3 bg-primary" >
+        <h1 className="text-white text-6xl m-6" >My projects</h1>
         <section>
-          <article>
-            <h2>Title</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore magni eaque provident soluta voluptatibus, quo temporibus, quasi debitis cumque voluptates possimus ipsum fugit? Nam expedita repudiandae dicta? Voluptatem, cupiditate molestias!</p>
-            <div>Thumbnail</div>
-          </article>
-
-          {/* {projects.map((project) => (
-
-          ))} */}
+          <ProjectOutput projects={projects} bigCards={true} vertical={true} />
         </section>
-      </>
+      </div>
     );
   }
-  
