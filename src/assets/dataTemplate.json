@@ -1,0 +1,67 @@
+{
+  "projects": [
+    {
+      "id": "pro1",
+      "title": "Project Title",
+      "date": "2024-04-01",
+      "featured" : false,
+      "description": "Project description",
+      "thumbnail": {
+        "src": "./thumbnail.png",
+        "alt": "Product detail page with reviews and recommendations"
+      },
+      "videoUrl": "https://www.youtube.com/watch?v=kuY9MehvHh4",
+      "images": [
+        {
+          "id": 1,
+          "src": "./exampleImg/ex2.png",
+          "alt": "Beverage can design"
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "id": 1,
+      "src": "./exampleImg/ex1.png",
+      "alt": "Colorful characters illustration",
+      "className": "col-span-1 row-span-1"
+    },
+    {
+      "id": 2,
+      "src": "./exampleImg/ex2.png",
+      "alt": "Beverage can design",
+      "className": "col-span-1 row-span-2"
+    },
+    {
+      "id": 3,
+      "src": "./exampleImg/ex3.png",
+      "alt": "Tree with blue background",
+      "className": "col-span-1 row-span-2"
+    },
+    {
+      "id": 4,
+      "src": "./exampleImg/ex4.png",
+      "alt": "Colorful vehicle illustration",
+      "className": "col-span-1 row-span-2"
+    },
+    {
+      "id": 5,
+      "src": "./exampleImg/ex5.png",
+      "alt": "Isometric town view",
+      "className": "col-span-1 row-span-1"
+    },
+    {
+      "id": 6,
+      "src": "./exampleImg/ex6.png",
+      "alt": "Book cover with dark figure",
+      "className": "col-span-2 row-span-2"
+    },
+    {
+      "id": 7,
+      "src": "./exampleImg/ex7.png",
+      "alt": "Sunset with vehicle",
+      "className": "col-span-2 row-span-1"
+    }
+  ]
+}

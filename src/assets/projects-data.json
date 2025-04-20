@@ -3,44 +3,37 @@
     {
       "id": 1,
       "src": "./exampleImg/ex1.png",
-      "alt": "Colorful characters illustration",
-      "className": "col-span-1 row-span-1"
+      "alt": "Colorful characters illustration"
     },
     {
       "id": 2,
       "src": "./exampleImg/ex2.png",
-      "alt": "Beverage can design",
-      "className": "col-span-1 row-span-2"
+      "alt": "Beverage can design"
     },
     {
       "id": 3,
       "src": "./exampleImg/ex3.png",
-      "alt": "Tree with blue background",
-      "className": "col-span-1 row-span-2"
+      "alt": "Tree with blue background"
     },
     {
       "id": 4,
       "src": "./exampleImg/ex4.png",
-      "alt": "Colorful vehicle illustration",
-      "className": "col-span-1 row-span-2"
+      "alt": "Colorful vehicle illustration"
     },
     {
       "id": 5,
       "src": "./exampleImg/ex5.png",
-      "alt": "Isometric town view",
-      "className": "col-span-1 row-span-1"
+      "alt": "Isometric town view"
     },
     {
       "id": 6,
       "src": "./exampleImg/ex6.png",
-      "alt": "Book cover with dark figure",
-      "className": "col-span-2 row-span-2"
+      "alt": "Book cover with dark figure"
     },
     {
       "id": 7,
       "src": "./exampleImg/ex7.png",
-      "alt": "Sunset with vehicle",
-      "className": "col-span-2 row-span-1"
+      "alt": "Sunset with vehicle"
     }
   ],
   "projects": [
@@ -249,7 +242,7 @@
       ]
     }
   ],
-  "about-me": {
+  "aboutMe": {
     "hobbies": "These things are my hobbies:...",
     "education": "I study Interactive Media at ..., I'm currently in my 6th semester",
     "interests": "I'm interested in cats, computer stuff..."

@@ -20,6 +20,12 @@ export interface Project {
     isBig: boolean;
   }
 
+  export type Image = {
+    id: number;
+    src: string;
+    alt: string;
+  };
+
   export interface ProjectOutputProps {
     projects: Project[];
     bigCards: boolean;

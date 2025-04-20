@@ -1,0 +1,17 @@
+{
+    "defaults": {
+        "project": {
+            "id": "default",
+            "title": "default project",
+            "date": "",
+            "featured": false,
+            "description": "no description",
+            "thumbnail": {
+                "src": "",
+                "alt": ""
+            },
+            "videoUrl": "",
+            "images": []
+        }
+    }
+}

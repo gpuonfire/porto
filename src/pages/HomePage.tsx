@@ -1,12 +1,11 @@
-import { Project } from "../types";
 import { use } from "react";
-import { ProjectContext } from "../context/project-context";
+import { ContentContext } from "../context/content-context";
 
 import cube from "../assets/ExampleImage.jpg";
 import ProjectOutput from "../components/ProjectOutput";
 
 export default function HomePage() {
-  const {projects, getFeaturedProjects} = use(ProjectContext)
+  const {getFeaturedProjects} = use(ContentContext)
 
   const featuredProjects = getFeaturedProjects()
 

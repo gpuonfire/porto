@@ -1,8 +1,9 @@
-import data from "../assets/projects-data.json"
+import {use} from "react"
+import { ContentContext } from "../context/content-context";
 import ProjectOutput from "../components/ProjectOutput";
 
 export default function ProjectPage() {
-const projects = data.projects
+const {projects} = use(ContentContext)
 
     return (
       <div className="flex flex-col items-center justify-center p-3 bg-primary" >
