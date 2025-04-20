@@ -16,8 +16,14 @@ export interface Project {
     }[];
   }
 
+  export interface ProjectCardProps extends Project {
+    isBig: boolean;
+  }
+
   export interface ProjectOutputProps {
-    projects: Array<Project>;
+    projects: Project[];
     bigCards: boolean;
     vertical: boolean;
   }
+
+  

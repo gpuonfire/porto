@@ -1,10 +1,12 @@
 import {useParams} from "react-router"
-import data from "../assets/projects-data.json"
 import { Project } from "../types"
+import {use} from "react"
+import { ProjectContext } from "../context/project-context"
 
 export default function ProjectDetailPage() {
+  const {projects} = use(ProjectContext)
+
 const proId = useParams().proId
-const projects = data.projects
 let project : Project
 
 projects.forEach((projectElement) => {

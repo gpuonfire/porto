@@ -1,9 +1,7 @@
 import { Link } from "react-router";
-import { Project } from "../pages/HomePage";
+import { ProjectCardProps } from "../types";
 
-export interface ProjectCardProps extends Project {
-  isBig: boolean;
-}
+
 
 export default function ProjectCard({
   id,

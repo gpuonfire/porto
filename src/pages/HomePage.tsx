@@ -1,25 +1,27 @@
-import cube from "../assets/ExampleImage.jpg";
-import data from "../assets/projects-data.json";
-import ProjectOutput from "../components/ProjectOutput";
 import { Project } from "../types";
+import { use } from "react";
+import { ProjectContext } from "../context/project-context";
 
+import cube from "../assets/ExampleImage.jpg";
+import ProjectOutput from "../components/ProjectOutput";
 
 export default function HomePage() {
+  const {projects, getFeaturedProjects} = use(ProjectContext)
 
-  let featuredProjects: Array<Project> = [];
-
-  data.projects.forEach((project) => {
-    if (project.featured) {
-      featuredProjects.push(project)
-    }
-  })
-
+  const featuredProjects = getFeaturedProjects()
 
   return (
     <>
-      <img src={cube} className="absolute inset-0 w-full h-full object-cover object-center -z-10" ></img>
-      <section className="fixed bottom-2" >
-        <ProjectOutput projects={featuredProjects} bigCards={false} vertical={false} />
+      <img
+        src={cube}
+        className="absolute inset-0 w-full h-full object-cover object-center -z-10"
+      ></img>
+      <section className="fixed bottom-2">
+        <ProjectOutput
+          projects={featuredProjects}
+          bigCards={false}
+          vertical={false}
+        />
       </section>
     </>
   );
