@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { ProjectCardProps } from "../types";
+import { ProjectCardProps } from "../@types/youAreJustMyType";
 
 
 

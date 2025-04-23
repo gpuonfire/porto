@@ -3,37 +3,74 @@
     {
       "id": 1,
       "src": "./exampleImg/ex1.png",
-      "alt": "Colorful characters illustration"
+      "alt": "Colorful characters illustration",
+      "className": "",
+      "width": 382,
+      "height": 365,
+      "aspectRatio": 1.0
     },
     {
       "id": 2,
       "src": "./exampleImg/ex2.png",
-      "alt": "Beverage can design"
+      "alt": "Beverage can design",
+      "className": "",
+      "width": 428,
+      "height": 755,
+      "aspectRatio": 0.6
     },
     {
       "id": 3,
       "src": "./exampleImg/ex3.png",
-      "alt": "Tree with blue background"
+      "alt": "Tree with blue background",
+      "className": "",
+      "width": 483,
+      "height": 601,
+      "aspectRatio": 0.8
     },
     {
       "id": 4,
       "src": "./exampleImg/ex4.png",
-      "alt": "Colorful vehicle illustration"
+      "alt": "Colorful vehicle illustration",
+      "className": "",
+      "width": 471,
+      "height": 573,
+      "aspectRatio": 0.8
     },
     {
       "id": 5,
       "src": "./exampleImg/ex5.png",
-      "alt": "Isometric town view"
+      "alt": "Isometric town view",
+      "className": "",
+      "width": 471,
+      "height": 573,
+      "aspectRatio": 0.8
     },
     {
       "id": 6,
       "src": "./exampleImg/ex6.png",
-      "alt": "Book cover with dark figure"
+      "alt": "Book cover with dark figure",
+      "className": "",
+      "width": 486,
+      "height": 364,
+      "aspectRatio": 1.3
     },
     {
       "id": 7,
       "src": "./exampleImg/ex7.png",
-      "alt": "Sunset with vehicle"
+      "alt": "Sunset with vehicle",
+      "className": "",
+      "width": 497,
+      "height": 407,
+      "aspectRatio": 1.2
+    },
+    {
+      "id": 8,
+      "src": "./exampleImg/ex8.jpg",
+      "alt": "it's okay!",
+      "className": "",
+      "width": 740,
+      "height": 550,
+      "aspectRatio": 1.3
     }
   ],
   "projects": [

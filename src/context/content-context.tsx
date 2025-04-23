@@ -1,22 +1,27 @@
-import { createContext, useState } from "react";
-import { Project, Image } from "../types";
+import { createContext, useEffect, useState } from "react";
+import { Project, Image, ContentContextType } from "../@types/youAreJustMyType";
 import DATA from "../assets/projects-data.json";
 import config from "../assets/config.json";
 
-type ContentContextType = {
-  projects: Project[];
-  images: Image[];
-  aboutMe: null;
-  defaultProject: Project;
-  getFeaturedProjects: () => Project[];
-  getProject: (proId: string) => Project;
-};
+function getGridClass(aspectRatio: number) {
+  if (aspectRatio === 1.0) {
+    return "col-span-1 row-span-1";
+  } else if (aspectRatio < 1.0) {
+    return "col-span-1 row-span-2";
+  } else {
+    return "col-span-2 row-span-1";
+  }
+}
 
 // Create Context (with default implementation)
 export const ContentContext = createContext<ContentContextType>({
   projects: [],
   images: [],
-  aboutMe: null,
+  aboutMe: {
+    hobbies: "",
+    education: "",
+    interests: "",
+  },
   defaultProject: config.defaults.project,
   getFeaturedProjects: () => [],
   getProject: (proId: string) => {
@@ -34,12 +39,21 @@ export default function ContentContextProvider({
   const [data, setData] = useState(DATA);
   const projects: Project[] = data.projects;
   const images: Image[] = data.images;
-  const aboutMe = data.aboutMe;
 
+  useEffect(() => {
+    addAspectRatioClass();
+  }, []);
   // useEffect: call addAspectRatioClass
-function addAspectRatioClass() {
-    // call setData to appy changes
-}
+  function addAspectRatioClass() {
+    const imagesWithClass = images.map((img) => ({
+      ...img,
+      className: getGridClass(img.aspectRatio),
+    }));
+
+    let updatedData = JSON.parse(JSON.stringify(data));
+    updatedData.images = imagesWithClass;
+    setData(updatedData);
+  }
 
   function featuredProjects() {
     let featuredProjects: Project[] = [];
@@ -65,9 +79,9 @@ function addAspectRatioClass() {
   }
 
   // Init Value
-  const initContextVal = {
-    projects: DATA.projects,
-    images: DATA.images, // alter this! we need to take ration in account!
+  const initContextVal: ContentContextType = {
+    projects: projects,
+    images: images,
     aboutMe: DATA.aboutMe,
     defaultProject: config.defaults.project,
     getFeaturedProjects: featuredProjects,

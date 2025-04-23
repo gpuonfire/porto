@@ -1,5 +1,5 @@
 import {useParams} from "react-router"
-import { Project } from "../types"
+import { Project } from "../@types/youAreJustMyType"
 import {use} from "react"
 import { ContentContext } from "../context/content-context"
 

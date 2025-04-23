@@ -1,4 +1,4 @@
-import { ProjectOutputProps } from "../types"
+import { ProjectOutputProps } from "../@types/youAreJustMyType"
 import ProjectCard from "./ProjectCard"
 
 

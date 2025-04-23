@@ -1,7 +1,10 @@
-import imageData from "../assets/projects-data.json"
+import {use} from "react"
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { ContentContext } from "../context/content-context";
 
 export default function GalleryPage() {
-  const images = imageData.images
+
+  const {images} = use(ContentContext)
 
   return (
     <>
@@ -15,7 +18,9 @@ export default function GalleryPage() {
                 key={image.id}
                 className={`${image.className} overflow-hidden`}
               >
-                <img
+                <LazyLoadImage
+                  height={image.height}
+                  width={image.width}
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-full object-cover hover:opacity-70 transition-opacity duration-300"
