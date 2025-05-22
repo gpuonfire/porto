@@ -4,6 +4,7 @@ export interface Project {
   date: string;
   featured: boolean;
   description: string;
+  hashtags: string[];
   thumbnail: {
     src: string;
     alt: string;
@@ -14,10 +15,6 @@ export interface Project {
     src: string;
     alt: string;
   }[];
-}
-
-export interface ProjectCardProps extends Project {
-  isBig: boolean;
 }
 
 export type AboutMe = {
@@ -38,8 +35,6 @@ export type Image = {
 
 export interface ProjectOutputProps {
   projects: Project[];
-  bigCards: boolean;
-  vertical: boolean;
 }
 
 export type ContentContextType = {

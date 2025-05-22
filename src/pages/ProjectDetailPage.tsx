@@ -1,5 +1,4 @@
 import {useParams} from "react-router"
-import { Project } from "../@types/youAreJustMyType"
 import {use} from "react"
 import { ContentContext } from "../context/content-context"
 
@@ -23,6 +22,7 @@ try {
       <>
         <h1>{project.title}</h1>
         <p>{project.description}</p>
+        <p>{project.hashtags}</p>
         
         
       </>

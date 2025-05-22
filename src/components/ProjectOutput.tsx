@@ -1,23 +1,14 @@
-import { ProjectOutputProps } from "../@types/youAreJustMyType"
-import ProjectCard from "./ProjectCard"
+import { ProjectOutputProps } from "../@types/youAreJustMyType";
+import ProjectCard from "./ProjectCard";
 
-
-export default function ProjectOutput({ projects, bigCards, vertical }: ProjectOutputProps) {
-    
-  const flexStyle = `flex flex-${vertical ? "col" : "row"}`
-  
+export default function ProjectOutput({ projects }: ProjectOutputProps) {
   return (
-        
-        <div className={flexStyle + " overflow-x-auto scroll-smooth px-5 py-5 gap-4"} >
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              isBig={bigCards}
-              {...project}
-            />
-          ))}
-            
-        </div>
-        
-    )
+    <div
+      className={"flex flex-col overflow-x-auto scroll-smooth"}
+    >
+      {projects.map((project) => (
+        <ProjectCard key={project.id} {...project} />
+      ))}
+    </div>
+  );
 }

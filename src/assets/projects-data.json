@@ -76,10 +76,11 @@
   "projects": [
     {
       "id": "e-comerce",
-      "title": "E-commerce Platform with React and Node.js",
+      "title": "Virtual Aquarium",
       "date": "2025-03-15",
       "featured": true,
       "description": "This comprehensive e-commerce platform was built using React for the frontend and Node.js with Express for the backend. The application features a responsive design that adapts seamlessly to all device sizes, integrated payment processing through Stripe API, and real-time inventory management. Users can create accounts, save favorite items, track order history, and receive email notifications about order status. The admin dashboard provides detailed analytics on sales trends, user behavior, and inventory levels. One of the most challenging aspects was implementing a robust recommendation engine that suggests products based on browsing history and purchase patterns. The project also includes a sophisticated search function with filters for categories, price ranges, and ratings. MongoDB was used for the database, with Redis caching implemented to improve performance for frequently accessed data.",
+      "hashtags": ["react", "go", "drawing"],
       "thumbnail": {
         "src": "./thumbnail.png",
         "alt": "Product detail page with reviews and recommendations"
@@ -114,6 +115,7 @@
       "date": "2025-01-20",
       "featured": true,
       "description": "This advanced task management application enables teams to collaborate efficiently through real-time updates using Socket.io. Built with the MERN stack (MongoDB, Express, React, Node.js), the system features an intuitive drag-and-drop interface for task organization across custom project boards. Users can assign tasks, set priorities, add comments, attach files, and track progress through customizable workflows. The application includes integration with Google Calendar for deadline management and automated reminders via email and in-app notifications. One of the standout features is the ability to generate comprehensive reports on team productivity, task completion rates, and project timelines. The authentication system uses JWT with refresh tokens for enhanced security, while role-based access control ensures appropriate permissions for team members, managers, and administrators. The application also includes a time-tracking feature that helps teams monitor how much time is spent on each task and project.",
+      "hashtags": ["react", "go", "some"],
       "thumbnail": {
         "src": "./thumbnail.png",
         "alt": "Product detail page with reviews and recommendations"
@@ -148,6 +150,7 @@
       "date": "2024-11-10",
       "featured": false,
       "description": "This healthcare appointment scheduling system was developed to streamline the process of booking medical appointments for both patients and healthcare providers. The application was built using Vue.js for the frontend and Django with Python for the backend, with PostgreSQL as the database. Patients can search for doctors by specialty, location, or insurance acceptance, view available time slots, and book or reschedule appointments. The system implements secure patient profiles with medical history, insurance information, and appointment records, all protected with HIPAA-compliant security measures. Healthcare providers benefit from an optimized scheduling interface that prevents double-bookings and efficiently manages their availability. The system also features automated appointment reminders via SMS and email, reducing no-show rates by 35% in pilot implementations. Integration with electronic health record systems allows for seamless transfer of patient information, while the telemedicine component enables virtual consultations directly through the platform when in-person visits aren't necessary.",
+      "hashtags": ["ehlp", "me", "drawing"],
       "thumbnail": {
         "src": "./thumbnail.png",
         "alt": "Product detail page with reviews and recommendations"
@@ -182,6 +185,7 @@
       "date": "2024-09-05",
       "featured": true,
       "description": "This sophisticated data visualization dashboard provides real-time analytics for business intelligence purposes. Built with Angular for the frontend and Flask with Python for the backend, the application integrates with multiple data sources through RESTful APIs and WebSockets for live updates. Users can customize their dashboards with drag-and-drop widgets representing different data metrics and visualization types, including interactive charts, maps, and tables. The system implements role-based access control to ensure data security while allowing team members to share insights and collaborate on analysis. Advanced features include anomaly detection algorithms that alert users to unusual patterns in the data, export functionality in multiple formats (PDF, CSV, Excel), and scheduled report generation. The application uses D3.js and Chart.js for rich visualizations, with Redis for caching frequently accessed data to maintain performance even with large datasets. Custom filtering and aggregation capabilities allow users to drill down into specific time periods, geographic regions, or other dimensions without requiring technical SQL knowledge.",
+      "hashtags": ["virtual", "go", "cool"],
       "thumbnail": {
         "src": "./thumbnail.png",
         "alt": "Product detail page with reviews and recommendations"
@@ -216,6 +220,7 @@
       "date": "2024-07-12",
       "featured": false,
       "description": "This social learning platform was designed specifically for software developers to share knowledge, collaborate on coding challenges, and build their professional portfolios. The application was developed using Next.js for the frontend with a serverless architecture leveraging AWS Lambda functions and DynamoDB for the backend. Users can create profiles highlighting their skills and projects, participate in coding challenges with real-time code execution, and engage in discussion forums organized by programming languages and topics. The platform features a sophisticated reputation system where users earn points and badges for contributing quality content, answering questions, and mentoring others. Integration with GitHub allows developers to showcase their repositories and contribution history, while the job board connects companies with talent based on demonstrated skills rather than just resumes. The learning path feature creates personalized curricula based on a user's goals and current skill level, recommending resources and challenges to help them progress. Authentication is handled through Auth0, with additional options for OAuth via GitHub, Google, and LinkedIn.",
+      "hashtags": ["vue", "js", "drawing"],
       "thumbnail": {
         "src": "./thumbnail.png",
         "alt": "Product detail page with reviews and recommendations"
@@ -250,6 +255,7 @@
       "date": "2024-05-22",
       "featured": false,
       "description": "This modern content management system utilizes a headless architecture that separates the content repository from the presentation layer, allowing for maximum flexibility in how content is displayed across multiple platforms. Built with GraphQL for the API layer, React for the admin interface, and a Node.js backend with MongoDB, the system enables content creators to manage digital assets efficiently while developers can consume the content through well-documented APIs. The platform features a sophisticated content modeling system where administrators can define custom content types with specific fields and validation rules without writing code. Version control and content scheduling allow teams to prepare content in advance and roll back changes if needed. The media management system handles image optimization automatically, generating appropriate sizes for different devices and implementing lazy loading for performance. Localization support makes it easy to manage content in multiple languages, with automatic translation suggestions to speed up the process. The system also includes detailed analytics on content performance, user engagement patterns, and conversion rates to help optimize the content strategy.",
+      "hashtags": ["svelt", "go", "c++"],
       "thumbnail": {
         "src": "./thumbnail.png",
         "alt": "Product detail page with reviews and recommendations"

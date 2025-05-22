@@ -25,7 +25,7 @@ export const ContentContext = createContext<ContentContextType>({
   defaultProject: config.defaults.project,
   getFeaturedProjects: () => [],
   getProject: (proId: string) => {
-    throw new Error("getProject function must be implemented");
+    throw new Error("getProject function" + proId);
   },
 });
 
