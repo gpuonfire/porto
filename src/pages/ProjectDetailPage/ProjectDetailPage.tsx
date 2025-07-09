@@ -1,6 +1,6 @@
 import {useParams} from "react-router"
 import {use} from "react"
-import { ContentContext } from "../context/content-context"
+import { ContentContext } from "@/context/content-context"
 
 export default function ProjectDetailPage() {
   const {getProject, defaultProject} = use(ContentContext)

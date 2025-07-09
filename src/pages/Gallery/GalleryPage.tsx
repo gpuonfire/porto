@@ -1,29 +1,29 @@
-import {use} from "react"
+import { use } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { ContentContext } from "../context/content-context";
+import { ContentContext } from "../../context/content-context";
+import styles from "./Gallery.module.scss";
 
 export default function GalleryPage() {
-
-  const {images} = use(ContentContext)
+  const { images } = use(ContentContext);
 
   return (
     <>
-      <h1 className="m-5" >Gallery Page</h1>
+      <h1 className={styles.heading}>Gallery Page</h1>
       <section>
-        <h2 className="text-center m-4" >Sketches</h2>
-        <div className=" p-2 w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <h2 className={styles.subheading}>Sketches</h2>
+        <div className={styles.sectionWrapper}>
+          <div className={styles.grid}>
             {images.map((image) => (
               <div
                 key={image.id}
-                className={`${image.className} overflow-hidden`}
+                className={`${image.className} ${styles.imageWrapper}`}
               >
                 <LazyLoadImage
                   height={image.height}
                   width={image.width}
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover hover:opacity-70 transition-opacity duration-300"
+                  className={styles.image}
                 />
               </div>
             ))}

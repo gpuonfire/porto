@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import ContentContextProvider from "./context/content-context";
 
-import HomePage from "./pages/HomePage";
-import RootLayout from "./RootLayout";
-import GalleryPage from "./pages/GalleryPage";
-import ProjectDetailPage from "./pages/ProjectDetailPage";
-import ProjectPage from "./pages/ProjectPage";
-import AboutMePage from "./pages/AboutMe";
+import HomePage from "@/pages/Home/HomePage";
+import RootLayout from "@/RootLayout";
+import GalleryPage from "@/pages/Gallery/GalleryPage";
+import ProjectDetailPage from "@/pages/ProjectDetailPage/ProjectDetailPage";
+import ProjectPage from "@/pages/ProjectsPage/ProjectsPage";
+import AboutMePage from "@/pages/AboutMe/AboutMe";
 
 const router = createBrowserRouter([
   {

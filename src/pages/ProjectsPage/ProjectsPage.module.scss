@@ -1,0 +1,45 @@
+.heroSection {
+  display: flex;
+  width: 100%;
+}
+
+.sidePanel {
+  width: 7.5rem; // w-30 (30 * 0.25rem)
+  height: 100%;
+  outline: 1px solid #e5e7eb;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.25rem; // p-1
+}
+
+.projectsText {
+  font-family: 'Lexend', sans-serif; // font-lexend
+  font-size: 4.5rem; // text-7xl (approx 72px)
+  color: #000;
+  position: absolute;
+  align-self: flex-start;
+  transform-origin: top left;
+  transform: rotate(-90deg); // rotate-270
+}
+
+.imageContainer {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.heroImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.projectsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

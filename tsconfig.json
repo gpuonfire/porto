@@ -9,6 +9,10 @@
     "esModuleInterop": true,
     "typeRoots": ["./node_modules/@types", "./src/@types"],
     "composite": true,
-    "noEmit": false
+    "noEmit": false,
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"]
+    }
   }
 }
