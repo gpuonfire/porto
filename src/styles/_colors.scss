@@ -1,0 +1,93 @@
+// COLORS
+// The variables for the main colors of each color tone are 
+// declared below each palette, using the "-cari" ending.
+// >> Easier to remember and easier to adjust to potential changes
+
+// NEUTRALS
+$white:             #FFFFFF;
+$neutral-50:        #F9FAFD;
+$neutral-100:       #F3F4F8;
+$neutral-200:       #D2D4DA;
+$neutral-300:       #B3B5BD;
+$neutral-400:       #9496A1;
+$neutral-500:       #777986;
+$neutral-600:       #585D6B;
+$neutral-700:       #404252;
+$neutral-800:       #282A3A;
+$neutral-900:       #101223;
+$black:             #000000;
+
+
+// PRIMARY COLORS
+$primary-50:        #EEF2FF;
+$primary-100:       #DFE7FF;
+$primary-200:       #C5D1FF;
+$primary-300:       #A2B2FF;
+$primary-400:       #7E8AFB;
+$primary-500:       #5F63F5;
+$primary-600:       #453CE9;
+$primary-700:       #332DA6;
+$primary-800:       #2F2C83;
+$primary-900:       #1D1A4C;
+// MAIN PRIMARY COLOR
+$primary-cari:      $primary-600;
+
+
+// SECONDARY COLORS
+$secondary-50:      #E7F4D3;
+$secondary-100:     #D1EBAB;
+$secondary-200:     #AFDB76;
+$secondary-300:     #93CB50;
+$secondary-400:     #75B032;
+$secondary-500:     #5A8C24;
+$secondary-600:     #466B20;
+$secondary-700:     #39561E;
+$secondary-800:     #32491E;
+$secondary-900:     #18280B;
+// MAIN SECONDARY COLOR
+$secondary-cari:    $secondary-200;
+
+
+//TERTIARY COLORS
+$tertiary-50:       #FFF9EB;
+$tertiary-100:      #FFF0C6;
+$tertiary-200:      #FFDE88;
+$tertiary-300:      #FFCF65;
+$tertiary-400:      #FFB020;
+$tertiary-500:      #F98C07;
+$tertiary-600:      #DD6602;
+$tertiary-700:      #B74506;
+$tertiary-800:      #94340C;
+$tertiary-900:      #7A2D0D;
+//MAIN TERTIARY COLOR
+$tertiary-cari:     $tertiary-300;
+
+
+//PURPLE COLORS
+$purple-50:         #FBF4F9;
+$purple-100:        #F9EAF5;
+$purple-200:        #F4D6EB;
+$purple-300:        #EDB4DB;
+$purple-400:        #E086C2;
+$purple-500:        #D361A9;
+$purple-600:        #BD4089;
+$purple-700:        #A43271;
+$purple-800:        #882C5E;
+$purple-900:        #732850;
+//MAIN PURPLE COLOR
+$purple-cari:       $purple-600;
+
+
+//ORANGE COLORS
+$orange-50:         #FFE6E1;
+$orange-100:        #FFD1C8;
+$orange-200:        #FFB0A1;
+$orange-300:        #FE7056;
+$orange-400:        #F7593C;
+$orange-500:        #E43D1E;
+$orange-600:        #C02F15;
+$orange-700:        #9F2A15;
+$orange-800:        #832919;
+$orange-900:        #481107;
+//MAIN ORANGE COLOR
+$orange-cari:       $orange-300;
