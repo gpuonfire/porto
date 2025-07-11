@@ -1,27 +1,56 @@
 import { NavLink, useLocation } from "react-router";
 import pointIcon from "@/assets/icons/5Point.svg";
-import burgerIcon from "@/assets/icons/Burger.svg"
-import styles from "./MainNavBar.module.scss"
+import burgerIcon from "@/assets/icons/Burger.svg";
+import styles from "./MainNavBar.module.scss";
+import { useState } from "react";
 
-export default function MainNavBar(isDesktop : boolean) {
-  const location = useLocation()
-  console.log(location.pathname)
+export default function MainNavBar(isDesktop: boolean) {
+  const [isExpanded, setIsExpanded] = useState(true);
+  const location = useLocation();
+  console.log(location.pathname);
 
-  return (
-    isDesktop ? 
-  (
-  <nav className={styles.container} >
-    <img src={pointIcon} aria-hidden={true} className={styles.icon} />
-    <h1>
-      Home
-    </h1>
-    <button className={styles.burgerMenu} >
-      <img src={burgerIcon} aria-hidden={true} />
-    </button>
-  </nav>
-  )
-    :
-    (<nav className="top-0 w-full h-13  bg-white z-50">
+  function handleClick() {
+    // expand menu
+  }
+
+  return isDesktop ? (
+    <nav>
+      <div className={styles.navHead}>
+        <div className={styles.container}>
+          <img src={pointIcon} aria-hidden={true} className={styles.icon} />
+          <h1>Home</h1>
+        </div>
+      <button
+        className={styles.burgerMenu}
+        onClick={() => setIsExpanded((prev) => !prev)}
+      >
+        <img src={burgerIcon} aria-hidden={true} />
+      </button>
+      </div>
+      <ul
+        className={`${styles.navList} ${
+          isExpanded ? styles.expanded : styles.collapsed
+        }`}
+      >
+        <li className={styles.navItem}>
+          <NavLink to="/" className={styles.navLink}>
+           Home
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink to="/about" className={styles.navLink}>
+            About
+          </NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink to="/contact" className={styles.navLink}>
+            Contact
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  ) : (
+    <nav className="top-0 w-full h-13  bg-white z-50">
       <ul className="list-none w-full h-full flex flex-row justify-between items-center p-0">
         <li className="p-3 max-w-13">
           <NavLink to={"/"}>
@@ -39,7 +68,9 @@ export default function MainNavBar(isDesktop : boolean) {
           </NavLink>
         </li>
         <li className="p-4">
-          <NavLink className="hover:hover:text-white" to={"/projects"}>PROJECTS</NavLink>
+          <NavLink className="hover:hover:text-white" to={"/projects"}>
+            PROJECTS
+          </NavLink>
         </li>
         <li className="p-4">
           <NavLink to={"/art"}>ART</NavLink>
@@ -49,6 +80,6 @@ export default function MainNavBar(isDesktop : boolean) {
           <NavLink to={"/about-me"}>CONTACT</NavLink>
         </li>
       </ul>
-    </nav>)
+    </nav>
   );
 }
