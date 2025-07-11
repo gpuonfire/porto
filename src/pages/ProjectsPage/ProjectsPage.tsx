@@ -1,11 +1,6 @@
-import { use } from "react";
-import titlePic from "@/assets/TitlePic.jpg";
-import { ContentContext } from "@/context/content-context";
-import ProjectOutput from "@/components/ProjectOutput";
 import styles from "./ProjectsPage.module.scss";
 
 export default function ProjectPage() {
-  const { projects } = use(ContentContext);
 
   return (
     <>
@@ -25,7 +20,6 @@ export default function ProjectPage() {
         </div>
       </section>
       <section className={styles.projectsSection}>
-        <ProjectOutput projects={projects} />
       </section>
     </>
   );

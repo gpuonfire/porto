@@ -9,7 +9,7 @@ export default function HomePage() {
         <img src={cubeImg} alt="cube image" ></img>
       </div>
       <div>
-        
+        footer bar
       </div>
     </>
   );
