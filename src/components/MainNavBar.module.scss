@@ -1,7 +1,8 @@
 @use "@/styles/main" as *;
 
 nav {
-  width: 100%;
+  position: fixed;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -13,7 +14,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: $nav;
+  height: var(--navbar-height);
   background-color: $green-200;
 
   .container {
@@ -48,50 +49,57 @@ nav {
   background-color: $neutral-800;
 }
 
-ul {
-  margin-top: $nav;
-  position: absolute;
+.navLink{
+  display: block;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: $neutral-800;
-  opacity: 60%;
-  color: $white;
-  backdrop-filter: blur(5px);
-
-  li {
-    border: 2px solid $white;
-    list-style: none;
-    padding: $space-s $space-m;
-  }
+  padding: $space-s $space-m;
 }
 
 .navItem {
   color: $green-200;
   font-family: SpaceMono;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.225rem;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.225rem;
+  list-style: none;
+display: block;
+    // padding: $space-s $space-m;
 }
 
 .navList {
+  overflow: hidden;
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgba(46, 46, 46, 0.3);
+  color: $white;
+  backdrop-filter: blur(5px);
+}
+
+
+
+hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 2px solid $neutral-500;
+    margin: 0 $space-s;
 }
 
 .expanded {
-  max-height: 300px;
+  max-height: 400px;
 }
 
 .collapsed {
-  max-height: 0;
+  max-height: 0px;
 }
 
 .navList {
   @media (max-width: 768px) {
-    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   // Accessibility improvements

@@ -5,7 +5,7 @@ import styles from "./MainNavBar.module.scss";
 import { useState } from "react";
 
 export default function MainNavBar(isDesktop: boolean) {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const location = useLocation();
   console.log(location.pathname);
 
@@ -32,19 +32,23 @@ export default function MainNavBar(isDesktop: boolean) {
           isExpanded ? styles.expanded : styles.collapsed
         }`}
       >
-        <li className={styles.navItem}>
-          <NavLink to="/" className={styles.navLink}>
-           Home
+        <li >
+         <li className={styles.navItem}>
+          <NavLink to="/about" className={styles.navLink}>
+            HOME
           </NavLink>
         </li>
+        </li>
+          <hr/>
         <li className={styles.navItem}>
           <NavLink to="/about" className={styles.navLink}>
-            About
+            PROJECTS
           </NavLink>
         </li>
+        <hr/>
         <li className={styles.navItem}>
           <NavLink to="/contact" className={styles.navLink}>
-            Contact
+            CONTACT
           </NavLink>
         </li>
       </ul>
