@@ -2,52 +2,102 @@ import { NavLink, useLocation } from "react-router";
 import pointIcon from "@/assets/icons/5Point.svg";
 import burgerIcon from "@/assets/icons/Burger.svg";
 import styles from "./MainNavBar.module.scss";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function MainNavBar(isDesktop: boolean) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const dropMenu = useRef(null);
   const location = useLocation();
   console.log(location.pathname);
 
-  function handleClick() {
-    // expand menu
+  let titel = "";
+  switch (location.pathname) {
+    case "/": {
+      titel = "HOME";
+      break;
+    }
+    case "/art": {
+      titel = "ART";
+      break;
+    }
+    case "/contact": {
+      titel = "CONTACT";
+      break;
+    }
+    case "/projects": {
+      titel = "PROJECTS";
+      break;
+    }
   }
+
+  const closeOpenMenus = (e: MouseEvent | TouchEvent) => {
+    if (isExpanded && !dropMenu.current.contains(e.target)) {
+      setIsExpanded(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", closeOpenMenus);
+    // return document.removeEventListener("mousedown", closeOpenMenus);
+  });
 
   return isDesktop ? (
     <nav>
       <div className={styles.navHead}>
         <div className={styles.container}>
           <img src={pointIcon} aria-hidden={true} className={styles.icon} />
-          <h1>Home</h1>
+          <h1>{titel}</h1>
         </div>
-      <button
-        className={styles.burgerMenu}
-        onClick={() => setIsExpanded((prev) => !prev)}
-      >
-        <img src={burgerIcon} aria-hidden={true} />
-      </button>
+        <button
+          className={styles.burgerMenu}
+          onClick={() => setIsExpanded((prev) => !prev)}
+        >
+          <img src={burgerIcon} aria-hidden={true} />
+        </button>
       </div>
       <ul
+        ref={dropMenu}
         className={`${styles.navList} ${
           isExpanded ? styles.expanded : styles.collapsed
         }`}
       >
-        <li >
-         <li className={styles.navItem}>
-          <NavLink to="/about" className={styles.navLink}>
+        <li className={styles.navItem}>
+          <NavLink
+            to="/"
+            className={styles.navLink}
+            onClick={() => setIsExpanded(false)}
+          >
             HOME
           </NavLink>
         </li>
-        </li>
-          <hr/>
+
+        <hr />
         <li className={styles.navItem}>
-          <NavLink to="/about" className={styles.navLink}>
+          <NavLink
+            to="/projects"
+            className={styles.navLink}
+            onClick={() => setIsExpanded(false)}
+          >
             PROJECTS
           </NavLink>
         </li>
-        <hr/>
+        <hr />
         <li className={styles.navItem}>
-          <NavLink to="/contact" className={styles.navLink}>
+          <NavLink
+            to="/art"
+            className={styles.navLink}
+            onClick={() => setIsExpanded(false)}
+          >
+            ART
+          </NavLink>
+        </li>
+        <hr />
+        <li className={styles.navItem}>
+          <NavLink
+            to="/contact"
+            className={styles.navLink}
+            onClick={() => setIsExpanded(false)}
+          >
             CONTACT
           </NavLink>
         </li>

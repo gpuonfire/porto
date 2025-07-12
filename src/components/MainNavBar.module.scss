@@ -1,6 +1,7 @@
 @use "@/styles/main" as *;
 
 nav {
+  z-index: 100;
   position: fixed;
   width: 100vw;
   display: flex;
@@ -49,14 +50,14 @@ nav {
   background-color: $neutral-800;
 }
 
-.navLink{
+.navLink {
   display: block;
   width: 100%;
   padding: $space-s $space-m;
 }
 
 .navItem {
-  color: $green-200;
+  color: $green-100;
   font-family: SpaceMono;
   font-size: 36px;
   font-style: normal;
@@ -64,8 +65,17 @@ nav {
   line-height: normal;
   letter-spacing: 0.225rem;
   list-style: none;
-display: block;
-    // padding: $space-s $space-m;
+  display: block;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+
+  &:hover {
+    color: $white;
+    background-color: rgba(46, 46, 46, 0.4);
+  }
+}
+
+.navLink:active {
+  color: $white;
 }
 
 .navList {
@@ -79,14 +89,12 @@ display: block;
   backdrop-filter: blur(5px);
 }
 
-
-
 hr {
-    display: block;
-    height: 2px;
-    border: 0;
-    border-top: 2px solid $neutral-500;
-    margin: 0 $space-s;
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 2px solid $neutral-500;
+  margin: 0 $space-s;
 }
 
 .expanded {
