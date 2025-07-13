@@ -1,6 +1,6 @@
 import { use } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { ContentContext } from "../../context/content-context";
+import { ContentContext } from "@/context/content-context";
 import styles from "./Gallery.module.scss";
 
 export default function GalleryPage() {

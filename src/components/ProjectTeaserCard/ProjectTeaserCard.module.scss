@@ -1,0 +1,66 @@
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3f4f6; // Tailwind's bg-gray-100
+  overflow: hidden;
+  max-width: 1280px; // max-w-screen-xl
+  height: 32rem; // Tailwind's h-130 approx
+}
+
+.imageContainer {
+  flex-grow: 2;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.link {
+  background-color: black;
+  color: white;
+  font-size: 1.5rem; // Tailwind's text-2xl
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.titleContainer {
+  position: relative;
+}
+
+.title {
+  color: black;
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 4.5rem; // Tailwind's text-7xl
+  font-family: "Lexend", sans-serif;
+}
+
+.hashtags {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.25rem;
+}
+
+.hashtag {
+  font-size: 0.875rem; // Tailwind's text-sm
+  outline: 1px solid #d1d5db; // light gray
+  padding: 0.25rem;
+  margin: 0.25rem;
+  color: #d1d5db;
+}
