@@ -2,13 +2,19 @@ import { NavLink, useLocation } from "react-router";
 import pointIcon from "@/assets/icons/5Point.svg";
 import burgerIcon from "@/assets/icons/Burger.svg";
 import styles from "./MainNavBar.module.scss";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, use } from "react";
 
-export default function MainNavBar(isDesktop: boolean) {
+interface MainNavBar {
+  isDesktop: boolean;
+}
+
+export default function MainNavBar() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const dropMenu = useRef(null);
+  const isOpen = useRef(false);
+  const dropMenu = useRef<HTMLUListElement>(null);
   const location = useLocation();
-  console.log(location.pathname);
+
+  const isDesktop = false;
 
   let titel = "";
   switch (location.pathname) {
@@ -30,33 +36,40 @@ export default function MainNavBar(isDesktop: boolean) {
     }
   }
 
+  function handleClick() {
+    setIsExpanded((prev) => !prev);
+  }
+
   const closeOpenMenus = (e: MouseEvent | TouchEvent) => {
-    if (isExpanded && !dropMenu.current.contains(e.target)) {
+    if (
+      isOpen.current &&
+      dropMenu.current &&
+      !dropMenu.current.contains(e.target as Node)
+    ) {
       setIsExpanded(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", closeOpenMenus);
-    // return document.removeEventListener("mousedown", closeOpenMenus);
-  });
+    isOpen.current = isExpanded;
+  }, [isExpanded]);
 
-  return isDesktop ? (
-    <nav>
+  useEffect(() => {
+    document.addEventListener("mousedown", closeOpenMenus);
+  }, []);
+
+  return !isDesktop ? (
+    <nav ref={dropMenu}>
       <div className={styles.navHead}>
         <div className={styles.container}>
           <img src={pointIcon} aria-hidden={true} className={styles.icon} />
           <h1>{titel}</h1>
         </div>
-        <button
-          className={styles.burgerMenu}
-          onClick={() => setIsExpanded((prev) => !prev)}
-        >
+        <button className={styles.burgerMenu} onClick={handleClick}>
           <img src={burgerIcon} aria-hidden={true} />
         </button>
       </div>
       <ul
-        ref={dropMenu}
         className={`${styles.navList} ${
           isExpanded ? styles.expanded : styles.collapsed
         }`}

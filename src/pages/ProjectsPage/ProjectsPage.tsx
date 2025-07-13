@@ -1,26 +1,15 @@
 import styles from "./ProjectsPage.module.scss";
 
 export default function ProjectPage() {
-
   return (
     <>
-      <section
-        className={styles.heroSection}
-        style={{ height: "calc(100vh - 3.25rem)" }}>
-        <div className={styles.sidePanel}>
-          <p className={styles.projectsText}>
-            PROJECTS
-          </p>
-        </div>
-        <div className={styles.imageContainer}>
-          <img
-            src={titlePic}
-            className={styles.heroImage}
-          />
-        </div>
+      <div className={styles.sidePanel}>
+        <h1 className={styles.projectsText}>PROJECTS</h1>
+      </div>
+      <section>
+        <div>Project Cards</div>
       </section>
-      <section className={styles.projectsSection}>
-      </section>
+      <section className={styles.projectsSection}></section>
     </>
   );
 }

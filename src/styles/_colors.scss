@@ -1,99 +1,93 @@
 // COLORS
-// The variables for the main colors of each color tone are 
+// The variables for the main colors of each color tone are
 // declared below each palette, using the "-cari" ending.
 // >> Easier to remember and easier to adjust to potential changes
 
 // NEUTRALS
-$white:             #FFFFFF;
-$neutral-50:        #ECECEF;
-$neutral-100:       #E2E5E2;
-$neutral-200:       #C5CAC6;
-$neutral-300:       #A1A7A2;
-$neutral-400:       #777E79;
-$neutral-500:       #626A64;
-$neutral-600:       #4E5350;
-$neutral-700:       #404541;
-$neutral-800:       #363937;
-$black:             #2F3230;
-
+$white: #ffffff;
+$neutral-50: #ececef;
+$neutral-100: #e2e5e2;
+$neutral-200: #c5cac6;
+$neutral-300: #a1a7a2;
+$neutral-400: #777e79;
+$neutral-500: #626a64;
+$neutral-600: #4e5350;
+$neutral-700: #404541;
+$neutral-800: #363937;
+$black: #2f3230;
 
 // Blue colors
-$blue-50:           #ECECEF;
-$blue-100:          #110B24;
-$blue-200:          #1E0543;
-$blue-300:          #4200A4;
-$blue-400:          #4C03B6;
-$blue-500:          #5E00FB;
-$blue-600:          #4586FE;
-$blue-700:          #00FAFE;
-$blue-800:          #FF00E1;
-$blue-900:          #EEFEFD;
+$blue-700: #110b24;
+$blue-600: #1e0543;
+$blue-500: #4200a4;
+$blue-400: #4c03b6;
+$blue-200: #5e00fb;
+$blue-200: #4586fe;
+$blue-100: #00fafe;
+$blue-50: #ececef;
 
 // Green colors
-$green-50: #EDFFF1;
-$green-100: #C7FF81;
-$green-200: #69FD01;
-$green-300: #4AC520;
-$green-400: #4F914C;
+$green-50: #edfff1;
+$green-100: #c7ff81;
+$green-200: #69fd01;
+$green-300: #4ac520;
+$green-400: #4f914c;
 $green-500: #266550;
-$green-600: #255A55;
-$green-700: #21544F;
+$green-600: #255a55;
+$green-700: #21544f;
 $green-800: #144943;
-$green-900: #063D34;
+$green-900: #063d34;
 
 // Purpel colors
-$purpel-50:         #260548;
-$purpel-100:        #2D0165;
-$purpel-200:        #422E95;
-$purpel-300:        #4A00BA;
-$purpel-400:        #5B5EF4;
-$purpel-500:        #E00083;
-$purpel-600:        #B30080;
-$purpel-700:        #990083;
-$purpel-800:        #850075;
-$purpel-900:        #750055;
-
+$purpel-50: #260548;
+$purpel-100: #2d0165;
+$purpel-200: #422e95;
+$purpel-300: #4a00ba;
+$purpel-400: #5b5ef4;
+$purpel-500: #e00083;
+$purpel-600: #b30080;
+$purpel-700: #990083;
+$purpel-800: #850075;
+$purpel-900: #750055;
 
 //TERTIARY COLORS
-$tertiary-50:       #FFF9EB;
-$tertiary-100:      #FFF0C6;
-$tertiary-200:      #FFDE88;
-$tertiary-300:      #FFCF65;
-$tertiary-400:      #FFB020;
-$tertiary-500:      #F98C07;
-$tertiary-600:      #DD6602;
-$tertiary-700:      #B74506;
-$tertiary-800:      #94340C;
-$tertiary-900:      #7A2D0D;
+$tertiary-50: #fff9eb;
+$tertiary-100: #fff0c6;
+$tertiary-200: #ffde88;
+$tertiary-300: #ffcf65;
+$tertiary-400: #ffb020;
+$tertiary-500: #f98c07;
+$tertiary-600: #dd6602;
+$tertiary-700: #b74506;
+$tertiary-800: #94340c;
+$tertiary-900: #7a2d0d;
 //MAIN TERTIARY COLOR
-$tertiary-cari:     $tertiary-300;
-
+$tertiary-cari: $tertiary-300;
 
 //PURPLE COLORS
-$purple-50:         #FBF4F9;
-$purple-100:        #F9EAF5;
-$purple-200:        #F4D6EB;
-$purple-300:        #EDB4DB;
-$purple-400:        #E086C2;
-$purple-500:        #D361A9;
-$purple-600:        #BD4089;
-$purple-700:        #A43271;
-$purple-800:        #882C5E;
-$purple-900:        #732850;
+$purple-50: #fbf4f9;
+$purple-100: #f9eaf5;
+$purple-200: #f4d6eb;
+$purple-300: #edb4db;
+$purple-400: #e086c2;
+$purple-500: #d361a9;
+$purple-600: #bd4089;
+$purple-700: #a43271;
+$purple-800: #882c5e;
+$purple-900: #732850;
 //MAIN PURPLE COLOR
-$purple-cari:       $purple-600;
-
+$purple-cari: $purple-600;
 
 //ORANGE COLORS
-$orange-50:         #FFE6E1;
-$orange-100:        #FFD1C8;
-$orange-200:        #FFB0A1;
-$orange-300:        #FE7056;
-$orange-400:        #F7593C;
-$orange-500:        #E43D1E;
-$orange-600:        #C02F15;
-$orange-700:        #9F2A15;
-$orange-800:        #832919;
-$orange-900:        #481107;
+$orange-50: #ffe6e1;
+$orange-100: #ffd1c8;
+$orange-200: #ffb0a1;
+$orange-300: #fe7056;
+$orange-400: #f7593c;
+$orange-500: #e43d1e;
+$orange-600: #c02f15;
+$orange-700: #9f2a15;
+$orange-800: #832919;
+$orange-900: #481107;
 //MAIN ORANGE COLOR
-$orange-cari:       $orange-300;
+$orange-cari: $orange-300;
