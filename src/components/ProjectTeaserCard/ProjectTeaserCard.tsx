@@ -21,27 +21,23 @@ export default function ProjectTeaserCard({
     <>
       {
         <article className={styles.projectCard}>
-          <div className={styles.imageContainer}>
-            <LazyLoadImage
-              src={thumbnail.src}
-              alt={thumbnail.alt}
-              className={styles.image}
-            />
+          <div className={styles.thumbnailContainer}>
+            <LazyLoadImage src={thumbnail.src} alt={thumbnail.alt} />
           </div>
-          <div className={styles.footer}>
-            <Link className={styles.link} to={`/projects/${titleToUrl(title)}`}>
-              Lets go
-            </Link>
+          <div className={styles.textBox}>
             <div className={styles.titleContainer}>
-              <h1 className={styles.title}>{title}</h1>
               <div className={styles.hashtags}>
                 {hashtags.map((text: string, index: number) => (
                   <p className={styles.hashtag} key={index}>
                     #{text}
                   </p>
                 ))}
+                <h1 className={styles.title}>{title}</h1>
               </div>
             </div>
+            <Link className={styles.link} to={`/projects/${titleToUrl(title)}`}>
+              Lets go
+            </Link>
           </div>
         </article>
       }

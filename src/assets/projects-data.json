@@ -76,11 +76,11 @@
   "projects": [
     {
       "id": "e-comerce",
-      "title": "Virtual Aquarium",
+      "title": "Some Certain Idea",
       "date": "2025-03-15",
       "featured": true,
       "description": "This comprehensive e-commerce platform was built using React for the frontend and Node.js with Express for the backend. The application features a responsive design that adapts seamlessly to all device sizes, integrated payment processing through Stripe API, and real-time inventory management. Users can create accounts, save favorite items, track order history, and receive email notifications about order status. The admin dashboard provides detailed analytics on sales trends, user behavior, and inventory levels. One of the most challenging aspects was implementing a robust recommendation engine that suggests products based on browsing history and purchase patterns. The project also includes a sophisticated search function with filters for categories, price ranges, and ratings. MongoDB was used for the database, with Redis caching implemented to improve performance for frequently accessed data.",
-      "hashtags": ["react", "go", "drawing"],
+      "hashtags": ["react", "THA", "p5JS", "TS"],
       "thumbnail": {
         "src": "./thumbnail.png",
         "alt": "Product detail page with reviews and recommendations"

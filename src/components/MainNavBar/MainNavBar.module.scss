@@ -1,13 +1,25 @@
 @use "@/styles/main" as *;
 
 nav {
-  z-index: 100;
   position: fixed;
+  top: 0;
+  z-index: 100;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  overflow: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -2;
 }
 
 .navHead {
@@ -25,10 +37,10 @@ nav {
     gap: $space-xxs;
     justify-content: flex-start;
     align-items: center;
-
     padding: $space-xs;
 
     h1 {
+      color: $black;
       font-family: Berlin;
       font-size: 29px;
       font-style: normal;
@@ -57,7 +69,7 @@ nav {
 }
 
 .navItem {
-  color: $green-100;
+  color: $white;
   font-family: SpaceMono;
   font-size: 36px;
   font-style: normal;
@@ -69,13 +81,13 @@ nav {
   transition: background-color 0.2s ease-out, color 0.2s ease-out;
 
   &:hover {
-    color: $white;
+    color: $green-200;
     background-color: rgba(46, 46, 46, 0.4);
   }
 }
 
 .navLink:active {
-  color: $white;
+  color: $green-200;
 }
 
 .navList {
@@ -84,8 +96,7 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgba(46, 46, 46, 0.3);
-  color: $white;
+  background-color: $black;
   backdrop-filter: blur(5px);
 }
 
@@ -93,7 +104,7 @@ hr {
   display: block;
   height: 2px;
   border: 0;
-  border-top: 2px solid $neutral-500;
+  border-top: 2px solid $blue-200;
   margin: 0 $space-s;
 }
 
