@@ -10,6 +10,7 @@ import nuclearWaste from "@/assets/SiFi_Container.jpg";
 export default function ProjectPage() {
   const [projects, setProjects] = useState(null);
 
+  console.log("here");
   useEffect(() => {
     async function loadProjects() {
       // const projectData = JSON.parse(TESTDATA);
@@ -24,7 +25,7 @@ export default function ProjectPage() {
         <div className={styles.sidePanel}>
           <h1 className={styles.heroText}>PROJECTS</h1>
         </div>
-        <Stripes number={16} addedClass={styles.stripes} />
+        <Stripes number={16} gapSize={40} addedClass={styles.stripes} />
         <div className={styles.imgContainer}>
           <LazyLoadImage
             className={styles.heroImage}
@@ -39,7 +40,7 @@ export default function ProjectPage() {
             <ProjectTeaserCard
               key={index}
               thumbnail={project.thumbnail}
-              titel={project.title}
+              title={project.title}
               hashtags={project.hashtags}
             />
           ))

@@ -7,20 +7,11 @@
   justify-content: center;
   overflow: hidden;
   max-width: 1280px;
-  height: 830px;
-}
-
-.textBox {
-  background-color: $neutral-800;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  width: 100%;
+  height: 815px;
 }
 
 .thumbnailContainer {
-  flex-grow: 1;
+  flex-grow: 2;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -33,36 +24,101 @@
   }
 }
 
-.link {
-  background-color: black;
-  color: white;
-  font-size: 1.5rem; // Tailwind's text-2xl
-  padding: 0.5rem;
-  text-decoration: none;
+.bottomSection {
+  flex-grow: 1;
+  background-color: $neutral-800;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
 }
 
 .titleContainer {
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: $space-xxl;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: $space-xxs $space-xxs $space-s $space-xxs;
+  img {
+    width: 76px;
+    height: 110px;
+    align-self: flex-start;
+  }
 }
 
-.title {
-  color: black;
-  text-transform: uppercase;
-  text-align: right;
-  font-size: 4.5rem; // Tailwind's text-7xl
-  font-family: "Lexend", sans-serif;
+@media only screen and (max-width: 350px) {
+  .titleContainer {
+    gap: 0;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .titleContainer {
+    img {
+      display: none;
+    }
+  }
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+
+  h1 {
+    color: $white;
+    text-align: right;
+    font-family: Berlin;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 98%;
+    letter-spacing: 3.6px;
+    word-wrap: break-word;
+  }
 }
 
 .hashtags {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  margin-top: 1.25rem;
+  flex-wrap: wrap;
+  gap: 9px;
 }
 
-.hashtag {
-  font-size: 0.875rem; // Tailwind's text-sm
-  outline: 1px solid #d1d5db; // light gray
-  padding: 0.25rem;
-  margin: 0.25rem;
-  color: #d1d5db;
+.hash {
+  color: $neutral-100;
+  text-align: center;
+
+  font-family: Now;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 98%; /* 10.78px */
+
+  border: 2px solid $neutral-100;
+  padding: 4px 5px;
+}
+
+.link {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $blue-200;
+  font-size: 1.5rem; // Tailwind's text-2xl
+  padding: $space-xs;
+  text-decoration: none;
+
+  color: $white;
+  text-align: center;
+  font-family: SpaceMono;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 98%;
+  letter-spacing: 1.35px;
 }

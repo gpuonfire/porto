@@ -2,13 +2,17 @@ import { Link } from "react-router";
 import { Project } from "@/@types/youAreJustMyType";
 import styles from "./ProjectTeaserCard.module.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import pointSVG from "@/assets/Points.svg";
 
 export default function ProjectTeaserCard({
-  title = "",
+  title,
   thumbnail,
   hashtags,
 }: Project) {
   function titleToUrl(title: string): string {
+    if (!title) {
+      return "no-title";
+    }
     return title
       .toLowerCase()
       .trim()
@@ -24,19 +28,29 @@ export default function ProjectTeaserCard({
           <div className={styles.thumbnailContainer}>
             <LazyLoadImage src={thumbnail.src} alt={thumbnail.alt} />
           </div>
-          <div className={styles.textBox}>
+          <div className={styles.bottomSection}>
             <div className={styles.titleContainer}>
-              <div className={styles.hashtags}>
-                {hashtags.map((text: string, index: number) => (
-                  <p className={styles.hashtag} key={index}>
-                    #{text}
-                  </p>
-                ))}
-                <h1 className={styles.title}>{title}</h1>
+              <div className={styles.svgContainer}>
+                <LazyLoadImage
+                  src={pointSVG}
+                  aria-hidden={true}
+                  width={76}
+                  height={110}
+                />
+              </div>
+              <div className={styles.textBox}>
+                <div className={styles.hashtags}>
+                  {hashtags.map((text: string, index: number) => (
+                    <p className={styles.hash} key={index}>
+                      #{text.toUpperCase()}
+                    </p>
+                  ))}
+                </div>
+                <h1>{title}</h1>
               </div>
             </div>
             <Link className={styles.link} to={`/projects/${titleToUrl(title)}`}>
-              Lets go
+              CHECK OUT
             </Link>
           </div>
         </article>
