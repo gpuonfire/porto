@@ -13,6 +13,7 @@ export default function MainNavBar() {
   const [isExpanded, setIsExpanded] = useState(false);
   const isOpen = useRef(false);
   const dropMenu = useRef<HTMLUListElement>(null);
+  const heading = useRef<HTMLUListElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -58,6 +59,14 @@ export default function MainNavBar() {
 
   useEffect(() => {
     document.addEventListener("mousedown", closeOpenMenus);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setIsExpanded(false);
+        if (document.activeElement instanceof HTMLElement)
+          document.activeElement.blur();
+      }
+    });
   }, []);
 
   return !isDesktop ? (
@@ -67,14 +76,21 @@ export default function MainNavBar() {
         <div className={styles.backdrop} onClick={() => setIsExpanded(false)} />
       )}
       <div className={styles.navHead}>
-        <div className={styles.container} onClick={() => navigate("/")}>
+        <button
+          className={styles.headingContainer}
+          onClick={() => navigate("/")}
+          role="button"
+          aria-label="Zurück zur Startseite"
+          tabIndex={0}
+        >
           <img src={pointIcon} aria-hidden={true} className={styles.icon} />
           <h1>{titel}</h1>
-        </div>
+        </button>
         <button
           className={styles.burgerMenu}
           onClick={handleClick}
           aria-label="Navigation"
+          role="menu"
         >
           <img src={burgerIcon} aria-hidden={true} />
         </button>
@@ -86,6 +102,8 @@ export default function MainNavBar() {
       >
         <li className={styles.navItem}>
           <NavLink
+            role="menuitem"
+            aria-label="Startseite"
             to="/"
             className={styles.navLink}
             onClick={() => setIsExpanded(false)}
@@ -97,6 +115,8 @@ export default function MainNavBar() {
         <hr />
         <li className={styles.navItem}>
           <NavLink
+            role="menuitem"
+            aria-label="Projekte"
             to="/projects"
             className={styles.navLink}
             onClick={() => setIsExpanded(false)}
@@ -107,6 +127,8 @@ export default function MainNavBar() {
         <hr />
         <li className={styles.navItem}>
           <NavLink
+            role="menuitem"
+            aria-label="Kunst"
             to="/art"
             className={styles.navLink}
             onClick={() => setIsExpanded(false)}
@@ -117,6 +139,8 @@ export default function MainNavBar() {
         <hr />
         <li className={styles.navItem}>
           <NavLink
+            role="menuitem"
+            aria-label="Kontakt"
             to="/contact"
             className={styles.navLink}
             onClick={() => setIsExpanded(false)}
