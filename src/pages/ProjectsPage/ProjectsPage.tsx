@@ -8,7 +8,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import nuclearWaste from "@/assets/SiFi_Container.jpg";
 
 export default function ProjectPage() {
-  const [projects, setProjects] = useState(null);
+  const [projects, setProjects] = useState<Project[] | null>(null);
 
   console.log("here");
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function ProjectPage() {
               key={index}
               thumbnail={project.thumbnail}
               title={project.title}
-              hashtags={project.hashtags}
+              tags={project.tags}
             />
           ))
         ) : (

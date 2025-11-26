@@ -7,7 +7,7 @@ import pointSVG from "@/assets/Points.svg";
 export default function ProjectTeaserCard({
   title,
   thumbnail,
-  hashtags,
+  tags,
 }: Project) {
   function titleToUrl(title: string): string {
     if (!title) {
@@ -40,7 +40,7 @@ export default function ProjectTeaserCard({
               </div>
               <div className={styles.textBox}>
                 <div className={styles.hashtags}>
-                  {hashtags.map((text: string, index: number) => (
+                  {tags.map((text: string, index: number) => (
                     <p className={styles.hash} key={index}>
                       #{text.toUpperCase()}
                     </p>

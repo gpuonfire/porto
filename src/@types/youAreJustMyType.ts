@@ -1,10 +1,10 @@
-export interface Project {
+export type Project = {
   id: string;
   title: string;
   date: string;
   featured: boolean;
   description: string;
-  hashtags: string[];
+  tags: string[];
   thumbnail: {
     src: string;
     alt: string;
@@ -15,13 +15,13 @@ export interface Project {
     src: string;
     alt: string;
   }[];
-}
+};
 
 export type AboutMe = {
   hobbies: string;
   education: string;
   interests: string;
-}
+};
 
 export type Image = {
   id: number;

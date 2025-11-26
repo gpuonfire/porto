@@ -1,0 +1,25 @@
+@use "@/styles/main.scss" as *;
+
+.heroContainer {
+  height: 100vh;
+
+  h1 {
+    color: $white;
+
+    /* H1 */
+    font-family: BerlinBold;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 5.8px;
+  }
+
+  img {
+    height: 50%;
+    width: 100%;
+  }
+}
+
+.stripe {
+}
