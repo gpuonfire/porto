@@ -4,6 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import styles from "./ProjectDetailPage.module.scss";
 import TESTDATA from "@/assets/projects-data.json";
 import { Project } from "@/@types/youAreJustMyType";
+import Stripes from "../../components/Stripes/Stripes";
 
 export default function ProjectDetailPage() {
   const projectId = useParams().prodId ?? ""; // if ".proId" returns undefined, take empty string
@@ -32,22 +33,42 @@ export default function ProjectDetailPage() {
               src={project.thumbnail.src}
               alt="Nuclear Waste Containers"
             />
-            <div>
-              <div className={styles.stripe} aria-hidden={true}></div>
+            <div className={styles.titleContainer}>
+              <div aria-hidden={true}></div>
               <h1 className={styles.mainTitle}>{project.title}</h1>
             </div>
-            <p>{project.description}</p>
-            <div className={styles.factsContainer}>
-              <div>{project.factsContainer.date}</div>
-              <div>{project.factsContainer.collaborators}</div>
-              <div>{project.factsContainer.projectURL}</div>
-              <div>{project.tags}</div>
-              Facts container: - dates - links - collaborators - tech stack -
-              url to page
+            <p className={styles.description}>{project.description}</p>
+          </div>
+
+          <div className={styles.factsContainer}>
+            <div className={styles.box1}>{project.factsContainer.context}</div>
+            <div className={styles.box2}>
+              {project.factsContainer.collaborators}
+            </div>
+            <div className={styles.box3}>{project.factsContainer.date}</div>
+            <div className={styles.box4}>{project.tags}</div>
+
+            <div className={styles.box5}>
+              {project.factsContainer.projectURL}
+            </div>
+
+            <div className={styles.box6}>
+              <div className={styles.stripeContainer}>
+                <div className={styles.stripe} />
+                <div className={styles.stripe} />
+                <div className={styles.stripe} />
+                <div className={styles.stripe} />
+                <div className={styles.stripe} />
+              </div>
             </div>
           </div>
+
           <div>
-            <img></img>
+            <LazyLoadImage
+              className={styles.heroImg}
+              src={project.src}
+              alt="Nuclear Waste Containers"
+            />
             <p>
               Small cite about what I was thingink when doing this - like a
               teaser

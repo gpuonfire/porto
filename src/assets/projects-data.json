@@ -86,6 +86,7 @@
         "alt": "Product detail page with reviews and recommendations"
       },
       "factsContainer": {
+        "context": "University Assignment made at class 'Fullstack Dev'",
         "date": "24.04.2034",
         "collaborators": "Kowalski, Pummelove",
         "projectURL": "https://www.schlaubeere.de"
@@ -93,7 +94,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=eX5CuDEcZAw",
       "content": [
         {
-          "articleLayout": "1",
+          "template": "1",
           "title": "sup heading here",
           "image": {
             "url": "https://url-to-image",
@@ -102,7 +103,7 @@
           "text": "Lorem ipsum blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
         },
         {
-          "articleLayout": "2",
+          "template": "2",
           "title": "sup heading here",
           "image": {
             "url": "https://url-to-image",
