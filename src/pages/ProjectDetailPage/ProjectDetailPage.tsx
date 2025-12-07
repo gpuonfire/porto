@@ -1,10 +1,23 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import styles from "./ProjectDetailPage.module.scss";
+
 import TESTDATA from "@/assets/projects-data.json";
 import { Project } from "@/@types/youAreJustMyType";
-import Stripes from "../../components/Stripes/Stripes";
+import styles from "./ProjectDetailPage.module.scss";
+import fivePointIcon from "@/assets/icons/5Point_small.svg";
+import ProjectSection from "../../components/ProjectSection/ProjectSection";
+
+type ProjectSection = {
+  template: number;
+  title: string;
+  image?: {
+    url: string;
+    alt: string;
+  };
+  text: string;
+  graphic?: number;
+};
 
 export default function ProjectDetailPage() {
   const projectId = useParams().prodId ?? ""; // if ".proId" returns undefined, take empty string
@@ -26,30 +39,46 @@ export default function ProjectDetailPage() {
   return (
     <>
       {project ? (
-        <div>
-          <div className={styles.heroContainer}>
+        <>
+          <div className={styles.heroImgContainer}>
             <LazyLoadImage
               className={styles.heroImg}
               src={project.thumbnail.src}
               alt="Nuclear Waste Containers"
             />
-            <div className={styles.titleContainer}>
-              <div aria-hidden={true}></div>
-              <h1 className={styles.mainTitle}>{project.title}</h1>
-            </div>
-            <p className={styles.description}>{project.description}</p>
           </div>
-
+          <div className={styles.titleContainer}>
+            <div aria-hidden={true}></div>
+            <h1 className={styles.mainTitle}>{project.title}</h1>
+          </div>
+          <p className={styles.description}>{project.description}</p>
           <div className={styles.factsContainer}>
             <div className={styles.box1}>{project.factsContainer.context}</div>
             <div className={styles.box2}>
               {project.factsContainer.collaborators}
             </div>
-            <div className={styles.box3}>{project.factsContainer.date}</div>
-            <div className={styles.box4}>{project.tags}</div>
+            <div className={styles.box3}>
+              <LazyLoadImage
+                className={styles.heroImg}
+                src={fivePointIcon}
+                aria-hidden={true}
+              />
+              <span>{project.factsContainer.date}</span>
+            </div>
+            <div className={styles.box4}>
+              <div className={styles.hashtags}>
+                {project.tags.map((text: string, index: number) => (
+                  <p className={styles.hash} key={index}>
+                    #{text.toUpperCase()}
+                  </p>
+                ))}
+              </div>
+            </div>
 
             <div className={styles.box5}>
-              {project.factsContainer.projectURL}
+              <a href={project.factsContainer.projectURL}>
+                {project.factsContainer.projectURL}
+              </a>
             </div>
 
             <div className={styles.box6}>
@@ -63,22 +92,18 @@ export default function ProjectDetailPage() {
             </div>
           </div>
 
-          <div>
-            <LazyLoadImage
-              className={styles.heroImg}
-              src={project.src}
-              alt="Nuclear Waste Containers"
-            />
-            <p>
-              Small cite about what I was thingink when doing this - like a
-              teaser
-            </p>
-          </div>
-          <div>Intro</div>
-          <div>Procedure</div>
-          <div>Result</div>
-          <div>Jump back to top buton</div>
-        </div>
+          <div className={styles.sectionLine}></div>
+
+          <section>
+            {project.content ? (
+              project.content.map((article: ProjectSection, index: number) => (
+                <ProjectSection key={index} s={article} />
+              ))
+            ) : (
+              <p>Oh... looks like we ran out of content</p>
+            )}
+          </section>
+        </>
       ) : (
         <div>Fetching Project...</div>
       )}

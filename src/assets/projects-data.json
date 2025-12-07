@@ -76,10 +76,10 @@
   "projects": [
     {
       "id": "e-comerce",
-      "title": "test",
-      "date": "2025-03-15",
+      "title": "VIRTUAL AQUARIUM",
+      "date": "2025",
       "featured": true,
-      "description": "This comprehensive e-commerce platform was built using React for the frontend and Node.js with Express for the backend. The application features a responsive design that adapts seamlessly to all device sizes, integrated payment processing through Stripe API, and real-time inventory management. Users can create accounts, save favorite items, track order history, and receive email notifications about order status. The admin dashboard provides detailed analytics on sales trends, user behavior, and inventory levels. One of the most challenging aspects was implementing a robust recommendation engine that suggests products based on browsing history and purchase patterns. The project also includes a sophisticated search function with filters for categories, price ranges, and ratings. MongoDB was used for the database, with Redis caching implemented to improve performance for frequently accessed data.",
+      "description": "This comprehensive e-commerce platform was built using React for the frontend and Node.js",
       "tags": ["react", "java", "p5JS", "TS"],
       "thumbnail": {
         "src": "https://www.tha.de/homes/sim0n/media/img/Drawings/die_ich_rief_poster.jpg",
@@ -87,29 +87,45 @@
       },
       "factsContainer": {
         "context": "University Assignment made at class 'Fullstack Dev'",
-        "date": "24.04.2034",
+        "date": "2025",
         "collaborators": "Kowalski, Pummelove",
         "projectURL": "https://www.schlaubeere.de"
       },
       "videoUrl": "https://www.youtube.com/watch?v=eX5CuDEcZAw",
       "content": [
         {
-          "template": "1",
-          "title": "sup heading here",
+          "template": 1,
+          "title": "INTRO",
           "image": {
-            "url": "https://url-to-image",
+            "url": "https://tha.de/homes/sim0n/media/img/Renders/tempel11.jpg",
             "alt": "hier ist ein schlönes bild"
           },
-          "text": "Lorem ipsum blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+          "text": "TEMPLATE 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0",
+          "graphic": 2
         },
         {
-          "template": "2",
+          "template": 2,
+          "title": "sup heading here",
+          "text": "TEMPLATE 2 blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+        },
+        {
+          "template": 3,
           "title": "sup heading here",
           "image": {
-            "url": "https://url-to-image",
-            "alt": "hier ist noch ein schlönes bild"
+            "url": "https://tha.de/homes/sim0n/media/img/Renders/tempel11.jpg",
+            "alt": "hier ist ein schlönes bild"
           },
-          "text": "Lorem ipsum blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+          "text": "TEMPLATE 3 blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+        },
+        {
+          "template": 4,
+          "title": "sup heading here",
+          "image": {
+            "url": "https://tha.de/homes/sim0n/media/img/Renders/tempel11.jpg",
+            "alt": "hier ist ein schlönes bild"
+          },
+          "text": "TEMPLATE 4 blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0",
+          "graphic": 1
         }
       ]
     },

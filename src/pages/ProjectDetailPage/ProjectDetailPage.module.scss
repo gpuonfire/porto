@@ -1,45 +1,30 @@
 @use "@/styles/main.scss" as *;
 
-.heroContainer {
-  height: 100vh;
-
-  h1 {
-    color: $white;
-
-    /* H1 */
-    font-family: Berlin;
-    font-size: 58px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 5.8px;
-  }
-
+.heroImgContainer {
+  height: 50vh;
+  width: 100%;
   img {
-    height: 50%;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
 .titleContainer {
   display: flex;
   justify-content: flex-start;
-  height: 120px;
   width: 100%;
-  align-items: center;
   gap: $space-xs;
+
   h1 {
     color: $white;
     font-family: Berlin;
     font-size: $h1;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    font-weight: 700; /* font-style: bold is redundant with font-weight */
     letter-spacing: 5.8px;
   }
 
   div {
-    height: 100%;
     width: 10px;
     background-color: $blue-200;
   }
@@ -63,32 +48,56 @@
   word-break: break-all;
 
   display: grid;
-  grid: 50px 50px 50px 27px / 1fr 1fr 100px;
-
-  div {
-    border: 1px solid $blue-200;
-  }
+  grid: 35px 80px 50px 27px / 0.5fr 1fr 0.4fr;
+  color: $blue-200;
 }
 
 .box1 {
   grid-column: 1 / span 1;
   grid-row: 1 / span 2;
+  border: 1px solid $blue-200;
+  padding: $space-xxxs;
 }
 .box2 {
   grid-column: 1 / span 1;
   grid-row: 3 / span 1;
+  border: 1px solid $blue-200;
+  padding: $space-xxxs;
 }
 .box3 {
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
+  border: 1px solid $blue-200;
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  padding: $space-xxxs;
+  span {
+    font-family: Now;
+    font-size: $h4;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 5.7px;
+  }
+  img {
+    width: 20px;
+    aspect-ratio: 1/1;
+  }
 }
 .box4 {
   grid-column: 2 / span 1;
   grid-row: 2 / span 2;
+  border: 1px solid $blue-200;
 }
 .box5 {
   grid-column: 1 / span 3;
   grid-row: 4 / span 3;
+  border: 1px solid $blue-200;
+  padding: $space-xxxs;
 }
 .box6 {
   grid-column: 3 / span 1;
@@ -114,4 +123,34 @@
   height: 30px;
   background-color: $blue-200;
   transform: rotate(45deg) translateY(-40px);
+}
+
+.hashtags {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: $space-xxxs;
+}
+
+.hash {
+  color: $blue-200;
+  text-align: center;
+
+  font-family: Now;
+  font-size: $tiny;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 98%; /* 10.78px */
+
+  border: 2px solid $blue-200;
+  padding: 2px 3px;
+}
+
+.sectionLine {
+  width: 100%;
+  height: 1px;
+  background-color: $neutral-200;
+  margin: 40px 0 40px 0;
 }
