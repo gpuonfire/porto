@@ -7,6 +7,7 @@ import GalleryPage from "@/pages/Gallery/GalleryPage";
 import ProjectDetailPage from "@/pages/ProjectDetailPage/ProjectDetailPage";
 import ProjectsPage from "@/pages/ProjectsPage/ProjectsPage";
 import ContactPage from "@/pages/Contact/Contact";
+import IconSandbox from "@/pages/IconSandbox/IconSandbox";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "projects/:proId", element: <ProjectDetailPage /> },
       { path: "projects", element: <ProjectsPage /> },
       { path: "contact", element: <ContactPage /> },
+      { path: "icons", element: <IconSandbox /> },
     ],
   },
 ]);
