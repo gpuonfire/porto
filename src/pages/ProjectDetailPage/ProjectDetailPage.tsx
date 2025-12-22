@@ -3,21 +3,10 @@ import { useParams } from "react-router";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import TESTDATA from "@/assets/projects-data.json";
-import { Project } from "@/@types/youAreJustMyType";
+import { Project, Layout } from "@/@types/youAreJustMyType";
 import styles from "./ProjectDetailPage.module.scss";
 import fivePointIcon from "@/assets/icons/5Point_small.svg";
-import ProjectSection from "../../components/ProjectSection/ProjectSection";
-
-type ProjectSection = {
-  template: number;
-  title: string;
-  image?: {
-    url: string;
-    alt: string;
-  };
-  text: string;
-  graphic?: number;
-};
+import LayoutComp from "@/components/Layout/Layout";
 
 export default function ProjectDetailPage() {
   const projectId = useParams().prodId ?? ""; // if ".proId" returns undefined, take empty string
@@ -27,14 +16,6 @@ export default function ProjectDetailPage() {
     // make api call to fetch project data
     setProject(TESTDATA.projects[0] as Project);
   }, []);
-
-  /* 
-  Types of project sections:
-  - thought = image + cursiv text
-  - section = image + text
-  - introduction = image + text with rune
-  - more images...
-  */
 
   return (
     <>
@@ -96,8 +77,8 @@ export default function ProjectDetailPage() {
 
           <section>
             {project.content ? (
-              project.content.map((article: ProjectSection, index: number) => (
-                <ProjectSection key={index} s={article} />
+              project.content.map((layout: Layout, index: number) => (
+                <LayoutComp key={index} layout={layout} />
               ))
             ) : (
               <p>Oh... looks like we ran out of content</p>

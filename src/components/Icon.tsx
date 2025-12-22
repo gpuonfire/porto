@@ -1,6 +1,7 @@
 type IconProps = {
   iconName: string;
-  size?: number | string;
+  width?: number;
+  height?: number;
   className?: string;
   title?: string;
   fill?: string;
@@ -9,7 +10,8 @@ type IconProps = {
 
 export default function Icon({
   iconName,
-  size = 24,
+  width = 24,
+  height = 24,
   className,
   title,
   fill = "currentColor",
@@ -200,74 +202,82 @@ export default function Icon({
       </g>
     ),
     rune_1: (
-      <g fill={fill}>
-        <circle cx="6.47178" cy="6.47178" r="3.59532" fill={fill} />
-        <circle cx="6.47129" cy="16.5123" r="3.59532" fill={fill} />
-        <circle cx="6.47129" cy="26.5531" r="3.59532" fill={fill} />
-        <circle cx="6.47129" cy="36.5936" r="3.59532" fill={fill} />
-        <circle cx="6.47178" cy="46.6344" r="3.59532" fill={fill} />
-        <circle cx="6.47129" cy="56.6754" r="3.59532" fill={fill} />
-        <circle cx="6.47178" cy="66.7159" r="3.59532" fill={fill} />
-        <circle cx="6.47129" cy="76.7567" r="3.59532" fill={fill} />
-        <circle cx="6.47178" cy="86.7975" r="3.59532" fill={fill} />
-        <circle cx="6.47129" cy="106.879" r="3.59532" fill={fill} />
-        <circle cx="16.8624" cy="6.47178" r="3.59532" fill={fill} />
-        <circle cx="16.8624" cy="16.5123" r="3.59532" fill={fill} />
-        <circle cx="16.8624" cy="26.5531" r="3.59532" fill={fill} />
-        <circle cx="27.2525" cy="36.5939" r="3.59532" fill={fill} />
-        <circle cx="16.8624" cy="46.6344" r="3.59532" fill={fill} />
-        <circle cx="16.8624" cy="36.5936" r="3.59532" fill={fill} />
-        <circle cx="16.8624" cy="56.6754" r="3.59532" fill={fill} />
-        <circle cx="27.2525" cy="56.6754" r="3.59532" fill={fill} />
-        <circle cx="27.2525" cy="66.7162" r="3.59532" fill={fill} />
-        <circle cx="27.2525" cy="76.7567" r="3.59532" fill={fill} />
-        <circle cx="37.6432" cy="76.7567" r="3.59532" fill={fill} />
-        <circle cx="16.8619" cy="66.7159" r="3.59532" fill={fill} />
-        <circle cx="16.8624" cy="76.7567" r="3.59532" fill={fill} />
-        <circle cx="16.8624" cy="86.7975" r="3.59532" fill={fill} />
-        <circle cx="16.8619" cy="96.8382" r="3.59532" fill={fill} />
-        <circle cx="16.8624" cy="106.879" r="3.59532" fill={fill} />
-        <circle cx="48.0333" cy="66.7159" r="3.59532" fill={fill} />
-        <circle cx="48.0333" cy="76.7567" r="3.59532" fill={fill} />
-        <circle cx="48.0333" cy="86.7975" r="3.59532" fill={fill} />
-        <circle cx="48.0333" cy="96.8382" r="3.59532" fill={fill} />
-        <circle cx="48.0333" cy="106.879" r="3.59532" fill={fill} />
-        <circle cx="58.4239" cy="66.7162" r="3.59532" fill={fill} />
-        <circle cx="58.4239" cy="76.7567" r="3.59532" fill={fill} />
-        <circle cx="58.4239" cy="86.7975" r="3.59532" fill={fill} />
-        <circle cx="58.4239" cy="96.8385" r="3.59532" fill={fill} />
-        <circle cx="58.4239" cy="106.879" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="66.7159" r="3.59532" fill={fill} />
-        <circle cx="79.2047" cy="66.7159" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="76.7567" r="3.59532" fill={fill} />
-        <circle cx="79.2052" cy="76.7567" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="86.7975" r="3.59532" fill={fill} />
-        <circle cx="79.2052" cy="86.7975" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="96.8382" r="3.59532" fill={fill} />
-        <circle cx="79.2047" cy="96.8382" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="106.879" r="3.59532" fill={fill} />
-        <circle cx="79.2052" cy="106.879" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="16.5123" r="3.59532" fill={fill} />
-        <circle cx="79.2052" cy="16.5123" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="26.5531" r="3.59532" fill={fill} />
-        <circle cx="79.2052" cy="26.5531" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="36.5939" r="3.59532" fill={fill} />
-        <circle cx="79.2052" cy="36.5936" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="46.6346" r="3.59532" fill={fill} />
-        <circle cx="79.2052" cy="46.6344" r="3.59532" fill={fill} />
-        <circle cx="68.8146" cy="56.6754" r="3.59532" fill={fill} />
-        <circle cx="79.2052" cy="56.6754" r="3.59532" fill={fill} />
-        <circle cx="27.2525" cy="86.7975" r="3.59532" fill={fill} />
-        <circle cx="27.2525" cy="96.8385" r="3.59532" fill={fill} />
-        <circle cx="58.4239" cy="36.5939" r="3.59532" fill={fill} />
-        <circle cx="58.4239" cy="46.6344" r="3.59532" fill={fill} />
-        <circle cx="79.2052" cy="6.47178" r="3.59532" fill={fill} />
-        <circle cx="37.6432" cy="86.7975" r="3.59532" fill={fill} />
-        <circle cx="37.6432" cy="96.8382" r="3.59532" fill={fill} />
-        <circle cx="37.6432" cy="106.879" r="3.59532" fill={fill} />
-        <circle cx="27.2525" cy="106.879" r="3.59532" fill={fill} />
-        <circle cx="6.47178" cy="96.8382" r="3.59532" fill={fill} />
-      </g>
+      <svg
+        width="86"
+        height="114"
+        viewBox="0 0 86 114"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g fill={fill}>
+          <circle cx="6.47178" cy="6.47178" r="3.59532" fill={fill} />
+          <circle cx="6.47129" cy="16.5123" r="3.59532" fill={fill} />
+          <circle cx="6.47129" cy="26.5531" r="3.59532" fill={fill} />
+          <circle cx="6.47129" cy="36.5936" r="3.59532" fill={fill} />
+          <circle cx="6.47178" cy="46.6344" r="3.59532" fill={fill} />
+          <circle cx="6.47129" cy="56.6754" r="3.59532" fill={fill} />
+          <circle cx="6.47178" cy="66.7159" r="3.59532" fill={fill} />
+          <circle cx="6.47129" cy="76.7567" r="3.59532" fill={fill} />
+          <circle cx="6.47178" cy="86.7975" r="3.59532" fill={fill} />
+          <circle cx="6.47129" cy="106.879" r="3.59532" fill={fill} />
+          <circle cx="16.8624" cy="6.47178" r="3.59532" fill={fill} />
+          <circle cx="16.8624" cy="16.5123" r="3.59532" fill={fill} />
+          <circle cx="16.8624" cy="26.5531" r="3.59532" fill={fill} />
+          <circle cx="27.2525" cy="36.5939" r="3.59532" fill={fill} />
+          <circle cx="16.8624" cy="46.6344" r="3.59532" fill={fill} />
+          <circle cx="16.8624" cy="36.5936" r="3.59532" fill={fill} />
+          <circle cx="16.8624" cy="56.6754" r="3.59532" fill={fill} />
+          <circle cx="27.2525" cy="56.6754" r="3.59532" fill={fill} />
+          <circle cx="27.2525" cy="66.7162" r="3.59532" fill={fill} />
+          <circle cx="27.2525" cy="76.7567" r="3.59532" fill={fill} />
+          <circle cx="37.6432" cy="76.7567" r="3.59532" fill={fill} />
+          <circle cx="16.8619" cy="66.7159" r="3.59532" fill={fill} />
+          <circle cx="16.8624" cy="76.7567" r="3.59532" fill={fill} />
+          <circle cx="16.8624" cy="86.7975" r="3.59532" fill={fill} />
+          <circle cx="16.8619" cy="96.8382" r="3.59532" fill={fill} />
+          <circle cx="16.8624" cy="106.879" r="3.59532" fill={fill} />
+          <circle cx="48.0333" cy="66.7159" r="3.59532" fill={fill} />
+          <circle cx="48.0333" cy="76.7567" r="3.59532" fill={fill} />
+          <circle cx="48.0333" cy="86.7975" r="3.59532" fill={fill} />
+          <circle cx="48.0333" cy="96.8382" r="3.59532" fill={fill} />
+          <circle cx="48.0333" cy="106.879" r="3.59532" fill={fill} />
+          <circle cx="58.4239" cy="66.7162" r="3.59532" fill={fill} />
+          <circle cx="58.4239" cy="76.7567" r="3.59532" fill={fill} />
+          <circle cx="58.4239" cy="86.7975" r="3.59532" fill={fill} />
+          <circle cx="58.4239" cy="96.8385" r="3.59532" fill={fill} />
+          <circle cx="58.4239" cy="106.879" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="66.7159" r="3.59532" fill={fill} />
+          <circle cx="79.2047" cy="66.7159" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="76.7567" r="3.59532" fill={fill} />
+          <circle cx="79.2052" cy="76.7567" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="86.7975" r="3.59532" fill={fill} />
+          <circle cx="79.2052" cy="86.7975" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="96.8382" r="3.59532" fill={fill} />
+          <circle cx="79.2047" cy="96.8382" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="106.879" r="3.59532" fill={fill} />
+          <circle cx="79.2052" cy="106.879" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="16.5123" r="3.59532" fill={fill} />
+          <circle cx="79.2052" cy="16.5123" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="26.5531" r="3.59532" fill={fill} />
+          <circle cx="79.2052" cy="26.5531" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="36.5939" r="3.59532" fill={fill} />
+          <circle cx="79.2052" cy="36.5936" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="46.6346" r="3.59532" fill={fill} />
+          <circle cx="79.2052" cy="46.6344" r="3.59532" fill={fill} />
+          <circle cx="68.8146" cy="56.6754" r="3.59532" fill={fill} />
+          <circle cx="79.2052" cy="56.6754" r="3.59532" fill={fill} />
+          <circle cx="27.2525" cy="86.7975" r="3.59532" fill={fill} />
+          <circle cx="27.2525" cy="96.8385" r="3.59532" fill={fill} />
+          <circle cx="58.4239" cy="36.5939" r="3.59532" fill={fill} />
+          <circle cx="58.4239" cy="46.6344" r="3.59532" fill={fill} />
+          <circle cx="79.2052" cy="6.47178" r="3.59532" fill={fill} />
+          <circle cx="37.6432" cy="86.7975" r="3.59532" fill={fill} />
+          <circle cx="37.6432" cy="96.8382" r="3.59532" fill={fill} />
+          <circle cx="37.6432" cy="106.879" r="3.59532" fill={fill} />
+          <circle cx="27.2525" cy="106.879" r="3.59532" fill={fill} />
+          <circle cx="6.47178" cy="96.8382" r="3.59532" fill={fill} />
+        </g>
+      </svg>
     ),
     "five-point-rect": (
       <svg
@@ -314,31 +324,26 @@ export default function Icon({
 
   const content = paths[iconName] ?? null;
 
-  //   if (!content) {
-  //     // Unknown icon — render an empty placeholder to avoid layout shifts
-  //     // and give a helpful console warning during development.
-  //     if (process && process.env && process.env.NODE_ENV !== "production") {
-  //       // eslint-disable-next-line no-console
-  //       console.warn(`Icon: unknown iconName "${iconName}"`);
-  //     }
-  //     return (
-  //       <svg
-  //         width={size}
-  //         height={size}
-  //         viewBox="0 0 24 24"
-  //         fill="none"
-  //         xmlns="http://www.w3.org/2000/svg"
-  //         className={className}
-  //         aria-hidden={title ? undefined : true}
-  //       />
-  //     );
-  //   }
+  if (!content) {
+    console.warn(`Icon: unknown iconName "${iconName}"`);
+    return (
+      <svg
+        width={width}
+        height={height}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        aria-hidden={title ? undefined : true}
+      />
+    );
+  }
 
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
