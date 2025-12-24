@@ -8,6 +8,10 @@ type IconProps = {
   strokeWidth?: number;
 };
 
+/**
+ *menu close arrow-right chevron-left chevron-right search mail external github 5Point 5Point_small Burger rune_1
+ * **/
+
 export default function Icon({
   iconName,
   width = 24,
@@ -160,39 +164,47 @@ export default function Icon({
       </g>
     ),
     "5Point_small": (
-      <g fill={fill}>
-        <rect width="6.28572" height="6.11111" rx="0.380952" fill={fill} />
-        <rect
-          y="13.8887"
-          width="6.28572"
-          height="6.11111"
-          rx="0.380952"
-          fill={fill}
-        />
-        <rect
-          x="13.7144"
-          width="6.28572"
-          height="6.11111"
-          rx="0.380952"
-          fill={fill}
-        />
-        <rect
-          x="13.7144"
-          y="13.8887"
-          width="6.28572"
-          height="6.11111"
-          rx="0.380952"
-          fill={fill}
-        />
-        <rect
-          x="8.57129"
-          y="8.88867"
-          width="2.85714"
-          height="2.77778"
-          rx="0.380952"
-          fill={fill}
-        />
-      </g>
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g fill={fill}>
+          <rect width="6.28572" height="6.11111" rx="0.380952" fill={fill} />
+          <rect
+            y="13.8887"
+            width="6.28572"
+            height="6.11111"
+            rx="0.380952"
+            fill={fill}
+          />
+          <rect
+            x="13.7144"
+            width="6.28572"
+            height="6.11111"
+            rx="0.380952"
+            fill={fill}
+          />
+          <rect
+            x="13.7144"
+            y="13.8887"
+            width="6.28572"
+            height="6.11111"
+            rx="0.380952"
+            fill={fill}
+          />
+          <rect
+            x="8.57129"
+            y="8.88867"
+            width="2.85714"
+            height="2.77778"
+            rx="0.380952"
+            fill={fill}
+          />
+        </g>
+      </svg>
     ),
     Burger: (
       <g fill={fill}>
@@ -328,30 +340,32 @@ export default function Icon({
     console.warn(`Icon: unknown iconName "${iconName}"`);
     return (
       <svg
-        width={width}
-        height={height}
-        viewBox="0 0 24 24"
-        fill="none"
+        // width={width}
+        // height={height}
+        // viewBox="0 0 24 24"
+        // fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
         aria-hidden={title ? undefined : true}
       />
     );
+  } else {
+    return content;
   }
 
-  return (
-    <svg
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden={title ? undefined : true}
-      role={title ? "img" : "presentation"}
-    >
-      {title ? <title>{title}</title> : null}
-      {content}
-    </svg>
-  );
+  // return (
+  //   <svg
+  //     // width={width}
+  //     // height={height}
+  //     // viewBox={`0 0 ${width} ${height}`}
+  //     // fill="none"
+  //     xmlns="http://www.w3.org/2000/svg"
+  //     className={className}
+  //     aria-hidden={title ? undefined : true}
+  //     role={title ? "img" : "presentation"}
+  //   >
+  //     {title ? <title>{title}</title> : null}
+  //     {content}
+  //   </svg>
+  // );
 }

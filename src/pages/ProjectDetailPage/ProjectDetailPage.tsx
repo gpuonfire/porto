@@ -28,62 +28,70 @@ export default function ProjectDetailPage() {
               alt="Nuclear Waste Containers"
             />
           </div>
-          <div className={styles.titleContainer}>
-            <div aria-hidden={true}></div>
-            <h1 className={styles.mainTitle}>{project.title}</h1>
-          </div>
-          <p className={styles.description}>{project.description}</p>
-          <div className={styles.factsContainer}>
-            <div className={styles.box1}>{project.factsContainer.context}</div>
-            <div className={styles.box2}>
-              {project.factsContainer.collaborators}
-            </div>
-            <div className={styles.box3}>
-              <LazyLoadImage
-                className={styles.heroImg}
-                src={fivePointIcon}
-                aria-hidden={true}
-              />
-              <span>{project.factsContainer.date}</span>
-            </div>
-            <div className={styles.box4}>
-              <div className={styles.hashtags}>
-                {project.tags.map((text: string, index: number) => (
-                  <p className={styles.hash} key={index}>
-                    #{text.toUpperCase()}
-                  </p>
-                ))}
+          <div className={styles.rootContainer}>
+            <div className={styles.heroContainer}>
+              <div className={styles.titleContainer}>
+                <div aria-hidden={true}></div>
+                <h1 className={styles.mainTitle}>{project.title}</h1>
+              </div>
+              <div className={styles.factsContainer}>
+                <div className={styles.box1}>
+                  {project.factsContainer.context}
+                </div>
+                <div className={styles.box2}>
+                  {project.factsContainer.collaborators}
+                </div>
+                <div className={styles.box3}>
+                  <LazyLoadImage
+                    className={styles.heroImg}
+                    src={fivePointIcon}
+                    aria-hidden={true}
+                  />
+                  <span>{project.factsContainer.date}</span>
+                </div>
+                <div className={styles.box4}>
+                  <div className={styles.hashtags}>
+                    {project.tags.map((text: string, index: number) => (
+                      <p className={styles.hash} key={index}>
+                        #{text.toUpperCase()}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+
+                <div className={styles.box5}>
+                  <a href={project.factsContainer.projectURL}>
+                    {project.factsContainer.projectURL}
+                  </a>
+                </div>
+
+                <div className={styles.box6}>
+                  <div className={styles.stripeContainer}>
+                    <div className={styles.stripe} />
+                    <div className={styles.stripe} />
+                    <div className={styles.stripe} />
+                    <div className={styles.stripe} />
+                    <div className={styles.stripe} />
+                  </div>
+                </div>
               </div>
             </div>
+            <p className={styles.description}>{project.description}</p>
+            <div className={styles.sectionLine}></div>
 
-            <div className={styles.box5}>
-              <a href={project.factsContainer.projectURL}>
-                {project.factsContainer.projectURL}
-              </a>
-            </div>
-
-            <div className={styles.box6}>
-              <div className={styles.stripeContainer}>
-                <div className={styles.stripe} />
-                <div className={styles.stripe} />
-                <div className={styles.stripe} />
-                <div className={styles.stripe} />
-                <div className={styles.stripe} />
-              </div>
-            </div>
+            <section>
+              {project.content ? (
+                project.content.map((layout: Layout, index: number) => (
+                  <>
+                    <LayoutComp key={index} layout={layout} />
+                    <div className={styles.sectionLine}></div>
+                  </>
+                ))
+              ) : (
+                <p>Oh... looks like we ran out of content</p>
+              )}
+            </section>
           </div>
-
-          <div className={styles.sectionLine}></div>
-
-          <section>
-            {project.content ? (
-              project.content.map((layout: Layout, index: number) => (
-                <LayoutComp key={index} layout={layout} />
-              ))
-            ) : (
-              <p>Oh... looks like we ran out of content</p>
-            )}
-          </section>
         </>
       ) : (
         <div>Fetching Project...</div>

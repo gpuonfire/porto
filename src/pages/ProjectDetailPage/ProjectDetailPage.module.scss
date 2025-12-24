@@ -1,5 +1,9 @@
 @use "@/styles/main.scss" as *;
 
+.rootContainer {
+  padding: 0px;
+}
+
 .heroImgContainer {
   height: 50vh;
   width: 100%;
@@ -10,17 +14,24 @@
   }
 }
 
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .titleContainer {
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  height: fit-content;
   gap: $space-xs;
+  padding: $space-xxxs 0 $space-xxxs 0;
 
   h1 {
     color: $white;
     font-family: Berlin;
     font-size: $h1;
-    font-weight: 700; /* font-style: bold is redundant with font-weight */
+    font-weight: 700;
     letter-spacing: 5.8px;
   }
 
@@ -31,18 +42,20 @@
 }
 
 .description {
+  align-self: flex-start;
   color: $white;
   padding: $space-xxs;
-  /* TextBody */
   font-family: SpaceMono;
   font-size: $p;
   font-style: normal;
   font-weight: 400;
-  line-height: 130%; /* 23.92px */
+  line-height: 130%;
   letter-spacing: 0.552px;
 }
 
 .factsContainer {
+  max-width: 500px;
+  min-width: 358px;
   background-color: $white;
   border: 2px solid $blue-200;
   word-break: break-all;
@@ -142,7 +155,7 @@
   font-size: $tiny;
   font-style: normal;
   font-weight: 500;
-  line-height: 98%; /* 10.78px */
+  line-height: 98%;
 
   border: 2px solid $blue-200;
   padding: 2px 3px;
@@ -153,4 +166,29 @@
   height: 1px;
   background-color: $neutral-200;
   margin: 40px 0 40px 0;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .rootContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: $breakpoint-laptop;
+    width: 100%;
+    margin: auto;
+  }
+  .heroContainer {
+    flex-direction: row;
+  }
+  .titleContainer {
+    h1 {
+      font-size: $h0;
+    }
+  }
+}
+@media (min-width: $breakpoint-laptop) {
+  .heroContainer {
+    flex-direction: row;
+  }
 }

@@ -106,7 +106,13 @@
             {
               "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
             },
-            { "graphic": "rune-1" },
+            {
+              "image": {
+                "url": "https://tha.de/homes/sim0n/media/img/Renders/MaterialShow.jpg",
+                "alt": "hier ist ein schlönes bild"
+              }
+            },
+            { "graphic": "5Point_small" },
             { "smallTitle": "This is a small title" },
             {
               "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
@@ -116,7 +122,7 @@
         {
           "layout": 2,
           "elements": [
-            { "title": "Naja könnte besser sein" },
+            { "title": "WAS GUCKSTE SO EH?" },
             {
               "image": {
                 "url": "https://tha.de/homes/sim0n/media/img/Renders/MaterialShow.jpg",
@@ -125,22 +131,34 @@
             },
             {
               "text": "layout 2 blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0 \n lalblal hallo ich bin ein\n\n langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der"
-            }
+            },
+            { "smallTitle": "This is a small title" },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            { "graphic": "5Point" }
           ]
         },
         {
           "layout": 3,
           "title": "Heading",
           "elements": [
+            { "title": "wonderful yeeh" },
             {
               "image": {
                 "url": "https://tha.de/homes/sim0n/media/img/Renders/SiFi_Container.jpg",
-                "alt": "hier ist ein schlönes bild"
+                "alt": "Das sind so Container, die hab ich im 2. Semester gemacht. Sind die NIcht toll? Hat halt übelst lang zum render gebraucht aber das wars wert"
               }
             },
+            { "smallTitle": "Can me do more please?" },
+
             {
               "text": "layout 3 blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
-            }
+            },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            { "graphic": "5Point" }
           ]
         }
       ]
