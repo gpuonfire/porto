@@ -1,31 +1,52 @@
-import { use } from "react";
-import titlePic from "@/assets/TitlePic.jpg";
-import { ContentContext } from "@/context/content-context";
-import ProjectOutput from "@/components/ProjectOutput";
+import ProjectTeaserCard from "@/components/ProjectTeaserCard/ProjectTeaserCard";
+import Stripes from "../../components/Stripes/Stripes";
 import styles from "./ProjectsPage.module.scss";
+import TESTDATA from "@/assets/projects-data.json";
+import { Project } from "../../@types/youAreJustMyType";
+import { useEffect, useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import nuclearWaste from "@/assets/SiFi_Container.jpg";
 
 export default function ProjectPage() {
-  const { projects } = use(ContentContext);
+  const [projects, setProjects] = useState<Project[] | null>(null);
+
+  console.log("here");
+  useEffect(() => {
+    async function loadProjects() {
+      // const projectData = JSON.parse(TESTDATA);
+      setProjects(TESTDATA.projects);
+    }
+    loadProjects();
+  }, []);
 
   return (
     <>
-      <section
-        className={styles.heroSection}
-        style={{ height: "calc(100vh - 3.25rem)" }}>
+      <div className={styles.heroSection}>
         <div className={styles.sidePanel}>
-          <p className={styles.projectsText}>
-            PROJECTS
-          </p>
+          <h1 className={styles.heroText}>PROJECTS</h1>
         </div>
-        <div className={styles.imageContainer}>
-          <img
-            src={titlePic}
+        <Stripes number={16} gapSize={40} addedClass={styles.stripes} />
+        <div className={styles.imgContainer}>
+          <LazyLoadImage
             className={styles.heroImage}
+            src={nuclearWaste}
+            alt="Nuclear Waste Containers"
           />
         </div>
-      </section>
+      </div>
       <section className={styles.projectsSection}>
-        <ProjectOutput projects={projects} />
+        {projects ? (
+          projects.map((project: Project, index: number) => (
+            <ProjectTeaserCard
+              key={index}
+              thumbnail={project.thumbnail}
+              title={project.title}
+              tags={project.tags}
+            />
+          ))
+        ) : (
+          <p>Loading projects...</p>
+        )}
       </section>
     </>
   );

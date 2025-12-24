@@ -1,10 +1,10 @@
-export interface Project {
+export type Project = {
   id: string;
   title: string;
   date: string;
   featured: boolean;
   description: string;
-  hashtags: string[];
+  tags: string[];
   thumbnail: {
     src: string;
     alt: string;
@@ -15,13 +15,14 @@ export interface Project {
     src: string;
     alt: string;
   }[];
-}
+  content: Layout[];
+};
 
 export type AboutMe = {
   hobbies: string;
   education: string;
   interests: string;
-}
+};
 
 export type Image = {
   id: number;
@@ -44,4 +45,20 @@ export type ContentContextType = {
   defaultProject: Project;
   getFeaturedProjects: () => Project[];
   getProject: (proId: string) => Project;
+};
+
+// export type Element = {
+//   title?: string;
+//   smallTitle?: string;
+//   image?: {
+//     url: string;
+//     alt: string;
+//   };
+//   text?: string;
+//   graphic?: string;
+// };
+
+export type Layout = {
+  layout: number;
+  elements: [];
 };

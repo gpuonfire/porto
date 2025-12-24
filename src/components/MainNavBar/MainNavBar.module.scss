@@ -1,0 +1,141 @@
+@use "@/styles/main" as *;
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+}
+
+.navHead {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: var(--navbar-height);
+  background-color: $green-200;
+}
+
+.headingContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: $space-xxs;
+  justify-content: flex-start;
+  align-items: center;
+  padding: $space-xs;
+
+  h1 {
+    color: $black;
+    font-family: Berlin;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 2.9px;
+    margin: auto 0 auto 0;
+  }
+}
+
+.headingContainer:focus {
+  box-shadow: inset 0px 0px 0px 3px rgba(4, 17, 1, 1);
+}
+
+.icon {
+  height: 28px;
+  aspect-ratio: 1/1;
+}
+
+.burgerMenu {
+  height: 100%;
+  width: 95px;
+  background-color: $blue-200;
+
+  &:focus {
+    box-shadow: inset 0px 0px 0px 3px rgba(4, 17, 1, 1);
+  }
+}
+
+.navLink {
+  display: block;
+  width: 100%;
+  padding: $space-s $space-m;
+}
+
+.navItem {
+  color: $white;
+  font-family: SpaceMono;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.225rem;
+  list-style: none;
+  display: block;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+
+  &:hover {
+    color: $green-200;
+    background-color: rgba(46, 46, 46, 0.4);
+  }
+}
+
+.navLink:active {
+  color: $green-200;
+}
+
+.navList {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: $black;
+  backdrop-filter: blur(5px);
+}
+
+hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 2px solid $blue-200;
+  margin: 0 $space-s;
+}
+
+.expanded {
+  max-height: 400px;
+}
+
+.collapsed {
+  max-height: 0px;
+}
+
+.navList {
+  @media (max-width: 768px) {
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  // Accessibility improvements
+  @media (prefers-reduced-motion: reduce) {
+    .navList,
+    .navLink,
+    .burgerMenu {
+      transition: none;
+    }
+  }
+}

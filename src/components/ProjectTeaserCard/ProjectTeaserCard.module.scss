@@ -1,0 +1,129 @@
+@use "@/styles/main" as *;
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-width: 1280px;
+  height: 815px;
+}
+
+.thumbnailContainer {
+  flex-grow: 2;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.bottomSection {
+  flex-grow: 1;
+  background-color: $neutral-800;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.titleContainer {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  gap: $space-xxl;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: $space-xxs $space-xxs $space-s $space-xxs;
+  img {
+    width: 76px;
+    height: 110px;
+    align-self: flex-start;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .titleContainer {
+    gap: 0;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .titleContainer {
+    img {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+
+  h1 {
+    color: $white;
+    text-align: right;
+    font-family: Berlin;
+    font-size: $h2;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 98%;
+    letter-spacing: 3.6px;
+    overflow-wrap: break-word;
+  }
+}
+
+.hashtags {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.hash {
+  color: $neutral-100;
+  text-align: center;
+
+  font-family: Now;
+  font-size: $small;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 98%; /* 10.78px */
+
+  border: 2px solid $neutral-100;
+  padding: 4px 5px;
+}
+
+.link {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $blue-200;
+  font-size: 1.5rem; // Tailwind's text-2xl
+  padding: $space-xs;
+  text-decoration: none;
+
+  color: $white;
+  text-align: center;
+  font-family: SpaceMono;
+  font-size: $h5;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 98%;
+  letter-spacing: 1.35px;
+}

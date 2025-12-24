@@ -1,0 +1,224 @@
+// =====================
+// Font Sizes
+// =====================
+
+$h0: 5rem; // 47.78px (2.986 × 16)
+$h1: 2.986rem; // 47.78px (2.986 × 16)
+$h2: 2.488rem; // 39.81px (2.488 × 16)
+$h3: 2.074rem; // 33.18px (2.074 × 16)
+$h4: 1.728rem; // 27.65px (1.728 × 16)
+$h5: 1.44rem; // 23.04px (1.44 × 16)
+$h6: 1.2rem; // 19.20px (1.2 × 16)
+$p: 1rem; // 16.00px (1 × 16)
+$small: 0.833rem; // 13.33px (0.833 × 16)
+$tiny: 0.694rem; // 11.10px (0.694 × 16)
+
+// =====================
+// Font: Berlin
+// =====================
+
+// Berlin regular
+@font-face {
+  font-family: "Berlin";
+  src: url("./fonts/berlin/Berlin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Berlin italic
+@font-face {
+  font-family: "Berlin";
+  src: url("./fonts/berlin/Berlin - Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Berlin bold
+@font-face {
+  font-family: "Berlin";
+  src: url("./fonts/berlin/Berlin Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Berlin x-bold
+@font-face {
+  font-family: "Berlin";
+  src: url("./fonts/berlin/Berlin X-Bold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+// =====================
+// Font: Space Mono
+// =====================
+
+// Space Mono regular
+@font-face {
+  font-family: "SpaceMono";
+  src: url("./fonts/SpaceMono/SpaceMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Space Mono italic
+@font-face {
+  font-family: "SpaceMono";
+  src: url("./fonts/SpaceMono/SpaceMono-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Space Mono bold
+@font-face {
+  font-family: "SpaceMono";
+  src: url("./fonts/SpaceMono/SpaceMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Space Mono bold italic
+@font-face {
+  font-family: "SpaceMono";
+  src: url("./fonts/SpaceMono/SpaceMono-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+// =====================
+// Font: Now
+// =====================
+
+// Now thin
+@font-face {
+  font-family: "Now";
+  src: url("./fonts/now/Now-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now light
+@font-face {
+  font-family: "Now";
+  src: url("./fonts/now/Now-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now regular
+@font-face {
+  font-family: "Now";
+  src: url("./fonts/now/Now-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now medium
+@font-face {
+  font-family: "Now";
+  src: url("./fonts/now/Now-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now bold
+@font-face {
+  font-family: "Now";
+  src: url("./fonts/now/Now-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now black
+@font-face {
+  font-family: "Now";
+  src: url("./fonts/now/Now-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+// =====================
+// Font: Now Alt
+// =====================
+
+// Now Alt thin
+@font-face {
+  font-family: "NowAlt";
+  src: url("./fonts/now/NowAlt-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now Alt light
+@font-face {
+  font-family: "NowAlt";
+  src: url("./fonts/now/NowAlt-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now Alt regular
+@font-face {
+  font-family: "NowAlt";
+  src: url("./fonts/now/NowAlt-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now Alt medium
+@font-face {
+  font-family: "NowAlt";
+  src: url("./fonts/now/NowAlt-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now Alt bold
+@font-face {
+  font-family: "NowAlt";
+  src: url("./fonts/now/NowAlt-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Now Alt black
+@font-face {
+  font-family: "NowAlt";
+  src: url("./fonts/now/NowAlt-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+// =====================
+// Font: Libre Barcode
+// =====================
+
+// Libre Barcode 39 Text regular
+@font-face {
+  font-family: "LibreBarcode39Text";
+  src: url("./fonts/Libre_Barcode/LibreBarcode39Text-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

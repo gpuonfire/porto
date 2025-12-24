@@ -5,8 +5,9 @@ import HomePage from "@/pages/Home/HomePage";
 import RootLayout from "@/RootLayout";
 import GalleryPage from "@/pages/Gallery/GalleryPage";
 import ProjectDetailPage from "@/pages/ProjectDetailPage/ProjectDetailPage";
-import ProjectPage from "@/pages/ProjectsPage/ProjectsPage";
-import AboutMePage from "@/pages/AboutMe/AboutMe";
+import ProjectsPage from "@/pages/ProjectsPage/ProjectsPage";
+import ContactPage from "@/pages/Contact/Contact";
+import IconSandbox from "@/pages/IconSandbox/IconSandbox";
 
 const router = createBrowserRouter([
   {
@@ -15,9 +16,10 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <HomePage /> },
       { path: "art", element: <GalleryPage /> },
-      { path: "about-me", element: <AboutMePage /> },
       { path: "projects/:proId", element: <ProjectDetailPage /> },
-      { path: "projects", element: <ProjectPage /> },
+      { path: "projects", element: <ProjectsPage /> },
+      { path: "contact", element: <ContactPage /> },
+      { path: "icons", element: <IconSandbox /> },
     ],
   },
 ]);

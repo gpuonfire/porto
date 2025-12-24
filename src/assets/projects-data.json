@@ -76,36 +76,90 @@
   "projects": [
     {
       "id": "e-comerce",
-      "title": "Virtual Aquarium",
-      "date": "2025-03-15",
+      "title": "VIRTUAL AQUARIUM",
+      "date": "2025",
       "featured": true,
-      "description": "This comprehensive e-commerce platform was built using React for the frontend and Node.js with Express for the backend. The application features a responsive design that adapts seamlessly to all device sizes, integrated payment processing through Stripe API, and real-time inventory management. Users can create accounts, save favorite items, track order history, and receive email notifications about order status. The admin dashboard provides detailed analytics on sales trends, user behavior, and inventory levels. One of the most challenging aspects was implementing a robust recommendation engine that suggests products based on browsing history and purchase patterns. The project also includes a sophisticated search function with filters for categories, price ranges, and ratings. MongoDB was used for the database, with Redis caching implemented to improve performance for frequently accessed data.",
-      "hashtags": ["react", "go", "drawing"],
+      "description": "This comprehensive e-commerce platform was built using React for the frontend and Node.js",
+      "tags": ["react", "java", "p5JS", "TS"],
       "thumbnail": {
-        "src": "./thumbnail.png",
+        "src": "https://www.tha.de/homes/sim0n/media/img/Drawings/die_ich_rief_poster.jpg",
         "alt": "Product detail page with reviews and recommendations"
       },
+      "factsContainer": {
+        "context": "University Assignment made at class 'Fullstack Dev'",
+        "date": "2025",
+        "collaborators": "Kowalski, Pummelove",
+        "projectURL": "https://www.schlaubeere.de"
+      },
       "videoUrl": "https://www.youtube.com/watch?v=eX5CuDEcZAw",
-      "images": [
+      "content": [
         {
-          "id": 1,
-          "src": "./assets/images/ecommerce-home.png",
-          "alt": "E-commerce platform homepage showing featured products"
+          "layout": 1,
+          "elements": [
+            { "title": "Hier ist ein Titel!" },
+            {
+              "image": {
+                "url": "https://tha.de/homes/sim0n/media/img/Renders/tempel11.jpg",
+                "alt": "hier ist ein schlönes bild"
+              }
+            },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            {
+              "image": {
+                "url": "https://tha.de/homes/sim0n/media/img/Renders/MaterialShow.jpg",
+                "alt": "hier ist ein schlönes bild"
+              }
+            },
+            { "graphic": "5Point_small" },
+            { "smallTitle": "This is a small title" },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            }
+          ]
         },
         {
-          "id": 2,
-          "src": "./assets/images/ecommerce-product.png",
-          "alt": "Product detail page with reviews and recommendations"
+          "layout": 2,
+          "elements": [
+            { "title": "WAS GUCKSTE SO EH?" },
+            {
+              "image": {
+                "url": "https://tha.de/homes/sim0n/media/img/Renders/MaterialShow.jpg",
+                "alt": "hier ist ein schlönes bild"
+              }
+            },
+            {
+              "text": "layout 2 blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0 \n lalblal hallo ich bin ein\n\n langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der"
+            },
+            { "smallTitle": "This is a small title" },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            { "graphic": "5Point" }
+          ]
         },
         {
-          "id": 3,
-          "src": "./assets/images/ecommerce-cart.png",
-          "alt": "Shopping cart interface with payment options"
-        },
-        {
-          "id": 4,
-          "src": "./assets/images/ecommerce-admin.png",
-          "alt": "Admin dashboard showing sales analytics"
+          "layout": 3,
+          "title": "Heading",
+          "elements": [
+            { "title": "wonderful yeeh" },
+            {
+              "image": {
+                "url": "https://tha.de/homes/sim0n/media/img/Renders/SiFi_Container.jpg",
+                "alt": "Das sind so Container, die hab ich im 2. Semester gemacht. Sind die NIcht toll? Hat halt übelst lang zum render gebraucht aber das wars wert"
+              }
+            },
+            { "smallTitle": "Can me do more please?" },
+
+            {
+              "text": "layout 3 blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            { "graphic": "5Point" }
+          ]
         }
       ]
     },
