@@ -91,7 +91,6 @@
         "collaborators": "Kowalski, Pummelove",
         "projectURL": "https://www.schlaubeere.de"
       },
-      "videoUrl": "https://www.youtube.com/watch?v=eX5CuDEcZAw",
       "content": [
         {
           "layout": 1,
@@ -164,177 +163,162 @@
       ]
     },
     {
-      "id": "taks-management",
-      "title": "Task Management System with Real-time Collaboration",
-      "date": "2025-01-20",
+      "id": "virtual-museum",
+      "title": "DIGITAL ART GALLERY",
+      "date": "2024",
+      "featured": false,
+      "description": "Immersive VR museum experience with real-time visitor interactions",
+      "tags": ["threeJS", "webGL", "node", "TS"],
+      "thumbnail": {
+        "src": "https://tha.de/homes/sim0n/media/img/Renders/tempel5.jpg",
+        "alt": "VR gallery with floating sculptures"
+      },
+      "factsContainer": {
+        "context": "Graduation project for Digital Media MA",
+        "date": "2024",
+        "collaborators": "Van Gogh, Monet",
+        "projectURL": "https://virtual-gallery.demo"
+      },
+      "content": [
+        {
+          "layout": 2,
+          "elements": [
+            { "title": "IMMERSIVE ART EXPERIENCE" },
+            {
+              "image": {
+                "url": "https://example.com/gallery-view1.jpg",
+                "alt": "VR headset view of exhibition"
+              }
+            },
+            {
+              "text": "Implemented real-time multiplayer functionality allowing visitors to interact through avatar representations. The system handles up to 50 concurrent users in single exhibition rooms."
+            },
+            { "graphic": "networkNodes" }
+          ]
+        },
+        {
+          "layout": 3,
+          "title": "TECHNICAL BREAKDOWN",
+          "elements": [
+            { "smallTitle": "Performance Metrics" },
+            {
+              "text": "Optimized for 90fps on Quest 2 devices using occlusion culling and LOD systems. Asset pipeline automated through custom Blender plugins."
+            },
+            {
+              "image": {
+                "url": "https://example.com/tech-diagram.png",
+                "alt": "System architecture diagram"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "health-tracker",
+      "title": "FITNESS COMPANION",
+      "date": "2023",
       "featured": true,
-      "description": "This advanced task management application enables teams to collaborate efficiently through real-time updates using Socket.io. Built with the MERN stack (MongoDB, Express, React, Node.js), the system features an intuitive drag-and-drop interface for task organization across custom project boards. Users can assign tasks, set priorities, add comments, attach files, and track progress through customizable workflows. The application includes integration with Google Calendar for deadline management and automated reminders via email and in-app notifications. One of the standout features is the ability to generate comprehensive reports on team productivity, task completion rates, and project timelines. The authentication system uses JWT with refresh tokens for enhanced security, while role-based access control ensures appropriate permissions for team members, managers, and administrators. The application also includes a time-tracking feature that helps teams monitor how much time is spent on each task and project.",
-      "hashtags": ["react", "go", "some"],
+      "description": "AI-powered workout tracker with posture correction",
+      "tags": ["tensorflowJS", "reactNative", "firebase"],
       "thumbnail": {
-        "src": "./thumbnail.png",
-        "alt": "Product detail page with reviews and recommendations"
+        "src": "https://tha.de/homes/sim0n/media/img/Drawings/img%20(1).jpg",
+        "alt": "Mobile app showing exercise metrics"
       },
-      "videoUrl": "https://www.youtube.com/watch?v=jK5LWbBrK8Y",
-      "images": [
+      "factsContainer": {
+        "context": "Startup accelerator project",
+        "date": "2023",
+        "collaborators": "Schwarzenegger, Stallone",
+        "projectURL": "https://fitcompanion.app"
+      },
+      "content": [
         {
-          "id": 1,
-          "src": "./assets/images/task-dashboard.png",
-          "alt": "Main dashboard showing project overview and recent activities"
-        },
-        {
-          "id": 2,
-          "src": "./assets/images/task-kanban.png",
-          "alt": "Kanban board view of project tasks"
-        },
-        {
-          "id": 3,
-          "src": "./assets/images/task-report.png",
-          "alt": "Analytics report showing project progress"
-        },
-        {
-          "id": 4,
-          "src": "./assets/images/task-mobile.png",
-          "alt": "Mobile view of the task management application"
+          "layout": 1,
+          "elements": [
+            { "title": "REAL-TIME FORM ANALYSIS" },
+            {
+              "image": {
+                "url": "https://example.com/pose-detection.jpg",
+                "alt": "Skeleton overlay on squating person"
+              }
+            },
+            {
+              "text": "Computer vision model detects 32 key body points and provides corrective feedback within 200ms latency. Integrated with Apple Health and Google Fit."
+            },
+            { "graphic": "bodyPoints_large" }
+          ]
         }
       ]
     },
     {
-      "id": "healthcare",
-      "title": "Healthcare Appointment Scheduling System",
-      "date": "2024-11-10",
-      "featured": false,
-      "description": "This healthcare appointment scheduling system was developed to streamline the process of booking medical appointments for both patients and healthcare providers. The application was built using Vue.js for the frontend and Django with Python for the backend, with PostgreSQL as the database. Patients can search for doctors by specialty, location, or insurance acceptance, view available time slots, and book or reschedule appointments. The system implements secure patient profiles with medical history, insurance information, and appointment records, all protected with HIPAA-compliant security measures. Healthcare providers benefit from an optimized scheduling interface that prevents double-bookings and efficiently manages their availability. The system also features automated appointment reminders via SMS and email, reducing no-show rates by 35% in pilot implementations. Integration with electronic health record systems allows for seamless transfer of patient information, while the telemedicine component enables virtual consultations directly through the platform when in-person visits aren't necessary.",
-      "hashtags": ["ehlp", "me", "drawing"],
-      "thumbnail": {
-        "src": "./thumbnail.png",
-        "alt": "Product detail page with reviews and recommendations"
-      },
-      "videoUrl": "https://www.youtube.com/watch?v=mLX7DWL4TPs",
-      "images": [
-        {
-          "id": 1,
-          "src": "./assets/images/healthcare-search.png",
-          "alt": "Doctor search interface with filtering options"
-        },
-        {
-          "id": 2,
-          "src": "./assets/images/healthcare-booking.png",
-          "alt": "Appointment booking screen with available time slots"
-        },
-        {
-          "id": 3,
-          "src": "./assets/images/healthcare-profile.png",
-          "alt": "Patient profile page showing medical history and appointments"
-        },
-        {
-          "id": 4,
-          "src": "./assets/images/healthcare-doctor.png",
-          "alt": "Doctor's dashboard showing daily schedule"
-        }
-      ]
-    },
-    {
-      "id": "visualization",
-      "title": "Real-time Data Visualization Dashboard",
-      "date": "2024-09-05",
+      "id": "smart-farming",
+      "title": "AGRO-TECH DASHBOARD",
+      "date": "2024",
       "featured": true,
-      "description": "This sophisticated data visualization dashboard provides real-time analytics for business intelligence purposes. Built with Angular for the frontend and Flask with Python for the backend, the application integrates with multiple data sources through RESTful APIs and WebSockets for live updates. Users can customize their dashboards with drag-and-drop widgets representing different data metrics and visualization types, including interactive charts, maps, and tables. The system implements role-based access control to ensure data security while allowing team members to share insights and collaborate on analysis. Advanced features include anomaly detection algorithms that alert users to unusual patterns in the data, export functionality in multiple formats (PDF, CSV, Excel), and scheduled report generation. The application uses D3.js and Chart.js for rich visualizations, with Redis for caching frequently accessed data to maintain performance even with large datasets. Custom filtering and aggregation capabilities allow users to drill down into specific time periods, geographic regions, or other dimensions without requiring technical SQL knowledge.",
-      "hashtags": ["virtual", "go", "cool"],
+      "description": "IoT monitoring system for precision agriculture",
+      "tags": ["iot", "vue", "python", "d3JS"],
       "thumbnail": {
-        "src": "./thumbnail.png",
-        "alt": "Product detail page with reviews and recommendations"
+        "src": "https://tha.de/homes/sim0n/media/img/Drawings/img%20(3).jpg",
+        "alt": "Field monitoring interface with sensor data"
       },
-      "videoUrl": "https://www.youtube.com/watch?v=qFS9xnTGJDM",
-      "images": [
+      "factsContainer": {
+        "context": "Commercial project for AgriTech Inc",
+        "date": "2024",
+        "collaborators": "FarmBot, CropCircle",
+        "projectURL": "https://agro-dash.live"
+      },
+      "content": [
         {
-          "id": 1,
-          "src": "./assets/images/dashboard-overview.png",
-          "alt": "Main dashboard overview with multiple data visualizations"
-        },
-        {
-          "id": 2,
-          "src": "./assets/images/dashboard-chart.png",
-          "alt": "Detailed chart view with filtering options"
-        },
-        {
-          "id": 3,
-          "src": "./assets/images/dashboard-map.png",
-          "alt": "Geographic data visualization with heat map"
-        },
-        {
-          "id": 4,
-          "src": "./assets/images/dashboard-mobile.png",
-          "alt": "Mobile-responsive view of key metrics"
+          "layout": 3,
+          "title": "DATA VISUALIZATION",
+          "elements": [
+            { "smallTitle": "Sensor Network" },
+            {
+              "image": {
+                "url": "https://example.com/sensor-map.jpg",
+                "alt": "Field map with device locations"
+              }
+            },
+            {
+              "text": "Collects data from 15+ sensor types including soil moisture, pH levels, and weather conditions. Predictive algorithms forecast yield with 92% accuracy."
+            }
+          ]
         }
       ]
     },
     {
-      "id": "learning-plattform",
-      "title": "Social Learning Platform for Developers",
-      "date": "2024-07-12",
+      "id": "language-tutor",
+      "title": "POLYGLOT AI TUTOR",
+      "date": "2025",
       "featured": false,
-      "description": "This social learning platform was designed specifically for software developers to share knowledge, collaborate on coding challenges, and build their professional portfolios. The application was developed using Next.js for the frontend with a serverless architecture leveraging AWS Lambda functions and DynamoDB for the backend. Users can create profiles highlighting their skills and projects, participate in coding challenges with real-time code execution, and engage in discussion forums organized by programming languages and topics. The platform features a sophisticated reputation system where users earn points and badges for contributing quality content, answering questions, and mentoring others. Integration with GitHub allows developers to showcase their repositories and contribution history, while the job board connects companies with talent based on demonstrated skills rather than just resumes. The learning path feature creates personalized curricula based on a user's goals and current skill level, recommending resources and challenges to help them progress. Authentication is handled through Auth0, with additional options for OAuth via GitHub, Google, and LinkedIn.",
-      "hashtags": ["vue", "js", "drawing"],
+      "description": "Adaptive language learning with speech recognition",
+      "tags": ["nlp", "react", "azure", "webAudio"],
       "thumbnail": {
-        "src": "./thumbnail.png",
-        "alt": "Product detail page with reviews and recommendations"
+        "src": "https://tha.de/homes/sim0n/media/img/Drawings/img%20(19).jpg",
+        "alt": "Conversation practice interface"
       },
-      "videoUrl": "https://www.youtube.com/watch?v=tR2XNkP4JMc",
-      "images": [
-        {
-          "id": 1,
-          "src": "./assets/images/social-feed.png",
-          "alt": "Activity feed showing recent discussions and challenges"
-        },
-        {
-          "id": 2,
-          "src": "./assets/images/social-challenge.png",
-          "alt": "Coding challenge interface with live code execution"
-        },
-        {
-          "id": 3,
-          "src": "./assets/images/social-learning.png",
-          "alt": "Personalized learning path with progress tracking"
-        },
-        {
-          "id": 4,
-          "src": "./assets/images/social-forum.png",
-          "alt": "Discussion forum with code snippets and responses"
-        }
-      ]
-    },
-    {
-      "id": "content-man",
-      "title": "Content Management System with Headless Architecture",
-      "date": "2024-05-22",
-      "featured": false,
-      "description": "This modern content management system utilizes a headless architecture that separates the content repository from the presentation layer, allowing for maximum flexibility in how content is displayed across multiple platforms. Built with GraphQL for the API layer, React for the admin interface, and a Node.js backend with MongoDB, the system enables content creators to manage digital assets efficiently while developers can consume the content through well-documented APIs. The platform features a sophisticated content modeling system where administrators can define custom content types with specific fields and validation rules without writing code. Version control and content scheduling allow teams to prepare content in advance and roll back changes if needed. The media management system handles image optimization automatically, generating appropriate sizes for different devices and implementing lazy loading for performance. Localization support makes it easy to manage content in multiple languages, with automatic translation suggestions to speed up the process. The system also includes detailed analytics on content performance, user engagement patterns, and conversion rates to help optimize the content strategy.",
-      "hashtags": ["svelt", "go", "c++"],
-      "thumbnail": {
-        "src": "./thumbnail.png",
-        "alt": "Product detail page with reviews and recommendations"
+      "factsContainer": {
+        "context": "University research initiative",
+        "date": "2025",
+        "collaborators": "Chomsky, Duolingo",
+        "projectURL": "https://polyglot-tutor.edu"
       },
-      "videoUrl": "https://www.youtube.com/watch?v=bHV7cMhW5AM",
-      "images": [
+      "content": [
         {
-          "id": 1,
-          "src": "./assets/images/cms-dashboard.png",
-          "alt": "CMS dashboard showing content overview and recent changes"
-        },
-        {
-          "id": 2,
-          "src": "./assets/images/cms-editor.png",
-          "alt": "Rich text editor for content creation"
-        },
-        {
-          "id": 3,
-          "src": "./assets/images/cms-media.png",
-          "alt": "Media library with filtering and organization options"
-        },
-        {
-          "id": 4,
-          "src": "./assets/images/cms-api.png",
-          "alt": "API documentation and testing interface"
+          "layout": 2,
+          "elements": [
+            { "title": "SPEECH RECOGNITION ENGINE" },
+            {
+              "text": "Real-time pronunciation analysis using comparative phonetics. Supports 8 languages with dialect variations. Adaptive difficulty scales based on learner progress."
+            },
+            { "graphic": "waveform" },
+            {
+              "image": {
+                "url": "https://example.com/speech-analytics.jpg",
+                "alt": "Waveform comparison visualization"
+              }
+            }
+          ]
         }
       ]
     }
