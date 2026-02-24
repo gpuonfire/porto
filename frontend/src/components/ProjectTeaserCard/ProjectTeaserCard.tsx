@@ -1,18 +1,21 @@
 import { Link } from "react-router";
-import { Project } from "@/@types/youAreJustMyType";
+import { Image } from "@/@types/youAreJustMyType";
 import styles from "./ProjectTeaserCard.module.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import pointSVG from "@/assets/Points.svg";
+
+type ProjectTeaserCardProps = {
+  title: string
+  thumbnail?: Image
+  tags?: string[]
+}
 
 export default function ProjectTeaserCard({
   title,
   thumbnail,
   tags,
-}: Project) {
+}: ProjectTeaserCardProps) {
   function titleToUrl(title: string): string {
-    if (!title) {
-      return "no-title";
-    }
     return title
       .toLowerCase()
       .trim()
@@ -25,9 +28,13 @@ export default function ProjectTeaserCard({
     <>
       {
         <article className={styles.projectCard}>
-          <div className={styles.thumbnailContainer}>
-            <LazyLoadImage src={thumbnail.src} alt={thumbnail.alt} />
-          </div>
+          {
+            thumbnail ?
+              <div className={styles.thumbnailContainer}>
+                <LazyLoadImage src={thumbnail.src} alt={thumbnail.alt} />
+              </div>
+              : null
+          }
           <div className={styles.bottomSection}>
             <div className={styles.titleContainer}>
               <div className={styles.svgContainer}>
@@ -39,13 +46,17 @@ export default function ProjectTeaserCard({
                 />
               </div>
               <div className={styles.textBox}>
-                <div className={styles.hashtags}>
-                  {tags.map((text: string, index: number) => (
-                    <p className={styles.hash} key={index}>
-                      #{text.toUpperCase()}
-                    </p>
-                  ))}
-                </div>
+                {
+                  tags ?
+                    <div className={styles.hashtags}>
+                      {tags.map((text: string, index: number) => (
+                        <p className={styles.hash} key={index}>
+                          #{text.toUpperCase()}
+                        </p>
+                      ))}
+                    </div>
+                    : null
+                }
                 <h1>{title}</h1>
               </div>
             </div>

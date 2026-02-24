@@ -1,5 +1,5 @@
-import { use } from "react";
-import { ContentContext } from "@/context/content-context";
+// import { use } from "react";
+// import { ContentContext } from "@/context/content-context";
 
 export default function ContactPage() {
   return (

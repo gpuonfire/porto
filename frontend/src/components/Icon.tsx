@@ -1,3 +1,4 @@
+import { JSX } from "react";
 type IconProps = {
   iconName: string;
   width?: number;
@@ -14,8 +15,8 @@ type IconProps = {
 
 export default function Icon({
   iconName,
-  width = 24,
-  height = 24,
+  // width = 24,
+  // height = 24,
   className,
   title,
   fill = "currentColor",

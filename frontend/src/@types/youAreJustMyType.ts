@@ -2,20 +2,22 @@ export type Project = {
   id: string;
   title: string;
   date: string;
-  featured: boolean;
-  description: string;
-  tags: string[];
-  thumbnail: {
-    src: string;
-    alt: string;
+  description?: string;
+  tags?: string[];
+  thumbnail?: Image;
+  heroImage?: Image;
+  factsContainer?: {
+    context: string;
+    date: string;
+    collaborators: string;
+    projectURL: string;
   };
-  videoUrl: string;
-  images: {
-    id: number;
-    src: string;
-    alt: string;
-  }[];
-  content: Layout[];
+  content?: Layout[];
+};
+
+export type Layout = {
+  layout: number;
+  elements: any[];
 };
 
 export type AboutMe = {
@@ -25,13 +27,13 @@ export type AboutMe = {
 };
 
 export type Image = {
-  id: number;
   src: string;
   alt: string;
-  className: string;
-  width: number;
-  height: number;
-  aspectRatio: number;
+  id?: number;
+  className?: string;
+  width?: number;
+  height?: number;
+  aspectRatio?: number;
 };
 
 export interface ProjectOutputProps {
@@ -58,7 +60,5 @@ export type ContentContextType = {
 //   graphic?: string;
 // };
 
-export type Layout = {
-  layout: number;
-  elements: [];
-};
+
+

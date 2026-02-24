@@ -27,14 +27,14 @@ export default function IconSandbox() {
         {ICON_NAMES.map((name) => (
           <div key={name} className={styles.card}>
             <div>
-              <Icon iconName={name} size={32} title={`${name} (32)`} />
+              <Icon iconName={name} title={`${name} (32)`} />
             </div>
             <div className={styles.meta}>
               <div className={styles.name}>{name}</div>
               <div className={styles.examples}>
-                <Icon iconName={name} size={16} />
-                <Icon iconName={name} size={20} />
-                <Icon iconName={name} size={24} />
+                <Icon iconName={name} />
+                <Icon iconName={name} />
+                <Icon iconName={name} />
               </div>
             </div>
           </div>
@@ -43,14 +43,14 @@ export default function IconSandbox() {
         {/* show what happens with unknown icon */}
         <div className={styles.card}>
           <div>
-            <Icon iconName="unknown-icon" size={32} />
+            <Icon iconName="unknown-icon" />
           </div>
           <div className={styles.meta}>
             <div className={`${styles.name} ${styles.empty}`}>unknown-icon</div>
             <div className={styles.examples}>
-              <Icon iconName="unknown-icon" size={16} />
-              <Icon iconName="unknown-icon" size={20} />
-              <Icon iconName="unknown-icon" size={24} />
+              <Icon iconName="unknown-icon" />
+              <Icon iconName="unknown-icon" />
+              <Icon iconName="unknown-icon" />
             </div>
           </div>
         </div>

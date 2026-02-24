@@ -1,10 +1,9 @@
-import { use } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { ContentContext } from "@/context/content-context";
 import styles from "./Gallery.module.scss";
+import TESTDATA from "@/assets/projects-data.json";
 
 export default function GalleryPage() {
-  const { images } = use(ContentContext);
+  const images = TESTDATA.images
 
   return (
     <>

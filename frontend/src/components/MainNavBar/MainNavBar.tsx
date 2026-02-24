@@ -13,7 +13,7 @@ export default function MainNavBar() {
   const [isExpanded, setIsExpanded] = useState(false);
   const isOpen = useRef(false);
   const dropMenu = useRef<HTMLUListElement>(null);
-  const heading = useRef<HTMLUListElement>(null);
+  // const heading = useRef<HTMLUListElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -96,9 +96,8 @@ export default function MainNavBar() {
         </button>
       </div>
       <ul
-        className={`${styles.navList} ${
-          isExpanded ? styles.expanded : styles.collapsed
-        }`}
+        className={`${styles.navList} ${isExpanded ? styles.expanded : styles.collapsed
+          }`}
       >
         <li className={styles.navItem}>
           <NavLink

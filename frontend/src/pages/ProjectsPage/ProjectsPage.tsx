@@ -39,8 +39,8 @@ export default function ProjectPage() {
           projects.map((project: Project, index: number) => (
             <ProjectTeaserCard
               key={index}
-              thumbnail={project.thumbnail}
               title={project.title}
+              thumbnail={project.thumbnail}
               tags={project.tags}
             />
           ))

@@ -1,17 +1,22 @@
 {
-    "defaults": {
-        "project": {
-            "id": "default",
-            "title": "default project",
-            "date": "",
-            "featured": false,
-            "description": "no description",
-            "thumbnail": {
-                "src": "",
-                "alt": ""
-            },
-            "videoUrl": "",
-            "images": []
-        }
-    }
+  "defaults": {
+    "project": {
+      "id": "default",
+      "title": "default project",
+      "date": "",
+      "featured": false,
+      "description": "no description",
+      "tags": "",
+      "content": {
+        "layout": 1,
+        "content": []
+      }
+    },
+    "thumbnail": {
+      "src": "",
+      "alt": ""
+    },
+    "videoUrl": "",
+    "images": []
+  }
 }

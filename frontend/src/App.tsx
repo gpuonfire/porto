@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import ContentContextProvider from "./context/content-context";
+// import ContentContextProvider from "./context/content-context";
 
 import HomePage from "@/pages/Home/HomePage";
 import RootLayout from "@/RootLayout";
@@ -26,9 +26,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <ContentContextProvider>
-      <RouterProvider router={router} />
-    </ContentContextProvider>
+    <RouterProvider router={router} />
   );
 }
 
