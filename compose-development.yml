@@ -1,0 +1,28 @@
+services:
+  porto_frontend:
+    container_name: ${IMAGE_TAG}_frontend
+    image: ${IMAGE_TAG}_frontend
+    build:
+      context: ./frontend
+      args:
+        MODE: ${MODE}
+        FRONTEND_PORT: ${FRONTEND_PORT}
+        FRONTEND_BACKEND_HOST: ${FRONTEND_BACKEND_HOST_DEVELOPMENT}
+    ports:
+      - ${FRONTEND_OUTER_PORT}:${FRONTEND_INNER_PORT}
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+  porto_backend:
+    container_name: ${IMAGE_TAG}_backend
+    image: ${IMAGE_TAG}_backend
+    build:
+      context: ./backend
+      args:
+        PORT: ${BACKEND_CONTAINER_PORT}
+        MODE: ${MODE}
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_CONTAINER_PORT}
+    volumes:
+      - ./backend/src:/backend/src
