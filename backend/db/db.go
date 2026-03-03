@@ -2,53 +2,26 @@ package db
 
 import (
 	"database/sql"
+	_ "embed" // Import is required for embedding
 
 	_ "github.com/mattn/go-sqlite3"
 )
+
+//go:embed scheme.sql
+var schemaSQL string
 
 var DB *sql.DB
 
 func InitDB() {
 	var err error
-	DB, err = sql.Open("sqlite3", "api.db")
-
+	DB, err = sql.Open("sqlite3", "api.db?_foreign_keys=on")
 	if err != nil {
-		panic("Could not connect to database.")
+		panic(err)
 	}
 
-	DB.SetMaxOpenConns(10)
-	DB.SetMaxIdleConns(5)
-
-	createTables()
-}
-
-func createTables() {
-	createUserTable := `
-	CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    email TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL
-	)
-	`
-	_, err := DB.Exec(createUserTable)
+	// Use the embedded string directly
+	_, err = DB.Exec(schemaSQL)
 	if err != nil {
-		panic("Couln't create users tabel!")
-	}
-
-	createEventsTable := `
-	CREATE TABLE IF NOT EXISTS events (
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		name TEXT NOT NULL,
-		description TEXT NOT NULL,
-		location TEXT NOT NULL,
-		dateTime DATETIME NOT NULL,
-		user_id INTEGER,
-		FOREIGN KEY(user_id) REFERENCES user(id)
-	)
-	`
-	_, err = DB.Exec(createEventsTable)
-
-	if err != nil {
-		panic("Couln't create events tabel!")
+		panic("Could not execute embedded schema: " + err.Error())
 	}
 }

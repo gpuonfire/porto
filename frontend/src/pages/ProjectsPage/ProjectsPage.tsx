@@ -13,8 +13,17 @@ export default function ProjectPage() {
   console.log("here");
   useEffect(() => {
     async function loadProjects() {
-      // const projectData = JSON.parse(TESTDATA);
-      setProjects(TESTDATA.projects);
+      const backendHost = process.env.BACKEND_HOST;
+      if (!backendHost) {
+        throw new Error('Backend Host is not set');
+      }
+      await fetch(backendHost)
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          setProjects(resData);
+        });
     }
     loadProjects();
   }, []);

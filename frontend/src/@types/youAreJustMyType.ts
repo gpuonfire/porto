@@ -7,7 +7,6 @@ export type Project = {
   thumbnail?: Image;
   heroImage?: Image;
   factsContainer?: {
-    context: string;
     date: string;
     collaborators: string;
     projectURL: string;

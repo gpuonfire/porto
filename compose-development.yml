@@ -6,7 +6,7 @@ services:
       context: ./frontend
       args:
         MODE: ${MODE}
-        FRONTEND_PORT: ${FRONTEND_PORT}
+        FRONTEND_PORT: ${FRONTEND_INNER_PORT}
         FRONTEND_BACKEND_HOST: ${FRONTEND_BACKEND_HOST_DEVELOPMENT}
     ports:
       - ${FRONTEND_OUTER_PORT}:${FRONTEND_INNER_PORT}
@@ -20,9 +20,9 @@ services:
     build:
       context: ./backend
       args:
-        PORT: ${BACKEND_CONTAINER_PORT}
+        PORT: ${BACKEND_OUTER_PORT}
         MODE: ${MODE}
     ports:
-      - ${BACKEND_PORT}:${BACKEND_CONTAINER_PORT}
+      - ${BACKEND_OUTER_PORT}:${BACKEND_INNER_PORT}
     volumes:
       - ./backend/src:/backend/src
