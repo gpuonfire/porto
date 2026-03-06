@@ -1,0 +1,9 @@
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "name": "Learn how to drive",
+  "description": "For focus",
+  "location": "tbei deime eutoaushion",
+  "dateTime": "2027-11-30T15:30:00.000Z"
+}
