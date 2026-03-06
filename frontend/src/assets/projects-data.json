@@ -99,10 +99,10 @@
         "collaborators": "Kowalski, Pummelove",
         "projectURL": "https://www.schlaubeere.de"
       },
-      "content": [
+      "sections": [
         {
           "layout": 1,
-          "elements": [
+          "bits": [
             {
               "title": "Hier ist ein Titel!"
             },
@@ -134,7 +134,7 @@
         },
         {
           "layout": 2,
-          "elements": [
+          "bits": [
             {
               "title": "WAS GUCKSTE SO EH?"
             },
@@ -161,7 +161,7 @@
         {
           "layout": 3,
           "title": "Heading",
-          "elements": [
+          "bits": [
             {
               "title": "wonderful yeeh"
             },

@@ -32,6 +32,27 @@ func getProject(context *gin.Context) {
 	context.JSON(http.StatusOK, project)
 }
 
+func getProjectSections(context *gin.Context) {
+	projectId, err := strconv.ParseInt(context.Param("id"), 10, 64)
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not parse project id"})
+		return
+	}
+
+	project, err := models.GetProjectById(projectId)
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not fetch project by id"})
+		return
+	}
+
+	project.Sections, err = models.GetProjectSections(projectId)
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not get project sections"})
+		return
+	}
+	context.JSON(http.StatusOK, project)
+}
+
 func createProject(context *gin.Context) {
 	token := context.Request.Header.Get("Authorized")
 	if token == "" {
