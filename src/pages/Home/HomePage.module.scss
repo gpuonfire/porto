@@ -20,21 +20,21 @@
   }
 }
 
-footer {
-  height: var(--footer-height);
-  width: 100vw;
-  background-color: $blue-700;
-  color: $green-200;
+// footer {
+//   height: var(--footer-height);
+//   width: 100vw;
+//   background-color: $blue-700;
+//   color: $green-200;
 
-  p {
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: $green-100;
-    -webkit-text-fill-color: $blue-700;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 142.106%; /* 56.843px */
-    letter-spacing: 9.2px;
-  }
-}
+//   p {
+//     -webkit-text-stroke-width: 2px;
+//     -webkit-text-stroke-color: $green-100;
+//     -webkit-text-fill-color: $blue-700;
+//     font-family: Arial, Helvetica, sans-serif;
+//     font-size: 40px;
+//     font-style: normal;
+//     font-weight: 700;
+//     line-height: 142.106%; /* 56.843px */
+//     letter-spacing: 9.2px;
+//   }
+// }

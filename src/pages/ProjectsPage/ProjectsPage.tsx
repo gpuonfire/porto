@@ -10,7 +10,6 @@ import nuclearWaste from "@/assets/SiFi_Container.jpg";
 export default function ProjectPage() {
   const [projects, setProjects] = useState<Project[] | null>(null);
 
-  console.log("here");
   useEffect(() => {
     async function loadProjects() {
       // const projectData = JSON.parse(TESTDATA);

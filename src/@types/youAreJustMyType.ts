@@ -9,12 +9,6 @@ export type Project = {
     src: string;
     alt: string;
   };
-  videoUrl: string;
-  images: {
-    id: number;
-    src: string;
-    alt: string;
-  }[];
   content: Layout[];
 };
 
@@ -46,17 +40,6 @@ export type ContentContextType = {
   getFeaturedProjects: () => Project[];
   getProject: (proId: string) => Project;
 };
-
-// export type Element = {
-//   title?: string;
-//   smallTitle?: string;
-//   image?: {
-//     url: string;
-//     alt: string;
-//   };
-//   text?: string;
-//   graphic?: string;
-// };
 
 export type Layout = {
   layout: number;
