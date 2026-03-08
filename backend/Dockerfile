@@ -1,34 +1,20 @@
-FROM golang:1.24.2-alpine AS builder
+# Dockerfile.dev
+FROM golang:1.25
 
-# 2. Set the working directory inside the container
 WORKDIR /app
 
-# 3. Copy go.mod and go.sum files and download dependencies
+RUN go install github.com/air-verse/air@latest
+
 COPY go.mod go.sum ./
 RUN go mod download
 
-# 4. Copy the rest of the source code
 COPY . .
 
-# 5. Build the Go application
-RUN go build -o backend .
+RUN mkdir -p data
 
-# 6. Use a minimal image for running the app
-FROM debian:bookworm-slim
-
-# 7. Set working directory for runtime
-WORKDIR /app
-
-# 8. Copy the built binary from builder
-COPY --from=builder /app/backend .
-
-# 9. Copy static files (e.g., migrations, assets)
-COPY --from=builder /app/scheme.sql .
-COPY --from=builder /app/api.db .
-
-# 10. Expose port (optional)
 EXPOSE 8080
 
-# 11. Set the entrypoint
-CMD ["./backend"]
+ENV GIN_MODE=debug
+
+CMD ["air"]
 

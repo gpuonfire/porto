@@ -25,6 +25,5 @@ services:
     ports:
       - ${BACKEND_OUTER_PORT}:${BACKEND_INNER_PORT}
     volumes:
-      - ./backend/src:/backend/src
-      - ./backend/data/api.db:/data/api.db
-      - ./backend/data/images:/data/images
+      - ./backend/data/api.db:/app/data/api.db
+      - ./backend/data/images:/app/data/images

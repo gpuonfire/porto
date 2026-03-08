@@ -7,14 +7,14 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-//go:embed scheme.sql
+//go:embed schema.sql
 var schemaSQL string
 
 var DB *sql.DB
 
 func InitDB() {
 	var err error
-	DB, err = sql.Open("sqlite3", "data/api.db?_foreign_keys=on")
+	DB, err = sql.Open("sqlite3", "/app/data/api.db?_foreign_keys=on")
 	if err != nil {
 		panic(err)
 	}
