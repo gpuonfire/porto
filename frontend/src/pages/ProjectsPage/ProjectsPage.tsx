@@ -12,11 +12,11 @@ export default function ProjectPage() {
 
   useEffect(() => {
     async function loadProjects() {
-      const backendHost = process.env.BACKEND_HOST;
+      const backendHost = import.meta.env.VITE_BACKEND_HOST;
       if (!backendHost) {
         throw new Error('Backend Host is not set');
       }
-      await fetch(backendHost)
+      await fetch(`${backendHost}/projects/`)
         .then((response) => {
           return response.json();
         })

@@ -4,6 +4,12 @@ FROM node:22-alpine
 # Set the working directory inside the container
 WORKDIR /app
 
+ARG MODE
+ARG FRONTEND_BACKEND_HOST
+
+ENV MODE=$MODE
+ENV VITE_BACKEND_HOST=$FRONTEND_BACKEND_HOST
+
 # Copy package.json and package-lock.json
 COPY package*.json ./
 

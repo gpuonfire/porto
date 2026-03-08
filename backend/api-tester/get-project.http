@@ -1,8 +1,20 @@
 ### 
-GET http://localhost:8080/projects HTTP/1.1
+
+@endpoint = http://{{host}}:{{port}}/api
+@host = localhost
+@port = 8080
+
 
 ### 
-GET http://localhost:8080/projects/2 HTTP/1.1
+
+GET {{endpoint}}/projects/ HTTP/1.1
+
 
 ### 
-GET http://localhost:8080/projects/1/sections HTTP/1.1
+
+GET {{endpoint}}/projects/2 HTTP/1.1
+
+
+### 
+
+GET {{endpoint}}/projects/1/sections HTTP/1.1

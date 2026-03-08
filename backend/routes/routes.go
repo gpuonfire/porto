@@ -5,14 +5,16 @@ import (
 )
 
 func RegisterRoutes(server *gin.Engine) {
-	server.GET("/projects", getProjects)
-	server.GET("/projects/:id", getProject)
-	server.GET("/projects/:id/sections", getProjectSections)
-	// server.POST("/projects", createProject)
-	// server.PUT("/projects/:id", updateProject)
-	// server.DELETE("/projects/:id", deleteProject)
-
-	// server.GET("/project/:id/sections", getProjectSections)
-
-	server.GET("/gallery", getAllGalleryImages)
+	{
+		api := server.Group("/api")
+		{
+			api.GET("/projects", getProjects)
+			api.GET("/projects/:id", getProject)
+			api.GET("/projects/:id/sections", getProjectSections)
+			// api.POST("/projects", createProject)
+			// api.PUT("/projects/:id", updateProject)
+			// api.DELETE("/projects/:id", deleteProject)
+			api.GET("/gallery", getAllGalleryImages)
+		}
+	}
 }

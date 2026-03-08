@@ -1,26 +1,34 @@
-# syntax=docker/dockerfile:1
+FROM golang:1.24.2-alpine AS builder
 
-FROM golang:1.25.7 as builder
-
+# 2. Set the working directory inside the container
 WORKDIR /app
 
-# Copy go mod and sum files
+# 3. Copy go.mod and go.sum files and download dependencies
 COPY go.mod go.sum ./
 RUN go mod download
 
-# Copy the source code
+# 4. Copy the rest of the source code
 COPY . .
 
-# Build the Go app
-RUN CGO_ENABLED=0 GOOS=linux go build -o main main.go
+# 5. Build the Go application
+RUN go build -o backend .
 
-# Start a new stage for a smaller image
-FROM debian:buster-slim
+# 6. Use a minimal image for running the app
+FROM debian:bookworm-slim
 
+# 7. Set working directory for runtime
 WORKDIR /app
 
-# Copy the binary from the builder
-COPY --from=builder /app/main .
+# 8. Copy the built binary from builder
+COPY --from=builder /app/backend .
 
-ENTRYPOINT ["./main"]
+# 9. Copy static files (e.g., migrations, assets)
+COPY --from=builder /app/scheme.sql .
+COPY --from=builder /app/api.db .
+
+# 10. Expose port (optional)
+EXPOSE 8080
+
+# 11. Set the entrypoint
+CMD ["./backend"]
 

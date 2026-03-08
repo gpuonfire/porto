@@ -1,5 +1,6 @@
 .env
-*.db
+!.env.example
+!*.db
 
 # Logs
 logs
