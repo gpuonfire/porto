@@ -1,0 +1,20 @@
+### 
+
+@endpoint = http://{{host}}:{{port}}/api
+@host = localhost
+@port = 4000
+
+
+### 
+
+GET {{endpoint}}/projects HTTP/1.1
+
+
+### 
+
+GET {{endpoint}}/projects/2 HTTP/1.1
+
+
+### 
+
+GET {{endpoint}}/projects/1/sections HTTP/1.1

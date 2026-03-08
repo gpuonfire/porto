@@ -1,0 +1,196 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "src": "./exampleImg/ex1.png",
+      "alt": "Colorful characters illustration",
+      "className": "",
+      "width": 382,
+      "height": 365,
+      "aspectRatio": 1.0
+    },
+    {
+      "id": 2,
+      "src": "./exampleImg/ex2.png",
+      "alt": "Beverage can design",
+      "className": "",
+      "width": 428,
+      "height": 755,
+      "aspectRatio": 0.6
+    },
+    {
+      "id": 3,
+      "src": "./exampleImg/ex3.png",
+      "alt": "Tree with blue background",
+      "className": "",
+      "width": 483,
+      "height": 601,
+      "aspectRatio": 0.8
+    },
+    {
+      "id": 4,
+      "src": "./exampleImg/ex4.png",
+      "alt": "Colorful vehicle illustration",
+      "className": "",
+      "width": 471,
+      "height": 573,
+      "aspectRatio": 0.8
+    },
+    {
+      "id": 5,
+      "src": "./exampleImg/ex5.png",
+      "alt": "Isometric town view",
+      "className": "",
+      "width": 471,
+      "height": 573,
+      "aspectRatio": 0.8
+    },
+    {
+      "id": 6,
+      "src": "./exampleImg/ex6.png",
+      "alt": "Book cover with dark figure",
+      "className": "",
+      "width": 486,
+      "height": 364,
+      "aspectRatio": 1.3
+    },
+    {
+      "id": 7,
+      "src": "./exampleImg/ex7.png",
+      "alt": "Sunset with vehicle",
+      "className": "",
+      "width": 497,
+      "height": 407,
+      "aspectRatio": 1.2
+    },
+    {
+      "id": 8,
+      "src": "./exampleImg/ex8.jpg",
+      "alt": "it's okay!",
+      "className": "",
+      "width": 740,
+      "height": 550,
+      "aspectRatio": 1.3
+    }
+  ],
+  "projects": [
+    {
+      "id": "e-comerce",
+      "title": "VIRTUAL AQUARIUM",
+      "date": "2025",
+      "description": "This comprehensive e-commerce platform was built using React for the frontend and Node.js",
+      "tags": [
+        "react",
+        "java",
+        "p5JS",
+        "TS"
+      ],
+      "heroImage": {
+        "src": "https://www.tha.de/homes/sim0n/media/img/Renders/tank.jpg",
+        "alt": "product detail page with reviews and recommendations"
+      },
+      "thumbnail": {
+        "src": "https://www.tha.de/homes/sim0n/media/img/Drawings/die_ich_rief_poster.jpg",
+        "alt": "Product detail page with reviews and recommendations"
+      },
+      "factsContainer": {
+        "context": "University Assignment made at class 'Fullstack Dev'",
+        "date": "2025",
+        "collaborators": "Kowalski, Pummelove",
+        "projectURL": "https://www.schlaubeere.de"
+      },
+      "sections": [
+        {
+          "layout": 1,
+          "bits": [
+            {
+              "title": "Hier ist ein Titel!"
+            },
+            {
+              "image": {
+                "url": "https://tha.de/homes/sim0n/media/img/Renders/tempel11.jpg",
+                "alt": "hier ist ein schlönes bild"
+              }
+            },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            {
+              "image": {
+                "url": "https://tha.de/homes/sim0n/media/img/Renders/MaterialShow.jpg",
+                "alt": "hier ist ein schlönes bild"
+              }
+            },
+            {
+              "graphic": "5Point_small"
+            },
+            {
+              "smallTitle": "This is a small title"
+            },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            }
+          ]
+        },
+        {
+          "layout": 2,
+          "bits": [
+            {
+              "title": "WAS GUCKSTE SO EH?"
+            },
+            {
+              "image": {
+                "url": "https://tha.de/homes/sim0n/media/img/Renders/MaterialShow.jpg",
+                "alt": "hier ist ein schlönes bild"
+              }
+            },
+            {
+              "text": "layout 2 blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0 \n lalblal hallo ich bin ein\n\n langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der"
+            },
+            {
+              "smallTitle": "This is a small title"
+            },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            {
+              "graphic": "5Point"
+            }
+          ]
+        },
+        {
+          "layout": 3,
+          "title": "Heading",
+          "bits": [
+            {
+              "title": "wonderful yeeh"
+            },
+            {
+              "image": {
+                "url": "https://tha.de/homes/sim0n/media/img/Renders/SiFi_Container.jpg",
+                "alt": "Das sind so Container, die hab ich im 2. Semester gemacht. Sind die NIcht toll? Hat halt übelst lang zum render gebraucht aber das wars wert"
+              }
+            },
+            {
+              "smallTitle": "Can me do more please?"
+            },
+            {
+              "text": "layout 3 blablalblal hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            {
+              "text": "layout 1 hallo ich bin ein langer text wow so viel content den ich lesen könnte aber ich bin einfach faul und lasse mir kontent liber von der lieben ki generieren0"
+            },
+            {
+              "graphic": "5Point"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "aboutMe": {
+    "hobbies": "These things are my hobbies:...",
+    "education": "I study Interactive Media at ..., I'm currently in my 6th semester",
+    "interests": "I'm interested in cats, computer stuff..."
+  }
+}

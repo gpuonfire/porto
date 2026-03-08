@@ -1,0 +1,10 @@
+data
+api-tester
+*.http
+*.log
+*.tmp
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
+node_modules
