@@ -11,7 +11,7 @@ type Section struct {
 }
 type SectionBit struct {
 	Type    string `binding:"required"`
-	Content string
+	Content any    `binding:"required"`
 }
 
 func GetSections(section_id int64) ([]Section, error) {
@@ -40,26 +40,24 @@ func GetSections(section_id int64) ([]Section, error) {
 	return sections, nil
 }
 
-func GetProjectSections(projectId int64) ([]Section, error) {
+func GetProjectContent(projectId int64) ([]Section, error) {
 	sections, err := GetSections(projectId)
 	if err != nil {
 		return nil, err
 	}
 
 	query := `
-SELECT b.type AS content_type,
-    CASE 
-        WHEN b.type = 'image' THEN i.src 
-        ELSE b.content_text 
-    END AS content
-FROM sections s
-LEFT JOIN section_bits b ON s.id = b.section_id
-LEFT JOIN images i ON b.image_id = i.id
-WHERE s.id = ?
-ORDER BY b.position ASC;
+		SELECT b.type AS content_type,
+		    CASE 
+		        WHEN b.type = 'image' THEN b.image_name
+		        ELSE b.text_content
+		    END AS content
+		FROM sections s
+		LEFT JOIN section_bits b ON s.id = b.section_id
+		LEFT JOIN images i ON b.image_name = i.name
+		WHERE s.id = ?
+		ORDER BY b.position ASC;
 	`
-
-	// for each section
 	for i := range sections {
 		rows, err := db.DB.Query(query, sections[i].id)
 		if err != nil {
@@ -70,9 +68,19 @@ ORDER BY b.position ASC;
 		var bits []SectionBit
 		for rows.Next() {
 			var bit SectionBit
-			err := rows.Scan(&bit.Type, &bit.Content)
+			var rawContent string
+			err := rows.Scan(&bit.Type, &rawContent)
 			if err != nil {
 				return nil, err
+			}
+
+			if bit.Type == "image" {
+				bit.Content, err = getImageByName(rawContent)
+				if err != nil {
+					return nil, err
+				}
+			} else {
+				bit.Content = rawContent
 			}
 			bits = append(bits, bit)
 		}

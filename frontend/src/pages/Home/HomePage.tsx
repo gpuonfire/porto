@@ -1,18 +1,62 @@
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import ProjectTeaserCard from "@/components/ProjectTeaserCard/ProjectTeaserCard";
+import Stripes from "../../components/Stripes/Stripes";
 import styles from "./HomePage.module.scss";
-import cubeImg from "@/assets/CloseUp_Cube_Cycles_Render.jpg";
+import TESTDATA from "@/assets/projects-data.json";
+import { Project } from "../../@types/youAreJustMyType";
+import { useEffect, useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import nuclearWaste from "@/assets/SiFi_Container.jpg";
 
-export default function HomePage() {
+export default function ProjectPage() {
+  const [projects, setProjects] = useState<Project[] | null>(null);
+
+  useEffect(() => {
+    async function loadProjects() {
+      const backendHost = import.meta.env.VITE_BACKEND_API;
+      console.log('Backend Host:', backendHost);
+      if (!backendHost) {
+        throw new Error('Backend Host is not set');
+      }
+      await fetch(`${backendHost}/projects`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          setProjects(resData);
+        });
+    }
+    loadProjects();
+  }, []);
+
   return (
     <>
-      <div className={styles.mainLayout}>
-        <div className={styles.imageContainer}>
-          <LazyLoadImage src={cubeImg} alt="cube image" />
+      <div className={styles.heroSection}>
+        <div className={styles.sidePanel}>
+          <h1 className={styles.heroText}>PROJECTS</h1>
         </div>
-        <footer>
-          <p>안녕 |||| U |||| READ THIS |||| YO</p>
-        </footer>
+        <Stripes number={16} gapSize={40} addedClass={styles.stripes} />
+        <div className={styles.imgContainer}>
+          <LazyLoadImage
+            className={styles.heroImage}
+            src={nuclearWaste}
+            alt="Nuclear Waste Containers"
+          />
+        </div>
       </div>
+      <section className={styles.projectsSection}>
+        {projects ? (
+          projects.map((project: Project, index: number) => (
+            <ProjectTeaserCard
+              key={index}
+              title={project.title}
+              thumbnail={project.thumbnail}
+              tags={project.tags}
+            />
+          ))
+        ) : (
+          <p>Loading projects...</p>
+        )}
+      </section>
     </>
   );
 }

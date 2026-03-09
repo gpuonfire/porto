@@ -2,7 +2,7 @@
 
 @endpoint = http://{{host}}:{{port}}/api
 @host = localhost
-@port = 4000
+@port = 8080
 
 
 ### 

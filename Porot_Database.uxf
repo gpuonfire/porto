@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>14</zoom_level>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>392</y>
-      <w>406</w>
-      <h>364</h>
+      <x>132</x>
+      <y>385</y>
+      <w>319</w>
+      <h>286</h>
     </coordinates>
     <panel_attributes>Projects
 --
 id:                     int [PK, increment]
 title:                   text NOT NULL
-date:                  text
+created:             text
 description:       text
 collaborators:    text
 project_url:        text
@@ -24,28 +24,29 @@ hero_image_id: int [FK -&gt; images.id]</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1190</x>
-      <y>896</y>
-      <w>364</w>
-      <h>196</h>
+      <x>1067</x>
+      <y>781</y>
+      <w>341</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>Images
 --
-id:                    int [PK, increment]
-src:                  text NOT NULL
-alt:                   text
-width:               int
+id:                     int [PK, increment]
+src:                   text NOT NULL
+alt:                    text
+width:                int
 height:              int
-aspect_ration:  real</panel_attributes>
+aspect_ration:  real
+category:          string [FK -&gt; category.name]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>84</x>
-      <y>0</y>
-      <w>266</w>
-      <h>56</h>
+      <x>198</x>
+      <y>77</y>
+      <w>209</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;.&gt;
 &lt;&lt;someStereotype&gt;&gt;</panel_attributes>
@@ -54,10 +55,10 @@ aspect_ration:  real</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>126</x>
-      <y>84</y>
-      <w>266</w>
-      <h>70</h>
+      <x>231</x>
+      <y>143</y>
+      <w>209</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
@@ -68,10 +69,10 @@ teaches to &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>588</y>
-      <w>350</w>
-      <h>182</h>
+      <x>627</x>
+      <y>539</y>
+      <w>275</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>Sections
 --
@@ -86,10 +87,10 @@ unique (project_id, position)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>392</x>
-      <y>448</y>
-      <w>266</w>
-      <h>56</h>
+      <x>440</x>
+      <y>429</y>
+      <w>209</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=0..n
@@ -99,10 +100,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>392</x>
-      <y>644</y>
-      <w>266</w>
-      <h>56</h>
+      <x>440</x>
+      <y>583</y>
+      <w>209</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=0..n
@@ -112,10 +113,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1162</x>
-      <y>336</y>
-      <w>350</w>
-      <h>154</h>
+      <x>1045</x>
+      <y>341</y>
+      <w>275</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>Tags
 --
@@ -128,10 +129,10 @@ unique (name)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>322</y>
-      <w>350</w>
-      <h>182</h>
+      <x>627</x>
+      <y>330</y>
+      <w>275</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>Project_Tags
 --
@@ -144,10 +145,10 @@ Primary_Key (projects.id, tags.id)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>966</x>
-      <y>434</y>
-      <w>224</w>
-      <h>56</h>
+      <x>891</x>
+      <y>418</y>
+      <w>176</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=0..n
@@ -157,10 +158,10 @@ m2=0..1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1176</x>
-      <y>532</y>
-      <w>350</w>
-      <h>224</h>
+      <x>1056</x>
+      <y>495</y>
+      <w>275</w>
+      <h>176</h>
     </coordinates>
     <panel_attributes>Section_Bits
 --
@@ -177,10 +178,10 @@ unique (section_id, position)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>966</x>
-      <y>672</y>
-      <w>238</w>
-      <h>56</h>
+      <x>891</x>
+      <y>605</y>
+      <w>187</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=0..1
@@ -190,10 +191,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>392</x>
-      <y>686</y>
-      <w>826</w>
-      <h>350</h>
+      <x>440</x>
+      <y>616</y>
+      <w>649</w>
+      <h>275</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=0..n
@@ -203,10 +204,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1596</x>
-      <y>602</y>
-      <w>392</w>
-      <h>42</h>
+      <x>1386</x>
+      <y>550</y>
+      <w>308</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>type: 'title', 'smallTitle', 'text', 'image', 'graphic'
 
@@ -217,10 +218,10 @@ bg=white
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1512</x>
-      <y>588</y>
-      <w>112</w>
-      <h>56</h>
+      <x>1320</x>
+      <y>539</y>
+      <w>88</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;60.0;20.0</additional_attributes>
@@ -228,10 +229,10 @@ bg=white
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1596</x>
-      <y>658</y>
-      <w>504</w>
-      <h>42</h>
+      <x>1386</x>
+      <y>594</y>
+      <w>396</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>content_text: Speichert Textinhalt oder Grafik-Namen
 
@@ -243,10 +244,10 @@ bg=white
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1512</x>
-      <y>630</y>
-      <w>112</w>
-      <h>70</h>
+      <x>1320</x>
+      <y>572</y>
+      <w>88</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;60.0;30.0</additional_attributes>
@@ -254,10 +255,10 @@ bg=white
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1596</x>
-      <y>714</y>
-      <w>504</w>
-      <h>42</h>
+      <x>1386</x>
+      <y>638</y>
+      <w>396</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>image_id: Nur gefüllt, wenn type = 'image'
 
@@ -269,10 +270,10 @@ bg=white
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1512</x>
-      <y>644</y>
-      <w>112</w>
-      <h>112</h>
+      <x>1320</x>
+      <y>583</y>
+      <w>88</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;60.0;60.0</additional_attributes>
@@ -280,10 +281,10 @@ bg=white
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1596</x>
-      <y>770</y>
-      <w>504</w>
-      <h>42</h>
+      <x>1386</x>
+      <y>682</y>
+      <w>396</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>position: Reihenfolge innerhalb der Section
 
@@ -294,10 +295,10 @@ bg=white
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1512</x>
-      <y>686</y>
-      <w>112</w>
-      <h>126</h>
+      <x>1320</x>
+      <y>616</y>
+      <w>88</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;60.0;70.0</additional_attributes>
@@ -305,10 +306,10 @@ bg=white
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>630</x>
-      <y>784</y>
-      <w>322</w>
-      <h>70</h>
+      <x>627</x>
+      <y>693</y>
+      <w>253</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>position: Reihenfolge innerhalb
 der ProjectPage
@@ -320,14 +321,40 @@ bg=white
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1274</x>
-      <y>742</y>
-      <w>70</w>
-      <h>182</h>
+      <x>1133</x>
+      <y>660</y>
+      <w>55</w>
+      <h>143</h>
     </coordinates>
     <panel_attributes>lt=&lt;-&gt;
 m1=0..n
 m2=0..1</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1078</x>
+      <y>1023</y>
+      <w>231</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Category
+--
+name: text [PK]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1133</x>
+      <y>924</y>
+      <w>55</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=0..n
+m2=0..1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
 </diagram>

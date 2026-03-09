@@ -45,7 +45,7 @@ func getProjectSections(context *gin.Context) {
 		return
 	}
 
-	project.Sections, err = models.GetProjectSections(projectId)
+	project.Sections, err = models.GetProjectContent(projectId)
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not get project sections"})
 		return

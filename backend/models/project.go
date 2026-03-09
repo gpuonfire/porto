@@ -1,22 +1,24 @@
 package models
 
 import (
+	"strings"
 	"time"
 
 	"my.de/rest-api/db"
+	"my.de/rest-api/utils"
 )
 
 type Project struct {
-	ID            int64
-	Title         string `binding:"required"`
-	DateTime      time.Time
-	Description   string
-	Collaborators string
-	ProjectURL    string
-	HeroSrc       string
-	ThumbnailSrc  string
-	Tags          string
-	Sections      []Section
+	ID            int64     `json:"id"`
+	Title         string    `json:"title" binding:"required"`
+	DateTime      time.Time `json:"dateTime"`
+	Description   string    `json:"description"`
+	Collaborators string    `json:"collaborators"`
+	ProjectURL    string    `json:"projectUrl"`
+	HeroImg       Image     `json:"heroSrc"`
+	ThumbnailImg  Image     `json:"thumbnailSrc"`
+	Tags          []string  `json:"tags"`
+	Sections      []Section `json:"sections"`
 }
 
 var projects = []Project{}
@@ -30,7 +32,7 @@ func (project Project) Save() error {
 		return err
 	}
 	defer stmt.Close()
-	result, err := stmt.Exec(project.Title, project.Description, project.DateTime, project.Collaborators, project.ProjectURL, project.HeroSrc, project.ThumbnailSrc)
+	result, err := stmt.Exec(project.Title, project.Description, project.DateTime, project.Collaborators, project.ProjectURL, project.HeroImg, project.ThumbnailImg)
 	if err != nil {
 		return err
 	}
@@ -40,23 +42,28 @@ func (project Project) Save() error {
 }
 
 func GetAllProjects() ([]Project, error) {
+	utils.Debug("Get projects...")
 	query := `
 	SELECT
 		p.id,
-    p.title, 
-    p.date, 
-    p.description,
+		p.title, 
+		p.created, 
+		p.description,
 		p.collaborators,
 		p.project_url,
-    h.src AS hero_src,
-    i.src AS thumbnail_src,
-		GROUP_CONCAT(t.name) AS tags
-		FROM projects p
-		LEFT JOIN images h ON p.hero_image_id = h.id
-		LEFT JOIN images i ON p.thumbnail_id = i.id
-		LEFT JOIN project_tags pt ON p.id = pt.project_id
-		LEFT JOIN tags t ON pt.tag_id = t.id
-		GROUP BY p.id
+		GROUP_CONCAT(t.name) AS tags,
+		i.name AS thumbnail_name,
+		i.src AS thumbnail_src,
+		i.alt AS thumbnail_alt,
+		h.name AS hero_img_name,
+		h.src AS hero_img_src,
+		h.alt AS hero_img_alt
+	FROM projects p
+	LEFT JOIN images h ON p.hero_image_name = h.name
+	LEFT JOIN images i ON p.thumbnail_name = i.name
+	LEFT JOIN project_tags pt ON p.id = pt.project_id
+	LEFT JOIN tags t ON pt.tag_id = t.id
+	GROUP BY p.id
 		`
 	rows, err := db.DB.Query(query)
 	if err != nil {
@@ -68,7 +75,11 @@ func GetAllProjects() ([]Project, error) {
 	for rows.Next() {
 		var project Project
 		var dateStr string
-		err := rows.Scan(&project.ID, &project.Title, &dateStr, &project.Description, &project.Collaborators, &project.ProjectURL, &project.HeroSrc, &project.ThumbnailSrc, &project.Tags)
+		var tagsStr string
+		var thumbImg Image
+		var heroImg Image
+
+		err := rows.Scan(&project.ID, &project.Title, &dateStr, &project.Description, &project.Collaborators, &project.ProjectURL, &tagsStr, &thumbImg.Name, &thumbImg.Src, &thumbImg.Alt, &heroImg.Name, &heroImg.Src, &heroImg.Alt)
 		if err != nil {
 			return nil, err
 		}
@@ -76,6 +87,15 @@ func GetAllProjects() ([]Project, error) {
 		if err != nil {
 			return nil, err
 		}
+		utils.Debug("Project ID %d: Tags string: '%s'", project.ID, tagsStr)
+		if tagsStr != "" {
+			project.Tags = strings.Split(tagsStr, ",")
+		} else {
+			project.Tags = []string{}
+		}
+		project.ThumbnailImg = thumbImg
+		project.HeroImg = heroImg
+
 		projects = append(projects, project)
 	}
 
@@ -84,29 +104,34 @@ func GetAllProjects() ([]Project, error) {
 
 func GetProjectById(id int64) (*Project, error) {
 	query := `
-	SELECT
-		p.id,
-    p.title, 
-    p.date, 
-    p.description,
-		p.collaborators,
-		p.project_url,
-    h.src AS hero_src,
-    i.src AS thumbnail_src,
-		GROUP_CONCAT(t.name) AS tags
+		SELECT
+			p.id,
+			p.title, 
+			p.created, 
+			p.description,
+			p.collaborators,
+			p.project_url,
+			GROUP_CONCAT(t.name) AS tags,
+			i.name AS thumbnail_name,
+			i.src AS thumbnail_src,
+			i.alt AS thumbnail_alt,
+			h.name AS hero_img_name,
+			h.src AS hero_img_src,
+			h.alt AS hero_img_alt
 		FROM projects p
-		LEFT JOIN images h ON p.hero_image_id = h.id
-		LEFT JOIN images i ON p.thumbnail_id = i.id
+		LEFT JOIN images h ON p.hero_image_name = h.name
+		LEFT JOIN images i ON p.thumbnail_name = i.name
 		LEFT JOIN project_tags pt ON p.id = pt.project_id
 		LEFT JOIN tags t ON pt.tag_id = t.id
-		WHERE p.id = ?
-		GROUP BY p.id
-`
+		WHERE p.id = ?`
 	row := db.DB.QueryRow(query, id)
 
 	var project Project
 	var dateStr string
-	err := row.Scan(&project.ID, &project.Title, &dateStr, &project.Description, &project.Collaborators, &project.ProjectURL, &project.HeroSrc, &project.ThumbnailSrc, &project.Tags)
+	var tagsStr string
+	var thumbImg Image
+	var heroImg Image
+	err := row.Scan(&project.ID, &project.Title, &dateStr, &project.Description, &project.Collaborators, &project.ProjectURL, &tagsStr, &thumbImg.Name, &thumbImg.Src, &thumbImg.Alt, &heroImg.Name, &heroImg.Src, &heroImg.Alt)
 	if err != nil {
 		return nil, err
 	}
@@ -114,6 +139,15 @@ func GetProjectById(id int64) (*Project, error) {
 	if err != nil {
 		return nil, err
 	}
+	if tagsStr != "" {
+		project.Tags = strings.Split(tagsStr, ",")
+	} else {
+		project.Tags = []string{}
+	}
+
+	project.ThumbnailImg = thumbImg
+	project.HeroImg = heroImg
+
 	return &project, nil
 }
 
@@ -129,7 +163,7 @@ func (project Project) Update() error {
 	}
 	defer stmt.Close()
 
-	_, err = stmt.Exec(&project.ID, &project.Title, &project.Description, &project.DateTime, &project.Collaborators, &project.ProjectURL, &project.HeroSrc, &project.ThumbnailSrc)
+	_, err = stmt.Exec(&project.ID, &project.Title, &project.Description, &project.DateTime, &project.Collaborators, &project.ProjectURL, &project.HeroImg, &project.ThumbnailImg)
 
 	return err
 }

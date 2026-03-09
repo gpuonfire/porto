@@ -7,7 +7,7 @@ services:
       args:
         MODE: ${MODE}
         FRONTEND_PORT: ${FRONTEND_INNER_PORT}
-        FRONTEND_BACKEND_HOST: ${FRONTEND_BACKEND_HOST_DEVELOPMENT}
+        FRONTEND_BACKEND_API: ${FRONTEND_BACKEND_API}
     ports:
       - ${FRONTEND_OUTER_PORT}:${FRONTEND_INNER_PORT}
     volumes:
@@ -17,6 +17,8 @@ services:
   porto_backend:
     container_name: ${IMAGE_TAG}_backend
     image: ${IMAGE_TAG}_backend
+    stdin_open: true # Keeps stdin open
+    tty: true
     build:
       context: ./backend
       args:
@@ -25,5 +27,6 @@ services:
     ports:
       - ${BACKEND_OUTER_PORT}:${BACKEND_INNER_PORT}
     volumes:
+      - ./backend:/app
       - ./backend/data/api.db:/app/data/api.db
       - ./backend/data/images:/app/data/images
