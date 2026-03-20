@@ -1,0 +1,10 @@
+### 
+
+@endpoint = http://{{host}}:{{port}}/api
+@host = localhost
+@port = 8080
+
+
+### 
+
+GET {{endpoint}}/gallery HTTP/1.1

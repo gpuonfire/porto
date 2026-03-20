@@ -2,7 +2,7 @@
 
 @endpoint = http://{{host}}:{{port}}/api
 @host = localhost
-@port = 4000
+@port = 8080
 
 
 ### 
@@ -12,9 +12,9 @@ GET {{endpoint}}/projects HTTP/1.1
 
 ### 
 
-GET {{endpoint}}/projects/2 HTTP/1.1
+GET {{endpoint}}/projects/virtual-aquarium HTTP/1.1
 
 
 ### 
 
-GET {{endpoint}}/projects/1/sections HTTP/1.1
+GET {{endpoint}}/projects/temple-diorama/sections HTTP/1.1

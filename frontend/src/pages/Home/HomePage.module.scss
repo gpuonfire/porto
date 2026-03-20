@@ -1,40 +1,106 @@
-@use "@/styles/main" as *;
+@use "@/styles/main.scss" as *;
 
-.mainLayout {
-  overflow: hidden;
-  height: 100%;
+.heroSection {
+  position: relative;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: calc(100dvh - var(--navbar-height));
+  // overflow: hidden;
 }
 
-.imageContainer {
+.sidePanel {
+  width: 7.5rem;
+  height: 100%;
+  z-index: 20;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: $space-xxs;
+  align-self: flex-start;
+}
+
+.imgContainer {
   flex-grow: 1;
-  width: 100vw;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 
   img {
     position: relative;
-    left: -700px;
-    object-fit: cover;
+    left: -310px;
     height: 100%;
+    // width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
-// footer {
-//   height: var(--footer-height);
-//   width: 100vw;
-//   background-color: $blue-700;
-//   color: $green-200;
+.heroText {
+  z-index: 20;
+  color: $green-200;
+  position: absolute;
+  align-self: flex-start;
+  transform-origin: top left;
+  transform: rotate(-90deg); // rotate-270
 
-//   p {
-//     -webkit-text-stroke-width: 2px;
-//     -webkit-text-stroke-color: $green-100;
-//     -webkit-text-fill-color: $blue-700;
-//     font-family: Arial, Helvetica, sans-serif;
-//     font-size: 40px;
-//     font-style: normal;
-//     font-weight: 700;
-//     line-height: 142.106%; /* 56.843px */
-//     letter-spacing: 9.2px;
-//   }
-// }
+  font-family: SpaceMono;
+  font-size: 105px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80%;
+}
+
+.stripes {
+  height: 30px;
+  bottom: 0;
+  position: absolute;
+  z-index: 15;
+
+  div {
+    background-color: $blue-200;
+  }
+}
+
+.projectsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .sidePanel {
+    background-color: $neutral-100;
+    border: solid 2px $black;
+    width: 106px;
+    // height: 100%;
+    // z-index: 20;
+    // position: absolute;
+    display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    justify-content: flex-start;
+    padding: $space-s $space-m;
+    align-self: flex-end;
+  }
+
+  .heroText {
+    // z-index: 20;
+    color: $black;
+    // position: absolute;
+    align-self: center;
+    transform-origin: top left;
+    transform: rotate(-90deg) translate(-100%, 250%); // rotate-270
+
+    // font-family: SpaceMono;
+    // font-size: 105px;
+    // font-style: normal;
+    // font-weight: 400;
+    // line-height: 80%;
+
+    text-align: right;
+    font-size: 76px; /* test font size für desktop einfügen | base-font size vergrößern? */
+  }
+}

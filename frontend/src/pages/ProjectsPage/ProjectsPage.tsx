@@ -12,11 +12,11 @@ export default function ProjectPage() {
 
   useEffect(() => {
     async function loadProjects() {
-      const backendHost = import.meta.env.VITE_BACKEND_HOST;
-      if (!backendHost) {
+      const backend = import.meta.env.VITE_BACKEND_API;
+      if (!backend) {
         throw new Error('Backend Host is not set');
       }
-      await fetch(`${backendHost}/projects/`)
+      await fetch(`${backend}/projects`)
         .then((response) => {
           return response.json();
         })
@@ -47,8 +47,9 @@ export default function ProjectPage() {
           projects.map((project: Project, index: number) => (
             <ProjectTeaserCard
               key={index}
+              projectId={project.id}
               title={project.title}
-              thumbnail={project.thumbnail}
+              thumbnailImg={project.thumbnailImg}
               tags={project.tags}
             />
           ))

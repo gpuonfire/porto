@@ -1,9 +1,34 @@
+import { useState, useEffect } from "react";
+import { Image } from "@/@types/youAreJustMyType";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import styles from "./Gallery.module.scss";
-import TESTDATA from "@/assets/projects-data.json";
 
 export default function GalleryPage() {
-  const images = TESTDATA.images
+  const [images, setImages] = useState<Image[] | null>(null);
+
+  function sortImagesToCategories() {
+
+  }
+
+  useEffect(() => {
+    async function loadImages() {
+      const backendHost = import.meta.env.VITE_BACKEND_API;
+      console.log('Backend Host:', backendHost);
+      if (!backendHost) {
+        throw new Error('Backend Host is not set');
+      }
+      await fetch(`${backendHost}/gallery`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((resData) => {
+          setImages(resData);
+        });
+    }
+    loadImages();
+    sortImagesToCategories();
+  }, []);
+
 
   return (
     <>
@@ -12,9 +37,10 @@ export default function GalleryPage() {
         <h2 className={styles.subheading}>Sketches</h2>
         <div className={styles.sectionWrapper}>
           <div className={styles.grid}>
-            {images.map((image) => (
+
+            {images ? images.map((image) => (
               <div
-                key={image.id}
+                key={image.name}
                 className={`${image.className} ${styles.imageWrapper}`}
               >
                 <LazyLoadImage
@@ -25,7 +51,7 @@ export default function GalleryPage() {
                   className={styles.image}
                 />
               </div>
-            ))}
+            )) : null}
           </div>
         </div>
       </section>

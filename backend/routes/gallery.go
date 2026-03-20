@@ -8,10 +8,10 @@ import (
 )
 
 func getAllGalleryImages(context *gin.Context) {
-	projects, err := models.GetAllProjects()
+	images, err := models.GetAllImages()
 	if err != nil {
-		context.JSON(http.StatusInternalServerError, gin.H{"message": "Coul not fetch projects"})
+		context.JSON(http.StatusInternalServerError, gin.H{"message": "Coul not fetch gallery images"})
 		return
 	}
-	context.JSON(http.StatusOK, projects)
+	context.JSON(http.StatusOK, images)
 }

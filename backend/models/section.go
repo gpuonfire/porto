@@ -2,19 +2,21 @@ package models
 
 import (
 	"my.de/rest-api/db"
+	"my.de/rest-api/utils"
 )
 
 type Section struct {
-	id          int
-	Layout      int
-	SectionBits []SectionBit
+	id          int          `json:"id"`
+	Layout      string       `json:"layout"`
+	SectionBits []SectionBit `json:"sectionBits"`
 }
 type SectionBit struct {
-	Type    string `binding:"required"`
-	Content string
+	Type    string `json:"type" binding:"required"`
+	Content string `json:"content" binding:"required"`
+	Image   Image  `json:"image" binding:"required"`
 }
 
-func GetSections(section_id int64) ([]Section, error) {
+func GetSections(projectId string) ([]Section, error) {
 	query := `
 	SELECT s.id, s.layout
 	FROM sections s
@@ -22,7 +24,7 @@ func GetSections(section_id int64) ([]Section, error) {
 	WHERE p.id = ?
 	ORDER BY s.position ASC
 	`
-	rows, err := db.DB.Query(query, section_id)
+	rows, err := db.DB.Query(query, projectId)
 	if err != nil {
 		return nil, err
 	}
@@ -40,26 +42,25 @@ func GetSections(section_id int64) ([]Section, error) {
 	return sections, nil
 }
 
-func GetProjectSections(projectId int64) ([]Section, error) {
+func GetProjectContent(projectId string) ([]Section, error) {
 	sections, err := GetSections(projectId)
+	utils.Debug("Get sections for project id: ", projectId, " sections: ", sections)
 	if err != nil {
 		return nil, err
 	}
 
 	query := `
-SELECT b.type AS content_type,
-    CASE 
-        WHEN b.type = 'image' THEN i.src 
-        ELSE b.content_text 
-    END AS content
-FROM sections s
-LEFT JOIN section_bits b ON s.id = b.section_id
-LEFT JOIN images i ON b.image_id = i.id
-WHERE s.id = ?
-ORDER BY b.position ASC;
+		SELECT b.type AS content_type,
+		    CASE 
+		        WHEN b.type = 'image' THEN b.image_name
+		        ELSE b.text_content
+		    END AS content
+		FROM sections s
+		LEFT JOIN section_bits b ON s.id = b.section_id
+		LEFT JOIN images i ON b.image_name = i.name
+		WHERE s.id = ?
+		ORDER BY b.position ASC;
 	`
-
-	// for each section
 	for i := range sections {
 		rows, err := db.DB.Query(query, sections[i].id)
 		if err != nil {
@@ -73,6 +74,15 @@ ORDER BY b.position ASC;
 			err := rows.Scan(&bit.Type, &bit.Content)
 			if err != nil {
 				return nil, err
+			}
+
+			if bit.Type == "image" {
+				utils.Debug("Get image for section bit: ", bit.Content)
+				img, err := getImageByName(bit.Content)
+				if err != nil {
+					return nil, err
+				}
+				bit.Image = *img
 			}
 			bits = append(bits, bit)
 		}
