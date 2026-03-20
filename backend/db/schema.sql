@@ -25,7 +25,7 @@ CREATE TABLE categories(
 );
 
 CREATE TABLE projects(
-	 id INTEGER PRIMARY KEY, -- String ID wie "e-comerce"
+	 id TEXT PRIMARY KEY, -- String ID wie "e-comerce"
 	 title TEXT NOT NULL,
 	 created TEXT,
 	 description TEXT,
@@ -43,7 +43,7 @@ CREATE TABLE projects(
 	);
 
 	CREATE TABLE project_tags(
-		project_id INTEGER,
+		project_id TEXT,
 		tag_id INTEGER,
 		PRIMARY KEY (project_id, tag_id),
 		FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
@@ -52,7 +52,7 @@ CREATE TABLE projects(
 
 	CREATE TABLE sections(
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		project_id INTEGER,
+		project_id TEXT,
 		layout INTEGER DEFAULT 0,
 		position INTEGER, -- Um die Reihenfolge der Sections zu speichern
 		FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,

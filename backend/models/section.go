@@ -2,19 +2,21 @@ package models
 
 import (
 	"my.de/rest-api/db"
+	"my.de/rest-api/utils"
 )
 
 type Section struct {
-	id          int
-	Layout      int
-	SectionBits []SectionBit
+	id          int          `json:"id"`
+	Layout      string       `json:"layout"`
+	SectionBits []SectionBit `json:"sectionBits"`
 }
 type SectionBit struct {
-	Type    string `binding:"required"`
-	Content any    `binding:"required"`
+	Type    string `json:"type" binding:"required"`
+	Content string `json:"content" binding:"required"`
+	Image   Image  `json:"image" binding:"required"`
 }
 
-func GetSections(section_id int64) ([]Section, error) {
+func GetSections(projectId string) ([]Section, error) {
 	query := `
 	SELECT s.id, s.layout
 	FROM sections s
@@ -22,7 +24,7 @@ func GetSections(section_id int64) ([]Section, error) {
 	WHERE p.id = ?
 	ORDER BY s.position ASC
 	`
-	rows, err := db.DB.Query(query, section_id)
+	rows, err := db.DB.Query(query, projectId)
 	if err != nil {
 		return nil, err
 	}
@@ -40,8 +42,9 @@ func GetSections(section_id int64) ([]Section, error) {
 	return sections, nil
 }
 
-func GetProjectContent(projectId int64) ([]Section, error) {
+func GetProjectContent(projectId string) ([]Section, error) {
 	sections, err := GetSections(projectId)
+	utils.Debug("Get sections for project id: ", projectId, " sections: ", sections)
 	if err != nil {
 		return nil, err
 	}
@@ -68,19 +71,18 @@ func GetProjectContent(projectId int64) ([]Section, error) {
 		var bits []SectionBit
 		for rows.Next() {
 			var bit SectionBit
-			var rawContent string
-			err := rows.Scan(&bit.Type, &rawContent)
+			err := rows.Scan(&bit.Type, &bit.Content)
 			if err != nil {
 				return nil, err
 			}
 
 			if bit.Type == "image" {
-				bit.Content, err = getImageByName(rawContent)
+				utils.Debug("Get image for section bit: ", bit.Content)
+				img, err := getImageByName(bit.Content)
 				if err != nil {
 					return nil, err
 				}
-			} else {
-				bit.Content = rawContent
+				bit.Image = *img
 			}
 			bits = append(bits, bit)
 		}

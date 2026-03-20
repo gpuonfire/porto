@@ -9,37 +9,37 @@ import (
 )
 
 type Project struct {
-	ID            int64     `json:"id"`
+	ID            string    `json:"id"`
 	Title         string    `json:"title" binding:"required"`
 	DateTime      time.Time `json:"dateTime"`
 	Description   string    `json:"description"`
 	Collaborators string    `json:"collaborators"`
 	ProjectURL    string    `json:"projectUrl"`
-	HeroImg       Image     `json:"heroSrc"`
-	ThumbnailImg  Image     `json:"thumbnailSrc"`
+	HeroImg       Image     `json:"heroImg"`
+	ThumbnailImg  Image     `json:"thumbnailImg"`
 	Tags          []string  `json:"tags"`
 	Sections      []Section `json:"sections"`
 }
 
 var projects = []Project{}
 
-func (project Project) Save() error {
-	query := `
-	INSERT INTO projects(name, description, location, dateTime, user_id) 
-	VALUES (?, ?, ?, ?, ?)`
-	stmt, err := db.DB.Prepare(query)
-	if err != nil {
-		return err
-	}
-	defer stmt.Close()
-	result, err := stmt.Exec(project.Title, project.Description, project.DateTime, project.Collaborators, project.ProjectURL, project.HeroImg, project.ThumbnailImg)
-	if err != nil {
-		return err
-	}
-	id, err := result.LastInsertId()
-	project.ID = id
-	return err
-}
+// func (project Project) Save() error {
+// 	query := `
+// 	INSERT INTO projects(name, description, location, dateTime, user_id)
+// 	VALUES (?, ?, ?, ?, ?)`
+// 	stmt, err := db.DB.Prepare(query)
+// 	if err != nil {
+// 		return err
+// 	}
+// 	defer stmt.Close()
+// 	result, err := stmt.Exec(project.Title, project.Description, project.DateTime, project.Collaborators, project.ProjectURL, project.HeroImg, project.ThumbnailImg)
+// 	if err != nil {
+// 		return err
+// 	}
+// 	id, err := result.LastInsertId()
+// 	project.ID = id
+// 	return err
+// }
 
 func GetAllProjects() ([]Project, error) {
 	utils.Debug("Get projects...")
@@ -87,7 +87,7 @@ func GetAllProjects() ([]Project, error) {
 		if err != nil {
 			return nil, err
 		}
-		utils.Debug("Project ID %d: Tags string: '%s'", project.ID, tagsStr)
+		utils.Debug("Project ID %s: Tags string: '%s'", project.ID, tagsStr)
 		if tagsStr != "" {
 			project.Tags = strings.Split(tagsStr, ",")
 		} else {
@@ -102,7 +102,7 @@ func GetAllProjects() ([]Project, error) {
 	return projects, nil
 }
 
-func GetProjectById(id int64) (*Project, error) {
+func GetProjectById(id string) (*Project, error) {
 	query := `
 		SELECT
 			p.id,

@@ -1,24 +1,26 @@
 export type Project = {
   id: string;
   title: string;
-  date: string;
   description?: string;
   tags?: string[];
-  thumbnail?: Image;
-  heroImage?: Image;
-  factsContainer?: {
-    date: string;
-    collaborators: string;
-    projectURL: string;
-  };
-  content?: Layout[];
+  thumbnailImg?: Image;
+  heroImg?: Image;
+  dateTime: string;
+  collaborators: string;
+  projectUrl: string;
+  sections?: Section[];
 };
 
-export type Layout = {
-  layout: number;
-  elements: any[];
+export type Section = {
+  layout: "1" | "2" | "3";
+  sectionBits: SectionBit[];
 };
 
+export type SectionBit = {
+  type: "title" | "smallTitle" | "image" | "text" | "graphic";
+  content: string;
+  image?: Image;
+}
 export type AboutMe = {
   hobbies: string;
   education: string;
@@ -26,6 +28,7 @@ export type AboutMe = {
 };
 
 export type Image = {
+  name: string;
   src: string;
   alt: string;
   id?: number;
@@ -33,6 +36,7 @@ export type Image = {
   width?: number;
   height?: number;
   aspectRatio?: number;
+  category?: string;
 };
 
 export interface ProjectOutputProps {

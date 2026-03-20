@@ -1,20 +1,24 @@
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import { Image } from "@/@types/youAreJustMyType";
 import styles from "./ProjectTeaserCard.module.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import pointSVG from "@/assets/Points.svg";
 
 type ProjectTeaserCardProps = {
+  projectId: string
   title: string
-  thumbnail?: Image
+  thumbnailImg?: Image
   tags?: string[]
 }
 
 export default function ProjectTeaserCard({
+  projectId,
   title,
-  thumbnail,
+  thumbnailImg: thumbnail,
   tags,
 }: ProjectTeaserCardProps) {
+  const router = useNavigate();
+
   function titleToUrl(title: string): string {
     return title
       .toLowerCase()
@@ -23,11 +27,14 @@ export default function ProjectTeaserCard({
       .replace(/\s+/g, "-") // replace spaces with dashes
       .replace(/-+/g, "-"); // collapse multiple dashes
   }
+  function handleClick() {
+    router(`/projects/${projectId}`)
+  }
 
   return (
     <>
       {
-        <article className={styles.projectCard}>
+        <article className={styles.projectCard} onClick={handleClick}>
           {
             thumbnail ?
               <div className={styles.thumbnailContainer}>
@@ -60,9 +67,7 @@ export default function ProjectTeaserCard({
                 <h1>{title}</h1>
               </div>
             </div>
-            <Link className={styles.link} to={`/projects/${titleToUrl(title)}`}>
-              CHECK OUT
-            </Link>
+            insert some stripes here?
           </div>
         </article>
       }
