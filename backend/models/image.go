@@ -17,7 +17,7 @@ type Image struct {
 	Category    string  `json:"category"`
 }
 
-func getImageByName(imageName string) (*Image, error) {
+func GetImageByName(imageName string) (*Image, error) {
 	query := `
 	SELECT name, src, alt, width, height, aspect_ratio, category
 	FROM images

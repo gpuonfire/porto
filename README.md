@@ -1,11 +1,42 @@
-## Backend
-To use the debugger:
+# Porto
 
-comment out the first line to use the Debugger tool for Golang
+## Tech Stack
 
-```go
- DB, err = sql.Open("sqlite3", "/app/data/api.db?_foreign_keys=on")
- // DB, err = sql.Open("sqlite3", "api.db?_foreign_keys=on")
+- **Frontend:** React 19 + TypeScript + Vite + SCSS
+- **Backend:** Go + Gin
+- **Database:** SQLite
+
+## Getting Started
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev        # development server on port 8080
+npm run build      # production build (tsc -b + vite build)
+npm run lint       # ESLint
 ```
 
-change the working direktory to `/backend`
+### Backend
+
+```bash
+cd backend
+go run main.go     # Gin server on port 8080
+go build -o main .
+go fmt ./...
+```
+
+## Docker
+
+```bash
+./docker-build-production.sh          # production build
+docker-compose -f compose-development.yml up   # development
+```
+
+## Notes
+
+- Both frontend and backend run on port 8080
+- SQLite database stored in `backend/data/`
+- API routes registered in `backend/routes/`
+- Work in progress
