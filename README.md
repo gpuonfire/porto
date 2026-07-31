@@ -36,4 +36,4 @@ docker-compose -f compose-development.yml up   # development
 - Both frontend and backend run on port 8080
 - SQLite database stored in `backend/data/`
 - API routes registered in `backend/routes/`
-- Work in progress<img width="1741" height="926" alt="Preview_Porto" src="https://github.com/user-attachments/assets/7e068795-24c0-4e0e-92d9-4f738886abbc" />
+- Work in progress
