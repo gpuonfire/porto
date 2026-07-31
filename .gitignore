@@ -1,5 +1,5 @@
 
-backend/data/*
+backend/data
 backend/tmp
 .env
 !.env.example
