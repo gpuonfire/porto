@@ -17,7 +17,7 @@ export default function GalleryPage() {
       if (!backendHost) {
         throw new Error('Backend Host is not set');
       }
-      await fetch(`${backendHost}/gallery`)
+      await fetch(`${backendHost}/images`)
         .then((response) => {
           return response.json();
         })

@@ -14,6 +14,7 @@
 
 .mainContent {
   width: 100%;
+  padding: $space-s;
   max-width: $breakpoint-laptop;
   display: flex;
   align-items: center;
@@ -38,7 +39,7 @@
   h1 {
     color: $black;
     font-family: Berlin;
-    font-size: 123px;
+    font-size: 102px;
     font-style: normal;
     font-weight: 700;
     line-height: 82%; /* 100.86px */
@@ -102,7 +103,7 @@
 }
 
 .formContent {
-  padding: $space-m;
+  //padding: $space-m;
 }
 
 .input {
@@ -168,6 +169,11 @@
   cursor: pointer;
   transition: background-color 0.3s;
 
+  &:focus {
+    background-color: $white;
+    color: $black;
+    border: 4px solid $black;
+  }
   &:hover {
     background-color: $white;
     color: $black;
@@ -182,10 +188,11 @@
 
 // Footer
 .footer {
+  padding-top: $space-l;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: $space-xs;
+  gap: $space-xxxs;
 
   .iconContainer {
     display: flex;
@@ -205,4 +212,11 @@
 
 .stripe {
   width: 2000px;
+}
+@media only screen and (min-width: 800px) {
+  .titleSection {
+    h1 {
+      font-size: 123px;
+    }
+  }
 }

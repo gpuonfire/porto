@@ -2,9 +2,14 @@
 
 @endpoint = http://{{host}}:{{port}}/api
 @host = localhost
-@port = 8080
+@port = 4000
 
 
 ### 
 
-GET {{endpoint}}/gallery HTTP/1.1
+GET {{endpoint}}/images HTTP/1.1
+
+
+### 
+
+GET {{endpoint}}/images/portal-cube HTTP/1.1

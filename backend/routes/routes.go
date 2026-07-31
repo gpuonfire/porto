@@ -14,7 +14,8 @@ func RegisterRoutes(server *gin.Engine) {
 			// api.POST("/projects", createProject)
 			// api.PUT("/projects/:id", updateProject)
 			// api.DELETE("/projects/:id", deleteProject)
-			api.GET("/gallery", getAllGalleryImages)
+			api.GET("/images", getAllImages)
+			api.GET("/images/:name", getImageByName)
 		}
 	}
 }

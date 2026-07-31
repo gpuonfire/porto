@@ -78,7 +78,7 @@ func GetProjectContent(projectId string) ([]Section, error) {
 
 			if bit.Type == "image" {
 				utils.Debug("Get image for section bit: ", bit.Content)
-				img, err := getImageByName(bit.Content)
+				img, err := GetImageByName(bit.Content)
 				if err != nil {
 					return nil, err
 				}

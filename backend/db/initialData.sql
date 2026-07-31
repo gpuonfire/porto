@@ -13,7 +13,8 @@ INSERT INTO images (id, name, src, alt, width, height, aspect_ratio, category) V
 (5,'tempel3','http://localhost:4000/images/tempel6.jpg', 'Temple render 6', NULL, NULL, NULL, 'render'),
 (6,'drawing1','http://localhost:4000/images/drawing1.jpg', 'Drawing 21', NULL, NULL, NULL, 'drawing'),
 (7,'drawing2','http://localhost:4000/images/drawing2.jpg', 'Drawing 26', NULL, NULL, NULL, 'drawing'),
-(8,'steve','http://localhost:4000/images/steve.jpg', 'Steve Jobs poster', NULL, NULL, NULL, 'illustration');
+(8,'steve','http://localhost:4000/images/steve.jpg', 'Steve Jobs poster', NULL, NULL, NULL, 'illustration'),
+(9,'portal-cube','http://localhost:4000/images/portal-cube.jpg', 'the companion cube from the game portal', NULL, NULL, NULL, 'render');
 
 
 -- 3. Insert Project
