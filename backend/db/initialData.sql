@@ -5,19 +5,19 @@ INSERT INTO categories (name) VALUES
   ('render');
 
 -- 2. Insert Images
-INSERT INTO images (id, name, src, alt, width, height, aspect_ratio, category) VALUES 
-(1,'robots','http://localhost:4000/images/ex7.png', 'Hero image of the tank', 1920, 1080, 1.777, 'drawing'),
-(2,'box','http://localhost:4000/images/ex8.jpg', 'Thumbnail poster', 800, 1200, 0.666, 'drawing'),
-(3,'tempel1','http://localhost:4000/images/tempel11.jpg', 'Temple render', 1080, 1080, 1.0, 'render'),
-(4,'tempel2','http://localhost:4000/images/tempel9.jpg', 'Temple render 9', NULL, NULL, NULL, 'render'),
-(5,'tempel3','http://localhost:4000/images/tempel6.jpg', 'Temple render 6', NULL, NULL, NULL, 'render'),
-(6,'drawing1','http://localhost:4000/images/drawing1.jpg', 'Drawing 21', NULL, NULL, NULL, 'drawing'),
-(7,'drawing2','http://localhost:4000/images/drawing2.jpg', 'Drawing 26', NULL, NULL, NULL, 'drawing'),
-(8,'steve','http://localhost:4000/images/steve.jpg', 'Steve Jobs poster', NULL, NULL, NULL, 'illustration');
+INSERT INTO images (id, src, alt, width, height, aspect_ratio, category) VALUES 
+('robots','http://localhost:4000/images/ex7.png', 'Hero image of the tank', 1920, 1080, 1.777, 'drawing'),
+('box','http://localhost:4000/images/ex8.jpg', 'Thumbnail poster', 800, 1200, 0.666, 'drawing'),
+('tempel1','http://localhost:4000/images/tempel11.jpg', 'Temple render', 1080, 1080, 1.0, 'render'),
+('tempel2','http://localhost:4000/images/tempel9.jpg', 'Temple render 9', NULL, NULL, NULL, 'render'),
+('tempel3','http://localhost:4000/images/tempel6.jpg', 'Temple render 6', NULL, NULL, NULL, 'render'),
+('drawing1','http://localhost:4000/images/drawing1.jpg', 'Drawing 21', NULL, NULL, NULL, 'drawing'),
+('drawing2','http://localhost:4000/images/drawing2.jpg', 'Drawing 26', NULL, NULL, NULL, 'drawing'),
+('steve','http://localhost:4000/images/steve.jpg', 'Steve Jobs poster', NULL, NULL, NULL, 'illustration');
 
 
 -- 3. Insert Project
-INSERT INTO projects (id, title, created, description, collaborators, project_url, hero_image_name, thumbnail_name) 
+INSERT INTO projects (id, title, created, description, collaborators, project_url, hero_img_name, thumbnail_img_name) 
 VALUES 
  ('virtual-aquarium', 'VIRTUAL AQUARIUM', '2025-01-02 15:04:05', 'This comprehensive e-commerce platform...', 'Kowalski, Pummelove', 'https://www.schlaubeere.de', 'robots', 'robots'),
  ('temple-diorama', 'Temple Project', '2026-01-02 09:04:05', 'Ancient temple visualization project', 'Design Team', 'https://example.com/temple', 'tempel1', 'tempel2');

@@ -57,7 +57,7 @@ func GetProjectContent(projectId string) ([]Section, error) {
 		    END AS content
 		FROM sections s
 		LEFT JOIN section_bits b ON s.id = b.section_id
-		LEFT JOIN images i ON b.image_name = i.name
+		LEFT JOIN images i ON b.image_name = i.id
 		WHERE s.id = ?
 		ORDER BY b.position ASC;
 	`

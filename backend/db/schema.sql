@@ -9,8 +9,7 @@ DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS categories;
 
 CREATE TABLE images(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name string NOT NULL UNIQUE,
+    id TEXT PRIMARY KEY,
     src TEXT NOT NULL,
     alt TEXT,
     width INTEGER,        -- e.g., 1920
@@ -31,10 +30,10 @@ CREATE TABLE projects(
 	 description TEXT,
 	 collaborators TEXT,
 	 project_url TEXT,
-	 hero_image_name TEXT,
-	 thumbnail_name TEXT,
-	 FOREIGN KEY (hero_image_name) REFERENCES images(name),
-	 FOREIGN KEY (thumbnail_name) REFERENCES images(name)
+	 hero_img_name TEXT,
+	 thumbnail_img_name TEXT,
+	 FOREIGN KEY (hero_img_name) REFERENCES images(id),
+	 FOREIGN KEY (thumbnail_img_name) REFERENCES images(id)
 	);
 
 	CREATE TABLE tags(
@@ -60,13 +59,12 @@ CREATE TABLE projects(
 	);
 
 	CREATE TABLE section_bits(
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		section_id INTEGER,
+    position INTEGER,  -- Reihenfolge innerhalb der Section
 		type TEXT, -- 'title', 'smallTitle', 'text', 'image', 'graphic'
 		text_content TEXT, -- Speichert Textinhalt oder Grafik-Namen
 		image_name TEXT,  -- Nur gefüllt, wenn type = 'image'
-		position INTEGER,  -- Reihenfolge innerhalb der Section
+    PRIMARY KEY (section_id, position),
 		FOREIGN KEY (section_id) REFERENCES sections(id) ON DELETE CASCADE,
-		FOREIGN KEY (image_name) REFERENCES images(name),
-    UNIQUE(section_id, position)
+		FOREIGN KEY (image_name) REFERENCES images(id)
 	);

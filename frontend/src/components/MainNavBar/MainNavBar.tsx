@@ -1,6 +1,5 @@
 import { NavLink, useLocation } from "react-router";
 import pointIcon from "@/assets/icons/5Point.svg";
-import burgerIcon from "@/assets/icons/Burger.svg";
 import styles from "./MainNavBar.module.scss";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
@@ -10,10 +9,7 @@ interface MainNavBar {
 }
 
 export default function MainNavBar() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const isOpen = useRef(false);
-  const dropMenu = useRef<HTMLUListElement>(null);
-  // const heading = useRef<HTMLUListElement>(null);
+ // const heading = useRef<HTMLUListElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -39,23 +35,6 @@ export default function MainNavBar() {
     }
   }
 
-  function handleClick() {
-    setIsExpanded((prev) => !prev);
-  }
-
-  const closeOpenMenus = (e: MouseEvent | TouchEvent) => {
-    if (
-      isOpen.current &&
-      dropMenu.current &&
-      !dropMenu.current.contains(e.target as Node)
-    ) {
-      setIsExpanded(false);
-    }
-  };
-
-  useEffect(() => {
-    isOpen.current = isExpanded;
-  }, [isExpanded]);
 
   useEffect(() => {
     document.addEventListener("mousedown", closeOpenMenus);
@@ -85,14 +64,6 @@ export default function MainNavBar() {
         >
           <img src={pointIcon} aria-hidden={true} className={styles.icon} />
           <h1>{titel}</h1>
-        </button>
-        <button
-          className={styles.burgerMenu}
-          onClick={handleClick}
-          aria-label="Navigation"
-          role="menu"
-        >
-          <img src={burgerIcon} aria-hidden={true} />
         </button>
       </div>
       <ul

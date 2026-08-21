@@ -8,7 +8,7 @@ SELECT
     sb.type AS element_type,
     sb.content_text
 FROM projects p
-LEFT JOIN images h ON p.hero_image_id = h.id
+LEFT JOIN images h ON p.hero_img_id = h.id
 LEFT JOIN project_tags pt ON p.id = pt.project_id
 LEFT JOIN tags t ON pt.tag_id = t.id
 LEFT JOIN sections s ON p.id = s.project_id
