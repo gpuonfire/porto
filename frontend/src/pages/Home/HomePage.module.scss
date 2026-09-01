@@ -1,5 +1,9 @@
 @use "@/styles/main.scss" as *;
 
+.menuWrapper {
+  z-index: 100;
+}
+
 .mainContent {
   display: flex;
   width: 100%;
@@ -64,10 +68,6 @@
 .stripes {
   height: 30px;
   z-index: 15;
-
-  div {
-    background-color: $blue-200;
-  }
 }
 
 .projectsSection {

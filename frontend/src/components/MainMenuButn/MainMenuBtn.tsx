@@ -1,19 +1,25 @@
-import burgerIcon from "@/assets/icons/Burger.svg";
 import styles from "./MainMenuBtn.module.scss";
+import burgerIcon from "@/assets/BurgerIcon.svg";
+import crossIcon from "@/assets/CrossIcon.svg";
 import { useState } from "react";
+interface MainMenuBtnProps {
+  handleClick: () => void;
+  isActive: boolean;
+}
 
-export default function MainMenuBtn(onClick: () => {}) {
-//  const [is, setIsExpanded] = useState(false);
+export default function MainMenuBtn({
+  handleClick,
+  isActive,
+}: MainMenuBtnProps) {
 
   return (
-
     <button
-      className={styles.burgerMenu}
-      onClick={onClick}
+      className={`${styles["burgerMenu"]} ${isActive ? styles["isActive"] : styles["isNotActive"]}`}
+      onClick={handleClick}
       aria-label="Navigation"
       role="menu"
     >
-      <img src={burgerIcon} aria-hidden={true} />
+      <img src={`${isActive ? crossIcon : burgerIcon} `} aria-hidden={true} />
     </button>
   );
 }

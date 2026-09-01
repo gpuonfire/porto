@@ -19,7 +19,7 @@
 
 main {
   height: 100%;
-  padding-top: var(--navbar-height);
+  /* padding-top: var(--navbar-height); */
 }
 
 *:focus {

@@ -5,11 +5,11 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import pointSVG from "@/assets/Points.svg";
 
 type ProjectTeaserCardProps = {
-  projectId: string
-  title: string
-  thumbnailImg?: Image
-  tags?: string[]
-}
+  projectId: string;
+  title: string;
+  thumbnailImg?: Image;
+  tags?: string[];
+};
 
 export default function ProjectTeaserCard({
   projectId,
@@ -28,23 +28,10 @@ export default function ProjectTeaserCard({
       .replace(/-+/g, "-"); // collapse multiple dashes
   }
   function handleClick() {
-    router(`/projects/${projectId}`)
+    router(`/projects/${projectId}`);
   }
-
-  return (
-    <>
-      {
-        <article className={styles.projectCard} onClick={handleClick}>
-          {
-            thumbnail ?
-              <div className={styles.thumbnailContainer}>
-                <LazyLoadImage src={thumbnail.src} alt={thumbnail.alt} />
-              </div>
-              : null
-          }
-          <div className={styles.bottomSection}>
-            <div className={styles.titleContainer}>
-              <div className={styles.svgContainer}>
+  /** Points
+              <div>
                 <LazyLoadImage
                   src={pointSVG}
                   aria-hidden={true}
@@ -52,18 +39,28 @@ export default function ProjectTeaserCard({
                   height={110}
                 />
               </div>
+ **/
+  return (
+    <>
+      {
+        <article className={styles.projectCard} onClick={handleClick}>
+          {thumbnail ? (
+            <div className={styles.thumbnailContainer}>
+              <LazyLoadImage src={thumbnail.src} alt={thumbnail.alt} />
+            </div>
+          ) : null}
+          <div className={styles.bottomSection}>
+            <div className={styles.titleContainer}>
               <div className={styles.textBox}>
-                {
-                  tags ?
-                    <div className={styles.hashtags}>
-                      {tags.map((text: string, index: number) => (
-                        <p className={styles.hash} key={index}>
-                          #{text.toUpperCase()}
-                        </p>
-                      ))}
-                    </div>
-                    : null
-                }
+                {tags ? (
+                  <div className={styles.hashtags}>
+                    {tags.map((text: string, index: number) => (
+                      <p className={styles.hash} key={index}>
+                        #{text.toUpperCase()}
+                      </p>
+                    ))}
+                  </div>
+                ) : null}
                 <h1>{title}</h1>
               </div>
             </div>

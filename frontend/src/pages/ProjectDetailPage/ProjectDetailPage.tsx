@@ -8,22 +8,30 @@ import styles from "./ProjectDetailPage.module.scss";
 import fivePointIcon from "@/assets/icons/5Point_small.svg";
 import LayoutComp from "@/components/Layout/Layout";
 
+const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+  const year = date.getFullYear();
+  return `${day}.${month}.${year}`;
+};
+
 export default function ProjectDetailPage() {
-  const { proId } = useParams()
+  const { proId } = useParams();
   const [project, setProject] = useState<Project | null>(null);
 
   useEffect(() => {
     async function loadProjects() {
       const backendHost = import.meta.env.VITE_BACKEND_API;
-      console.log('Backend Host:', backendHost);
       if (!backendHost) {
-        throw new Error('Backend Host is not set');
+        throw new Error("Backend Host is not set");
       }
       await fetch(`${backendHost}/projects/${proId}/sections`)
         .then((response) => {
           return response.json();
         })
         .then((resData) => {
+          resData.dateTime = formatDate(resData.dateTime);
           setProject(resData);
         });
     }
@@ -32,10 +40,13 @@ export default function ProjectDetailPage() {
     }
   }, []);
 
-
   return (
     <>
-      {!proId && <p className={styles.titleContainer}>Project ID is missing from the URL.</p>}
+      {!proId && (
+        <p className={styles.titleContainer}>
+          Project ID is missing from the URL.
+        </p>
+      )}
       {project ? (
         <>
           <div className={styles.heroImgContainer}>
@@ -54,17 +65,10 @@ export default function ProjectDetailPage() {
                 <div aria-hidden />
                 <h1 className={styles.mainTitle}>{project.title}</h1>
               </div>
-
               <div className={styles.factsContainer}>
-                <div className={styles.box1}>
-                  here is another box
-                </div>
-
-                <div className={styles.box2}>
-                  {project.collaborators}
-                </div>
-
-                <div className={styles.box3}>
+                <div className={styles.box1}>here is another box</div>
+                <div className={styles.collaborators}>{project.collaborators}</div>
+                <div className={styles.projectDate }>
                   <LazyLoadImage
                     className={styles.heroImg}
                     src={fivePointIcon}
@@ -72,8 +76,7 @@ export default function ProjectDetailPage() {
                   />
                   <span>{project.dateTime}</span>
                 </div>
-
-                <div className={styles.box4}>
+                <div className={styles.hashtagBox }>
                   <div className={styles.hashtags}>
                     {project.tags?.map((text: string, index: number) => (
                       <p className={styles.hash} key={index}>
@@ -83,13 +86,11 @@ export default function ProjectDetailPage() {
                   </div>
                 </div>
 
-                <div className={styles.box5}>
-                  <a href={project.projectUrl}>
-                    {project.projectUrl}
-                  </a>
+                <div className={styles.projectUrl}>
+                  <a href={project.projectUrl}>{project.projectUrl}</a>
                 </div>
 
-                <div className={styles.box6}>
+                <div className={styles.stripeBox}>
                   <div className={styles.stripeContainer}>
                     <div className={styles.stripe} />
                     <div className={styles.stripe} />

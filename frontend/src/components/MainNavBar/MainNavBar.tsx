@@ -9,11 +9,10 @@ interface MainNavBar {
 }
 
 export default function MainNavBar() {
- // const heading = useRef<HTMLUListElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isDesktop = false;
+  // const isDesktop = false;
 
   let titel = "";
   switch (location.pathname) {
@@ -25,104 +24,24 @@ export default function MainNavBar() {
       titel = "ART";
       break;
     }
-    case "/contact": {
-      titel = "CONTACT";
-      break;
-    }
     case "/projects": {
       titel = "PROJECTS";
       break;
     }
   }
 
-
-  useEffect(() => {
-    document.addEventListener("mousedown", closeOpenMenus);
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        setIsExpanded(false);
-        if (document.activeElement instanceof HTMLElement)
-          document.activeElement.blur();
-      }
-    });
-  }, []);
-
-  return !isDesktop ? (
-    <nav ref={dropMenu}>
-      {/* Backdrop overlay */}
-      {isExpanded && (
-        <div className={styles.backdrop} onClick={() => setIsExpanded(false)} />
-      )}
-      <div className={styles.navHead}>
-        <button
-          className={styles.headingContainer}
-          onClick={() => navigate("/")}
-          role="button"
-          aria-label="Zurück zur Startseite"
-          tabIndex={0}
-        >
-          <img src={pointIcon} aria-hidden={true} className={styles.icon} />
-          <h1>{titel}</h1>
-        </button>
-      </div>
-      <ul
-        className={`${styles.navList} ${isExpanded ? styles.expanded : styles.collapsed
-          }`}
+  return (
+    <nav className={styles.navHead}>
+      <button
+        className={styles.headingContainer}
+        onClick={() => navigate("/")}
+        role="button"
+        aria-label="Zurück zur Startseite"
+        tabIndex={0}
       >
-        <li className={styles.navItem}>
-          <NavLink
-            role="menuitem"
-            aria-label="Startseite"
-            to="/"
-            className={styles.navLink}
-            onClick={() => setIsExpanded(false)}
-          >
-            HOME
-          </NavLink>
-        </li>
-
-        <hr />
-        <li className={styles.navItem}>
-          <NavLink
-            role="menuitem"
-            aria-label="Projekte"
-            to="/projects"
-            className={styles.navLink}
-            onClick={() => setIsExpanded(false)}
-          >
-            PROJECTS
-          </NavLink>
-        </li>
-        <hr />
-        <li className={styles.navItem}>
-          <NavLink
-            role="menuitem"
-            aria-label="Kunst"
-            to="/art"
-            className={styles.navLink}
-            onClick={() => setIsExpanded(false)}
-          >
-            ART
-          </NavLink>
-        </li>
-        <hr />
-        <li className={styles.navItem}>
-          <NavLink
-            role="menuitem"
-            aria-label="Kontakt"
-            to="/contact"
-            className={styles.navLink}
-            onClick={() => setIsExpanded(false)}
-          >
-            CONTACT
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
-  ) : (
-    <nav>
-      <p>Desktop Navigation</p>
+        <img src={pointIcon} aria-hidden={true} className={styles.icon} />
+        <h1>{titel}</h1>
+      </button>
     </nav>
   );
 }

@@ -222,3 +222,15 @@ $tiny: 0.694rem; // 11.10px (0.694 × 16)
   font-style: normal;
   font-display: swap;
 }
+
+// =====================
+// Font: IBM Plex Sans Bold
+// // =====================
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: url("./fonts/IBMPlexSans/IBMPlexSans-Bold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: bold;
+  font-display: swap;
+}

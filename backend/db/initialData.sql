@@ -56,7 +56,7 @@ INSERT INTO section_bits (section_id, type, text_content, image_name, position) 
 (1, 'title', 'Hier ist ein Titel!', NULL, 0),
 (1, 'image', NULL, 'box', 1),
 (1, 'text', 'layout 1 hallo ich bin ein langer text...', NULL, 2),
-(2, 'title', 'Temple Visualization Project', NULL, 0),
+(2, 'title', 'Back to Greeks', NULL, 0),
 (2, 'text', 'This project showcases ancient temple designs through 3D rendering and digital art.', NULL, 1),
 (2, 'image', NULL, 'tempel1', 2),  -- Drawing 21
 (3, 'image', NULL, 'tempel3', 0),  -- Drawing 26

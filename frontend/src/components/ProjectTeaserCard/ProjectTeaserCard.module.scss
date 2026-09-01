@@ -46,8 +46,8 @@
   align-items: flex-start;
   padding: $space-xxs $space-xxs $space-s $space-xxs;
   img {
-    width: 76px;
-    height: 110px;
+    width: 60px;
+    height: 100%;
     align-self: flex-start;
   }
 }
@@ -88,6 +88,10 @@
   }
 }
 
+.svgContainer {
+  width: 67px;
+  object-fit: contain;
+}
 .hashtags {
   display: flex;
   align-items: center;
@@ -101,13 +105,12 @@
   text-align: center;
 
   font-family: Now;
-  font-size: $small;
+  font-size: $tiny;
   font-style: normal;
   font-weight: 500;
-  line-height: 98%; /* 10.78px */
 
   border: 2px solid $neutral-100;
-  padding: 4px 5px;
+  padding: 3px;
 }
 
 .link {
@@ -126,6 +129,5 @@
   font-size: $h5;
   font-style: normal;
   font-weight: 400;
-  line-height: 98%;
   letter-spacing: 1.35px;
 }
