@@ -23,11 +23,12 @@ VALUES
  ('temple-diorama', 'Temple Project', '2026-01-02 09:04:05', 'Ancient temple visualization project', 'Design Team', 'https://example.com/temple','university, vue, virtuel', 'tempel1', 'tempel2');
 
 INSERT INTO content_bits (id, position, project_id, type, styling, text_content, image_name) VALUES
-(1, 1 ,'virtual-aquarium','title', 'big right inverted', 'WE NEED HELP PLS', NULL),
-(2, 2 ,'virtual-aquarium','text', 'span-2', 'This time he decided to keep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonder by how many people craving for his life.eep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonde eep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonde eep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonde', NULL),
+(1, 1 ,'virtual-aquarium','title', 'bigHeading right horizontal inverted', 'WE NEED HELP PLS', NULL),
+(2, 2 ,'virtual-aquarium','text', 'span2', 'This time he decided to keep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonder by how many people craving for his life.eep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonde eep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonde eep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonde', NULL),
 (3, 4 ,'virtual-aquarium','image', '', NULL, 'box'),
-(4, 5 ,'virtual-aquarium','title', 'big left', 'A SMALL STEP IN THE WRIONG DIRECTION', NULL),
+(4, 5 ,'virtual-aquarium','title', 'bigHeading left', 'A SMALL STEP IN THE WRIONG DIRECTION', NULL),
 (5, 6 ,'virtual-aquarium','image', '', NULL, 'drawing1'),
-(6, 7 ,'virtual-aquarium','title', 'small vertical hold-1', 'A BIG STEP IN THE WRIONG DIRECTION', NULL),
-(7, 8 ,'virtual-aquarium','text', 'left', 'This time he decided to keep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonder by how man', NULL),
-(8, 10 ,'virtual-aquarium','text', 'right', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam e', NULL);
+(6, 7 ,'virtual-aquarium','title', 'smallHeading vertical inset alignRight hold-1', 'A BIG STEP IN THE WRIONG DIRECTION', NULL),
+(7, 8 ,'virtual-aquarium','text', 'left inset', 'This time he decided to keep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonder by how man', NULL),
+(8, 9 ,'virtual-aquarium','image', 'inset', NULL, 'drawing2'),
+(9, 10 ,'virtual-aquarium','text', 'right', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam e', NULL);

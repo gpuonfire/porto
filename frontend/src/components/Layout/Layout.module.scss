@@ -1,19 +1,6 @@
 @use "@/styles/main" as *;
-.gridContainer {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: 0.5fr 1fr 1fr;
-  gap: $space-xxs;
-  color: $neutral-100;
-}
 
-.emptyCell {
-  visibility: hidden;
-}
 
-.span2 {
-  grid-column: span 2;
-}
 .imgContainer {
   display: flex;
   flex-direction: column;
@@ -23,6 +10,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 3px;
   }
   p {
     color: $white;
@@ -135,4 +123,9 @@ h3 {
     flex-direction: column;
     gap: $space-xxs;
   }
+}
+@media (min-width: $breakpoint-tablet) {
+}
+
+@media (min-width: $breakpoint-laptop) {
 }

@@ -31,6 +31,11 @@ export default function LayoutComp({ content }: LayoutCompProps) {
     }
   };
 
+  //   const getStyling = (styling: string) => {
+  // const styles = styling.split(" ")
+  // styling.replace(
+  //       "span-2", ".span2")
+  //   }
   const maxPos = Math.max(...content.map((c) => c.position));
   const cells: (ContentBit | null)[] = [];
   for (let p = 1; p <= maxPos; p++) {
@@ -38,17 +43,14 @@ export default function LayoutComp({ content }: LayoutCompProps) {
   }
 
   return (
-    <article className={styles.gridContainer}>
+    <article className="gridContainer">
       {cells.map((bit, i) =>
         bit ? (
-          <div
-            key={i}
-            className={bit.styling === "span-2" ? styles.span2 : undefined}
-          >
+          <div key={i} className={`cell ${bit.styling}`}>
             {insertContent(bit)}
           </div>
         ) : (
-          <div key={i} className={styles.emptyCell} />
+          <div key={i} className="emptyCell" />
         ),
       )}
     </article>
