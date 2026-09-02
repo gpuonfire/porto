@@ -1,22 +1,19 @@
 @use "@/styles/main" as *;
-
-.default {
-  color: $white;
+.gridContainer {
   display: grid;
-  grid: auto / auto auto auto auto;
-  padding: 0 $space-xxxs 0 $space-xxxs;
-  height: fit-content;
-  p {
-    color: $white;
-    font-family: SpaceMono;
-    font-size: $p;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%;
-    letter-spacing: 0.552px;
-  }
+  grid-auto-flow: row;
+  grid-template-columns: 0.5fr 1fr 1fr;
+  gap: $space-xxs;
+  color: $neutral-100;
 }
 
+.emptyCell {
+  visibility: hidden;
+}
+
+.span2 {
+  grid-column: span 2;
+}
 .imgContainer {
   display: flex;
   flex-direction: column;

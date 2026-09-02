@@ -17,47 +17,17 @@ INSERT INTO images (id, src, alt, width, height, aspect_ratio, category) VALUES
 
 
 -- 3. Insert Project
-INSERT INTO projects (id, title, created, description, collaborators, project_url, hero_img_name, thumbnail_img_name) 
+INSERT INTO projects (id, title, created, description, collaborators, url, tags, hero_img_name, thumbnail_img_name) 
 VALUES 
- ('virtual-aquarium', 'VIRTUAL AQUARIUM', '2025-01-02 15:04:05', 'This comprehensive e-commerce platform...', 'Kowalski, Pummelove', 'https://www.schlaubeere.de', 'robots', 'robots'),
- ('temple-diorama', 'Temple Project', '2026-01-02 09:04:05', 'Ancient temple visualization project', 'Design Team', 'https://example.com/temple', 'tempel1', 'tempel2');
+ ('virtual-aquarium', 'VIRTUAL AQUARIUM', '2025-01-02 15:04:05', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et', 'Kowalski, Pummelove', 'https://www.schlaubeere.de', 'tempel, react, 3d', 'robots', 'robots'),
+ ('temple-diorama', 'Temple Project', '2026-01-02 09:04:05', 'Ancient temple visualization project', 'Design Team', 'https://example.com/temple','university, vue, virtuel', 'tempel1', 'tempel2');
 
--- 4. Insert Tags
-INSERT INTO tags (name) VALUES 
-  ('react'), 
-  ('java'),
-  ('p5JS'), 
-  ('TS'), 
-  ('JavaScript'),
-  ('architecture'),
-  ('3d-rendering'), 
-  ('digital-art');
-
-
--- 5. Link Tags to Project
-INSERT INTO project_tags (project_id, tag_id) VALUES 
-   ('virtual-aquarium', 1), 
-  ('virtual-aquarium', 2), 
-  ('virtual-aquarium', 3), 
-  ('virtual-aquarium', 4),
-  ('temple-diorama', 5), 
-  ('temple-diorama', 6), 
-  ('temple-diorama', 7), 
-  ('temple-diorama', 8);
-
--- 6. Insert a Section
-INSERT INTO sections (id, project_id, layout, position) VALUES 
- (1, 'virtual-aquarium', 1, 0),
- (2, 'temple-diorama', 1, 0),
- (3, 'temple-diorama', 2, 1);
-
--- 7. Insert Section Bits (Elements)
-INSERT INTO section_bits (section_id, type, text_content, image_name, position) VALUES
-(1, 'title', 'Hier ist ein Titel!', NULL, 0),
-(1, 'image', NULL, 'box', 1),
-(1, 'text', 'layout 1 hallo ich bin ein langer text...', NULL, 2),
-(2, 'title', 'Back to Greeks', NULL, 0),
-(2, 'text', 'This project showcases ancient temple designs through 3D rendering and digital art.', NULL, 1),
-(2, 'image', NULL, 'tempel1', 2),  -- Drawing 21
-(3, 'image', NULL, 'tempel3', 0),  -- Drawing 26
-(3, 'image', NULL, 'steve', 1);  -- Steve Jobs poster
+INSERT INTO content_bits (id, position, project_id, type, styling, text_content, image_name) VALUES
+(1, 1 ,'virtual-aquarium','title', 'big right inverted', 'WE NEED HELP PLS', NULL),
+(2, 2 ,'virtual-aquarium','text', 'span-2', 'This time he decided to keep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonder by how many people craving for his life.eep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonde eep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonde eep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonde', NULL),
+(3, 4 ,'virtual-aquarium','image', '', NULL, 'box'),
+(4, 5 ,'virtual-aquarium','title', 'big left', 'A SMALL STEP IN THE WRIONG DIRECTION', NULL),
+(5, 6 ,'virtual-aquarium','image', '', NULL, 'drawing1'),
+(6, 7 ,'virtual-aquarium','title', 'small vertical hold-1', 'A BIG STEP IN THE WRIONG DIRECTION', NULL),
+(7, 8 ,'virtual-aquarium','text', 'left', 'This time he decided to keep his head low. Shadows wander arround. Peeking arround the cornder. Atmosphere could be not possibly worse. No wonder by how man', NULL),
+(8, 10 ,'virtual-aquarium','text', 'right', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam e', NULL);

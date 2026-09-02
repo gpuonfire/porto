@@ -8,19 +8,17 @@ export type Project = {
   dateTime: string;
   collaborators: string;
   projectUrl: string;
-  sections?: Section[];
+  content?: ContentBit[];
 };
 
-export type Section = {
-  layout: "1" | "2" | "3";
-  sectionBits: SectionBit[];
-};
-
-export type SectionBit = {
-  type: "title" | "smallTitle" | "image" | "text" | "graphic";
-  content: string;
+export type ContentBit = {
+  position: number;
+  type: "title" | "image" | "text" | "graphic";
+  styling: string;
+  text: string;
   image?: Image;
-}
+};
+
 export type AboutMe = {
   hobbies: string;
   education: string;
@@ -62,6 +60,3 @@ export type ContentContextType = {
 //   text?: string;
 //   graphic?: string;
 // };
-
-
-

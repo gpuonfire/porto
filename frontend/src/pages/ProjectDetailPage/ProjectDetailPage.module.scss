@@ -36,9 +36,18 @@
     letter-spacing: 5.8px;
   }
 
-  div {
+  .titleStroke {
     width: 10px;
+    height: 100%;
     background-color: $blue-200;
+  }
+  .titleWrapper {
+    display: flex;
+    gap: $space-xxs;
+    flex-grow: 2;
+  }
+  .factsContainer {
+    flex-grow: 1;
   }
 }
 
@@ -164,26 +173,26 @@
 }
 
 @media (min-width: $breakpoint-tablet) {
-  .rootContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: $breakpoint-laptop;
-    width: 100%;
-    margin: auto;
-  }
-  .heroContainer {
-    flex-direction: row;
-  }
-  .titleContainer {
-    h1 {
-      font-size: $h0;
-    }
-  }
+  // .rootContainer {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   max-width: $breakpoint-laptop;
+  //   width: 100%;
+  //   margin: auto;
+  // }
+  // .heroContainer {
+  //   flex-direction: row;
+  // }
+  // .titleContainer {
+  //   h1 {
+  //     font-size: $h0;
+  //   }
+  // }
 }
 @media (min-width: $breakpoint-laptop) {
-  .heroContainer {
-    flex-direction: row;
-  }
+  // .heroContainer {
+  //   flex-direction: row;
+  // }
 }

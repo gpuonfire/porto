@@ -8,8 +8,8 @@ import (
 )
 
 type Image struct {
-	ID          string  `json:"id" binding:"required"`
-	Src         string  `json:"src" binding:"required"`
+	ID          string  `json:"id"`
+	Src         string  `json:"src"`
 	Alt         string  `json:"alt"`
 	Width       int64   `json:"width"`
 	Height      int64   `json:"height"`

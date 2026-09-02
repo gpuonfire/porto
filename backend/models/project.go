@@ -9,16 +9,16 @@ import (
 )
 
 type Project struct {
-	ID            string    `json:"id"`
-	Title         string    `json:"title" binding:"required"`
-	DateTime      time.Time `json:"dateTime"`
-	Description   string    `json:"description"`
-	Collaborators string    `json:"collaborators"`
-	ProjectURL    string    `json:"projectUrl"`
-	HeroImg       Image     `json:"heroImg"`
-	ThumbnailImg  Image     `json:"thumbnailImg"`
-	Tags          []string  `json:"tags"`
-	Sections      []Section `json:"sections"`
+	ID            string       `json:"id"`
+	Title         string       `json:"title" binding:"required"`
+	DateTime      time.Time    `json:"createdDate"`
+	Description   string       `json:"description"`
+	Collaborators string       `json:"collaborators"`
+	ProjectURL    string       `json:"projectUrl"`
+	HeroImg       Image        `json:"heroImg"`
+	ThumbnailImg  Image        `json:"thumbnailImg"`
+	Tags          []string     `json:"tags"`
+	Content_bits  []ContentBit `json:"content"`
 }
 
 var projects = []Project{}
@@ -50,8 +50,8 @@ func GetAllProjects() ([]Project, error) {
 		p.created, 
 		p.description,
 		p.collaborators,
-		p.project_url,
-		GROUP_CONCAT(t.name) AS tags,
+		p.url,
+	  p.tags,
 		i.id AS thumbnail_name,
 		i.src AS thumbnail_src,
 		i.alt AS thumbnail_alt,
@@ -61,8 +61,6 @@ func GetAllProjects() ([]Project, error) {
 	FROM projects p
 	LEFT JOIN images h ON p.hero_img_name = h.id
 	LEFT JOIN images i ON p.thumbnail_img_name = i.id
-	LEFT JOIN project_tags pt ON p.id = pt.project_id
-	LEFT JOIN tags t ON pt.tag_id = t.id
 	GROUP BY p.id;
 		`
 	rows, err := db.DB.Query(query)
@@ -89,7 +87,7 @@ func GetAllProjects() ([]Project, error) {
 		}
 		utils.Debug("Project ID %s: Tags string: '%s'", project.ID, tagsStr)
 		if tagsStr != "" {
-			project.Tags = strings.Split(tagsStr, ",")
+			project.Tags = strings.Split(tagsStr, " ")
 		} else {
 			project.Tags = []string{}
 		}
@@ -105,26 +103,24 @@ func GetAllProjects() ([]Project, error) {
 func GetProjectById(id string) (*Project, error) {
 	// TODO: in query bilddaten laden
 	query := `
-		SELECT
-			p.id,
-			p.title, 
-			p.created, 
-			p.description,
-			p.collaborators,
-			p.project_url,
-			GROUP_CONCAT(t.name) AS tags,
-			i.id AS thumbnail_name,
-			i.src AS thumbnail_src,
-			i.alt AS thumbnail_alt,
-			h.id AS hero_img_name,
-			h.src AS hero_img_src,
-			h.alt AS hero_img_alt
-		FROM projects p
-		LEFT JOIN images h ON p.hero_img_name = h.id
-		LEFT JOIN images i ON p.thumbnail_img_name = i.id
-		LEFT JOIN project_tags pt ON p.id = pt.project_id
-		LEFT JOIN tags t ON pt.tag_id = t.id
-		WHERE p.id = ?`
+	SELECT
+		p.id,
+		p.title, 
+		p.created, 
+		p.description,
+		p.collaborators,
+		p.url,
+	  p.tags,
+		i.id AS thumbnail_name,
+		i.src AS thumbnail_src,
+		i.alt AS thumbnail_alt,
+		h.id AS hero_img_name,
+		h.src AS hero_img_src,
+		h.alt AS hero_img_alt
+	FROM projects p
+	LEFT JOIN images h ON p.hero_img_name = h.id
+	LEFT JOIN images i ON p.thumbnail_img_name = i.id
+	WHERE p.id = ?`
 	row := db.DB.QueryRow(query, id)
 
 	var project Project
@@ -148,7 +144,10 @@ func GetProjectById(id string) (*Project, error) {
 
 	project.ThumbnailImg = thumbImg
 	project.HeroImg = heroImg
-
+	project.Content_bits, err = GetProjectContent(project.ID)
+	if err != nil {
+		return nil, err
+	}
 	return &project, nil
 }
 
