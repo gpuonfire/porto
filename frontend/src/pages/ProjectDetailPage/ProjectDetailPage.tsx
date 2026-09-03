@@ -7,6 +7,7 @@ import { ContentBit, Project } from "@/@types/youAreJustMyType";
 import styles from "./ProjectDetailPage.module.scss";
 import fivePointIcon from "@/assets/icons/5Point_small.svg";
 import LayoutComp from "@/components/Layout/Layout";
+import { useNavTitle } from "@/context/NavTitleContext";
 
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
@@ -19,6 +20,7 @@ const formatDate = (dateString: string): string => {
 export default function ProjectDetailPage() {
   const { proId } = useParams();
   const [project, setProject] = useState<Project | null>(null);
+  const { setTitle } = useNavTitle();
 
   useEffect(() => {
     async function loadProjects() {
@@ -33,12 +35,17 @@ export default function ProjectDetailPage() {
         .then((resData) => {
           resData.dateTime = formatDate(resData.dateTime);
           setProject(resData);
+          setTitle(resData.title);
           console.log("Page Conent", resData);
         });
     }
     if (proId) {
       loadProjects();
     }
+
+    return () => {
+      setTitle("");
+    };
   }, []);
 
   return (

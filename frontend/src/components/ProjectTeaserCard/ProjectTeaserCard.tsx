@@ -2,7 +2,6 @@ import { useNavigate } from "react-router";
 import { Image } from "@/@types/youAreJustMyType";
 import styles from "./ProjectTeaserCard.module.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import pointSVG from "@/assets/Points.svg";
 
 type ProjectTeaserCardProps = {
   projectId: string;

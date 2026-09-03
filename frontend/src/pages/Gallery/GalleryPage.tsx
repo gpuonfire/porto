@@ -6,29 +6,27 @@ import styles from "./Gallery.module.scss";
 export default function GalleryPage() {
   const [images, setImages] = useState<Image[] | null>(null);
 
-  function sortImagesToCategories() {
-
-  }
+  function sortImagesToCategories() {}
 
   useEffect(() => {
     async function loadImages() {
       const backendHost = import.meta.env.VITE_BACKEND_API;
-      console.log('Backend Host:', backendHost);
+      console.log("Backend Host:", backendHost);
       if (!backendHost) {
-        throw new Error('Backend Host is not set');
+        throw new Error("Backend Host is not set");
       }
       await fetch(`${backendHost}/gallery`)
         .then((response) => {
           return response.json();
         })
         .then((resData) => {
+          console.log("Response", resData);
+          //sortImagesToCategories(resData);
           setImages(resData);
         });
     }
     loadImages();
-    sortImagesToCategories();
   }, []);
-
 
   return (
     <>
@@ -37,21 +35,22 @@ export default function GalleryPage() {
         <h2 className={styles.subheading}>Sketches</h2>
         <div className={styles.sectionWrapper}>
           <div className={styles.grid}>
-
-            {images ? images.map((image) => (
-              <div
-                key={image.name}
-                className={`${image.className} ${styles.imageWrapper}`}
-              >
-                <LazyLoadImage
-                  height={image.height}
-                  width={image.width}
-                  src={image.src}
-                  alt={image.alt}
-                  className={styles.image}
-                />
-              </div>
-            )) : null}
+            {images
+              ? images.map((image) => (
+                  <div
+                    key={image.name}
+                    className={`${image.className} ${styles.imageWrapper}`}
+                  >
+                    <LazyLoadImage
+                      height={image.height}
+                      width={image.width}
+                      src={image.src}
+                      alt={image.alt}
+                      className={styles.image}
+                    />
+                  </div>
+                ))
+              : null}
           </div>
         </div>
       </section>
