@@ -26,10 +26,9 @@ export type AboutMe = {
 };
 
 export type Image = {
-  name: string;
+  id: string;
   src: string;
   alt: string;
-  id?: number;
   className?: string;
   width?: number;
   height?: number;

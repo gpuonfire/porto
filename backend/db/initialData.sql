@@ -2,6 +2,7 @@
 INSERT INTO categories (name) VALUES
   ('drawing'),
   ('illustration'),
+  ('thumbnail'),
   ('render');
 
 -- 2. Insert Images
@@ -13,6 +14,10 @@ INSERT INTO images (id, src, alt, width, height, aspect_ratio, category) VALUES
 ('tempel3','http://localhost:4000/images/tempel6.jpg', 'Temple render 6', NULL, NULL, NULL, 'render'),
 ('drawing1','http://localhost:4000/images/drawing1.jpg', 'Drawing 21', NULL, NULL, NULL, 'drawing'),
 ('drawing2','http://localhost:4000/images/drawing2.jpg', 'Drawing 26', NULL, NULL, NULL, 'drawing'),
+('face-dithered','http://localhost:4000/images/face-dithered.png', 'face dithered', NULL, NULL, NULL, 'thumbnail'),
+('girl-dithered','http://localhost:4000/images/girl-dithered.png', 'girl dithered', NULL, NULL, NULL, 'thumbnail'),
+('pikatchu-dithered','http://localhost:4000/images/pikatchu-dithered.png', 'pikatchu dithered', NULL, NULL, NULL, 'thumbnail'),
+('car-dithered','http://localhost:4000/images/car-dithered.png', 'car dithered', NULL, NULL, NULL, 'thumbnail'),
 ('steve','http://localhost:4000/images/steve.jpg', 'Steve Jobs poster', NULL, NULL, NULL, 'illustration');
 
 

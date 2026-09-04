@@ -1,9 +1,6 @@
 import { NavLink, useLocation } from "react-router";
-import pointIcon from "@/assets/icons/5Point.svg";
 import styles from "./NavMenu.module.scss";
-import { useRef, useEffect, useState, forwardRef } from "react";
-import { useNavigate } from "react-router";
-import path from "path";
+import { forwardRef } from "react";
 
 interface NavMenuProps {
   isExpanded: boolean;
@@ -13,7 +10,6 @@ interface NavMenuProps {
 const NavMenu = forwardRef<HTMLUListElement, NavMenuProps>(
   ({ isExpanded, setIsExpanded }, dropMenu) => {
     const { pathname } = useLocation();
-    console.log("location", pathname);
 
     return (
       <nav
