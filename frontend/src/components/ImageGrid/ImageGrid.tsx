@@ -6,12 +6,12 @@ interface ImageGridProps {
   images: Image[];
 }
 
-export default function ImageGrid({images}:ImageGridProps) {
+export default function ImageGrid({ images }: ImageGridProps) {
   return (
     <div className={styles.grid}>
       {images.map((image) => (
         <div
-          key={image.name}
+          key={image.id}
           className={`${image.className} ${styles.imageWrapper}`}
         >
           <LazyLoadImage

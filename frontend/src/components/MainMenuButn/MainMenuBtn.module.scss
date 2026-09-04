@@ -13,6 +13,9 @@
 }
 .isActive {
   background-color: $green-200;
+  &:hover {
+    background-color: $green-100;
+  }
 }
 .isNotActive {
   background-color: $green-900;
@@ -20,6 +23,12 @@
   img {
     aspect-ratio: 1/1;
     width: 32px;
+  }
+  &:hover {
+    background-color: $green-800;
+  }
+  &:active {
+    background-color: $green-400;
   }
 }
 @media (min-width: $breakpoint-tablet) {

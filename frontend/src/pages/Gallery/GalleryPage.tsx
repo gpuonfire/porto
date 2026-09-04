@@ -1,6 +1,7 @@
 import { useState, useEffect, ReactElement } from "react";
 import { Image } from "@/@types/youAreJustMyType";
 import ImageGrid from "@/components/ImageGrid/ImageGrid";
+import GalleryNavBar from "@/components/GalleryNavBar/GalleryNavBar";
 import styles from "./Gallery.module.scss";
 import glyph2 from "@/assets/Glyph2.svg";
 import glyph3 from "@/assets/Glyph3.svg";
@@ -94,7 +95,7 @@ export default function GalleryPage() {
       <div>
         {images ? (
           <>
-            <section className={styles.section}>
+            <section id="renders" className={styles.section}>
               <div className={styles.thumbnailBox}>
                 <div
                   className={`${styles.thumbnailContainer}`}
@@ -108,7 +109,7 @@ export default function GalleryPage() {
               </div>
               <ImageGrid images={renders} />
             </section>
-            <section className={styles.section}>
+            <section id="drawings" className={styles.section}>
               <div className={styles.thumbnailBox}>
                 <div
                   className={`${styles.thumbnailContainer}`}
@@ -122,7 +123,7 @@ export default function GalleryPage() {
               </div>
               <ImageGrid images={drawings} />
             </section>
-            <section className={styles.section}>
+            <section id="graphics" className={styles.section}>
               <div className={styles.thumbnailBox}>
                 <div
                   className={`${styles.thumbnailContainer}`}
@@ -141,6 +142,7 @@ export default function GalleryPage() {
           <div>We are out of images for today... ( ._.)</div>
         )}
       </div>
+      {images && <GalleryNavBar />}
     </>
   );
 }

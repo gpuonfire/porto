@@ -1,0 +1,68 @@
+@use "@/styles/main.scss" as *;
+
+.navBar {
+  position: fixed;
+  height: 70px;
+  bottom: 40px;
+  left: 40%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background-color: $green-900;
+  border-radius: 6px;
+  padding: 4px;
+  box-shadow: 3px 3px 0 0 $green-200;
+  z-index: 18;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border: none;
+  background-color: $green-900;
+  border-radius: 3px;
+  cursor: pointer;
+  //transition: background-color 0.4s ease;
+}
+
+.navButton:focus-visible {
+  outline: 2px solid #69ff00;
+  outline-offset: 2px;
+}
+.navButton:hover {
+  background-color: $green-800;
+}
+.navButton:active {
+  background-color: $green-400;
+}
+
+.navIcon {
+  width: 45px;
+  height: 45px;
+  // Assumes dark-line SVG icons; recolors them to an off-white to sit on the dark bar.
+  filter: brightness(0) invert(1);
+}
+
+.divider {
+  flex-shrink: 0;
+  width: 1px;
+  height: 36px;
+  margin: 0 2px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navButton {
+    transition: none;
+  }
+}
+@media (min-width: $breakpoint-tablet) {
+  .navBar {
+    left: 50%;
+  }
+}
+@media (min-width: $breakpoint-laptop) {
+}
