@@ -1,16 +1,12 @@
 PRAGMA foreign_keys = ON;
 
 DROP TABLE IF EXISTS projects;
-DROP TABLE IF EXISTS project_tags;
-DROP TABLE IF EXISTS sections;
-DROP TABLE IF EXISTS section_bits;
+DROP TABLE IF EXISTS content_bits;
 DROP TABLE IF EXISTS images;
-DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS categories;
 
 CREATE TABLE images(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name string NOT NULL UNIQUE,
+    id TEXT PRIMARY KEY,
     src TEXT NOT NULL,
     alt TEXT,
     width INTEGER,        -- e.g., 1920
@@ -30,43 +26,23 @@ CREATE TABLE projects(
 	 created TEXT,
 	 description TEXT,
 	 collaborators TEXT,
-	 project_url TEXT,
-	 hero_image_name TEXT,
-	 thumbnail_name TEXT,
-	 FOREIGN KEY (hero_image_name) REFERENCES images(name),
-	 FOREIGN KEY (thumbnail_name) REFERENCES images(name)
+	 url TEXT,
+   tags TEXT,
+	 hero_img_name TEXT,
+	 thumbnail_img_name TEXT,
+	 FOREIGN KEY (hero_img_name) REFERENCES images(id),
+	 FOREIGN KEY (thumbnail_img_name) REFERENCES images(id)
 	);
 
-	CREATE TABLE tags(
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		name TEXT UNIQUE
-	);
-
-	CREATE TABLE project_tags(
-		project_id TEXT,
-		tag_id INTEGER,
-		PRIMARY KEY (project_id, tag_id),
-		FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
-		FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
-	);
-
-	CREATE TABLE sections(
+	CREATE TABLE content_bits(
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		project_id TEXT,
-		layout INTEGER DEFAULT 0,
-		position INTEGER, -- Um die Reihenfolge der Sections zu speichern
-		FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
-    UNIQUE(project_id, position)
-	);
-
-	CREATE TABLE section_bits(
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		section_id INTEGER,
+    position INTEGER,  -- Reihenfolge
 		type TEXT, -- 'title', 'smallTitle', 'text', 'image', 'graphic'
+		styling TEXT, -- 
 		text_content TEXT, -- Speichert Textinhalt oder Grafik-Namen
 		image_name TEXT,  -- Nur gefüllt, wenn type = 'image'
-		position INTEGER,  -- Reihenfolge innerhalb der Section
-		FOREIGN KEY (section_id) REFERENCES sections(id) ON DELETE CASCADE,
-		FOREIGN KEY (image_name) REFERENCES images(name),
-    UNIQUE(section_id, position)
+		FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
+		FOREIGN KEY (image_name) REFERENCES images(id),
+    UNIQUE(project_id, position)
 	);

@@ -8,8 +8,8 @@ import (
 )
 
 type Image struct {
-	Name        string  `json:"name" binding:"required"`
-	Src         string  `json:"src" binding:"required"`
+	ID          string  `json:"id"`
+	Src         string  `json:"src"`
 	Alt         string  `json:"alt"`
 	Width       int64   `json:"width"`
 	Height      int64   `json:"height"`
@@ -19,9 +19,9 @@ type Image struct {
 
 func getImageByName(imageName string) (*Image, error) {
 	query := `
-	SELECT name, src, alt, width, height, aspect_ratio, category
+	SELECT id, src, alt, width, height, aspect_ratio, category
 	FROM images
-	WHERE name = ? 
+	WHERE id = ? 
 	`
 	row := db.DB.QueryRow(query, imageName)
 
@@ -30,7 +30,7 @@ func getImageByName(imageName string) (*Image, error) {
 	var a sql.NullFloat64
 	var c sql.NullString
 
-	err := row.Scan(&img.Name, &img.Src, &img.Alt, &w, &h, &a, &c)
+	err := row.Scan(&img.ID, &img.Src, &img.Alt, &w, &h, &a, &c)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func getImageByName(imageName string) (*Image, error) {
 		img.Width = 0
 		img.Height = 0
 		img.AspectRatio = 0
-		utils.Debug("Image with name ", imageName, " has invalid dimensions or aspect ratio")
+		utils.Debug("Image with id ", imageName, " has invalid dimensions or aspect ratio")
 	}
 	if c.Valid {
 		img.Category = c.String
@@ -56,26 +56,9 @@ func getImageByName(imageName string) (*Image, error) {
 	return &img, nil
 }
 
-func getImageById(imgId int64) (*Image, error) {
-	query := `
-	SELECT name, src, alt, width, height, aspect_ratio, category
-	FROM images
-	WHERE id = ? 
-	`
-	row := db.DB.QueryRow(query, imgId)
-
-	var img Image
-	err := row.Scan(&img.Name, &img.Src, &img.Alt, &img.Width, &img.Height, &img.AspectRatio, &img.Category)
-	if err != nil {
-		return nil, err
-	}
-
-	return &img, nil
-}
-
 func GetAllImages() (*[]Image, error) {
 	query := `
-	SELECT name, src, alt, width, height, aspect_ratio, category
+	SELECT id, src, alt, width, height, aspect_ratio, category
 	FROM images
 	ORDER BY category
 	`
@@ -92,7 +75,7 @@ func GetAllImages() (*[]Image, error) {
 		var a sql.NullFloat64
 		var c sql.NullString
 
-		err := rows.Scan(&img.Name, &img.Src, &img.Alt, &w, &h, &a, &c)
+		err := rows.Scan(&img.ID, &img.Src, &img.Alt, &w, &h, &a, &c)
 		if err != nil {
 			return nil, err
 		}
@@ -110,7 +93,7 @@ func GetAllImages() (*[]Image, error) {
 			img.Width = 0
 			img.Height = 0
 			img.AspectRatio = 0
-			utils.Debug("Image with name ", img.Name, " has invalid dimensions or aspect ratio")
+			utils.Debug("Image with id ", img.ID, " has invalid dimensions or aspect ratio")
 		}
 		if c.Valid {
 			img.Category = c.String
@@ -122,7 +105,7 @@ func GetAllImages() (*[]Image, error) {
 
 func getImagesByCategory(category string) ([]Image, error) {
 	query := `
-		SELECT name, src, alt, width, height, aspect_ratio, category
+		SELECT id, src, alt, width, height, aspect_ratio, category
 		FROM images
 		WHERE category = ?
 		`
@@ -133,7 +116,7 @@ func getImagesByCategory(category string) ([]Image, error) {
 	}
 	for rows.Next() {
 		var image Image
-		err := rows.Scan(&image.Name, &image.Src, &image.Alt, &image.Width, &image.Height, &image.AspectRatio, &image.Category)
+		err := rows.Scan(&image.ID, &image.Src, &image.Alt, &image.Width, &image.Height, &image.AspectRatio, &image.Category)
 		if err != nil {
 			return nil, err
 		}

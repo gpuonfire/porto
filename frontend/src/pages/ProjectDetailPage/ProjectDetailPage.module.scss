@@ -23,10 +23,11 @@
   color: white;
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
   width: 100%;
   height: fit-content;
   gap: $space-xs;
-  padding: $space-xxxs 0 $space-xxxs 0;
+  padding: $space-xxs $space-xxxs ;
 
   h1 {
     color: $white;
@@ -36,22 +37,20 @@
     letter-spacing: 5.8px;
   }
 
-  div {
+  .titleStroke {
     width: 10px;
+    //    height: 100%;
     background-color: $blue-200;
   }
-}
+  .titleWrapper {
+    display: flex;
+    gap: $space-xxs;
+    flex-grow: 2;
 
-.description {
-  align-self: flex-start;
-  color: $white;
-  padding: $space-xxs;
-  font-family: SpaceMono;
-  font-size: $p;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 130%;
-  letter-spacing: 0.552px;
+  }
+  .factsContainer {
+    flex-grow: 1;
+  }
 }
 
 .factsContainer {
@@ -72,13 +71,13 @@
   border: 1px solid $blue-200;
   padding: $space-xxxs;
 }
-.box2 {
+.collaborators {
   grid-column: 1 / span 1;
   grid-row: 3 / span 1;
   border: 1px solid $blue-200;
   padding: $space-xxxs;
 }
-.box3 {
+.projectDate {
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
   border: 1px solid $blue-200;
@@ -92,28 +91,24 @@
   padding: $space-xxxs;
   span {
     font-family: Now;
-    font-size: $h4;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: 5.7px;
   }
   img {
     width: 20px;
     aspect-ratio: 1/1;
   }
 }
-.box4 {
+.hashtagBox {
   grid-column: 2 / span 1;
   grid-row: 2 / span 2;
   border: 1px solid $blue-200;
 }
-.box5 {
+.projectUrl {
   grid-column: 1 / span 3;
   grid-row: 4 / span 3;
   border: 1px solid $blue-200;
   padding: $space-xxxs;
 }
-.box6 {
+.stripeBox {
   grid-column: 3 / span 1;
   grid-row: 1 / span 3;
   overflow: hidden;
@@ -151,15 +146,13 @@
 .hash {
   color: $blue-200;
   text-align: center;
-
   font-family: Now;
   font-size: $tiny;
   font-style: normal;
   font-weight: 500;
-  line-height: 98%;
 
   border: 2px solid $blue-200;
-  padding: 2px 3px;
+  padding: 2px;
 }
 
 .sectionLine {
@@ -170,26 +163,9 @@
 }
 
 @media (min-width: $breakpoint-tablet) {
-  .rootContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: $breakpoint-laptop;
-    width: 100%;
-    margin: auto;
-  }
-  .heroContainer {
-    flex-direction: row;
-  }
   .titleContainer {
-    h1 {
-      font-size: $h0;
-    }
+    flex-direction: row;
   }
 }
 @media (min-width: $breakpoint-laptop) {
-  .heroContainer {
-    flex-direction: row;
-  }
 }

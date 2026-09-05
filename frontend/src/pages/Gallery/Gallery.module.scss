@@ -1,7 +1,5 @@
-.heading {
-  margin: 1.25rem; // m-5
-}
-
+@use "@/styles/main" as *;
+$purpel: #ff00e1;
 .subheading {
   text-align: center;
   margin: 1rem; // m-4
@@ -11,30 +9,107 @@
   padding: 0.5rem; // p-2
   width: 100%;
 }
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem; // gap-3
-
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr); // sm:grid-cols-2
-  }
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr); // md:grid-cols-3
+.stretchTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transform: translateY(-20%);
+  span {
+    color: $white;
+    font-family: IBMPlexSans;
+    font-size: $h1;
+    color: $white;
+    text-align: center;
   }
 }
-
-.imageWrapper {
-  overflow: hidden;
+.thumbnailBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // gap: $space-xxxs;
+  max-height: 310px;
+}
+.thumbnailContainer {
+  width: 100%;
+  height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.image {
+.maskedThumbnail {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: opacity 0.3s;
-  &:hover {
-    opacity: 0.7;
+  mask-size: auto 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-mode: luminance;
+  -webkit-mask-size: auto 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.thumbnailTitleBig {
+  display: none;
+}
+.glyph2 {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  height: 64px;
+  width: auto;
+}
+.glyph3 {
+  position: absolute;
+  bottom: 9px;
+  right: 9px;
+  height: 25px;
+  width: auto;
+}
+.verticalLine {
+  position: absolute;
+  right: 10px;
+  height: 100%;
+  width: auto;
+}
+@media (min-width: $breakpoint-tablet) {
+  .stretchTitleContainer {
+    display: none;
   }
+  .thumbnailContainer {
+    max-width: 700px;
+    height: 500px;
+  }
+  .glyph2 {
+    bottom: 20px;
+    right: 20px;
+    height: 84px;
+    width: auto;
+  }
+  .glyph3 {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    height: 32px;
+    width: auto;
+  }
+  .verticalLine {
+    right: 16px;
+  }
+  .thumbnailBox {
+    background-color: #110b24;
+  }
+  .thumbnailTitleBig {
+    display: block;
+    color: $white;
+    font-family: IBMPlexSans;
+    font-size: 5rem;
+    position: absolute;
+  }
+}
+@media (min-width: $breakpoint-laptop) {
 }

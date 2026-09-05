@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -22,24 +23,10 @@ func getProject(context *gin.Context) {
 	project, err := models.GetProjectById(projectId)
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not fetch project"})
-		return
-	}
-	context.JSON(http.StatusOK, project)
-}
-
-func getProjectSections(context *gin.Context) {
-	projectId := context.Param("id")
-	project, err := models.GetProjectById(projectId)
-	if err != nil {
-		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not fetch project by id"})
+		fmt.Println(err)
 		return
 	}
 
-	project.Sections, err = models.GetProjectContent(projectId)
-	if err != nil {
-		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not get project sections"})
-		return
-	}
 	context.JSON(http.StatusOK, project)
 }
 

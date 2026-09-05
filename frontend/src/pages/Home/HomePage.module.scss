@@ -1,12 +1,21 @@
 @use "@/styles/main.scss" as *;
 
+.mainContent {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $black;
+}
+
 .heroSection {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: calc(100dvh - var(--navbar-height));
+  height: calc(90dvh - var(--navbar-height));
   // overflow: hidden;
 }
 
@@ -55,19 +64,19 @@
 
 .stripes {
   height: 30px;
-  bottom: 0;
-  position: absolute;
   z-index: 15;
-
-  div {
-    background-color: $blue-200;
-  }
 }
 
 .projectsSection {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 700px;
+  overflow: hidden;
+}
+.projectCardWrapper {
+  width: 100%;
 }
 
 @media only screen and (min-width: 800px) {

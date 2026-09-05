@@ -1,22 +1,5 @@
 @use "@/styles/main" as *;
 
-.default {
-  color: $white;
-  display: grid;
-  grid: auto / auto auto auto auto;
-  padding: 0 $space-xxxs 0 $space-xxxs;
-  height: fit-content;
-  p {
-    color: $white;
-    font-family: SpaceMono;
-    font-size: $p;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%;
-    letter-spacing: 0.552px;
-  }
-}
-
 .imgContainer {
   display: flex;
   flex-direction: column;
@@ -26,6 +9,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 3px;
   }
   p {
     color: $white;
@@ -138,4 +122,9 @@ h3 {
     flex-direction: column;
     gap: $space-xxs;
   }
+}
+@media (min-width: $breakpoint-tablet) {
+}
+
+@media (min-width: $breakpoint-laptop) {
 }

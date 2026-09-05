@@ -1,3 +1,6 @@
+
+backend/data
+backend/tmp
 .env
 !.env.example
 !*.db

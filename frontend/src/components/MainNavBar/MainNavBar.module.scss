@@ -1,6 +1,6 @@
 @use "@/styles/main" as *;
 
-nav {
+.navHead {
   position: fixed;
   top: 0;
   z-index: 100;
@@ -10,19 +10,6 @@ nav {
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
-}
-
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -2;
-}
-
-.navHead {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -39,6 +26,7 @@ nav {
   justify-content: flex-start;
   align-items: center;
   padding: $space-xs;
+  width: auto;
 
   h1 {
     color: $black;
@@ -47,11 +35,56 @@ nav {
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    letter-spacing: 2.9px;
+    letter-spacing: 2.2px;
     margin: auto 0 auto 0;
   }
 }
+.currentPageTitle {
+  display: block;
+  transform: translateY(9%);
+}
+.btnContainer {
+  display: none;
+  flex-grow: 1;
+  gap: $space-s;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  padding: $space-m;
+}
+.active {
+  box-shadow: 1px 2px 4px #266550;
+  border: 2px solid $black;
+  background-color: $green-200 !important;
+  cursor: default;
+}
+.menuBtn {
+  display: flex;
+  justify-content: center;
+  background-color: $green-200;
+  align-items: center;
+  padding: $space-xxxs $space-m;
 
+  p {
+    font-family: Now;
+    font-weight: 500;
+    font-size: $h5;
+    color: $black;
+  }
+}
+.menuBtn:hover {
+  background-color: $green-100;
+}
+.darkModeBtn {
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $space-xxxs;
+}
+.darkModeBtn:hover {
+  background-color: $green-100;
+}
 .headingContainer:focus {
   box-shadow: inset 0px 0px 0px 3px rgba(4, 17, 1, 1);
 }
@@ -60,82 +93,13 @@ nav {
   height: 28px;
   aspect-ratio: 1/1;
 }
-
-.burgerMenu {
-  height: 100%;
-  width: 95px;
-  background-color: $blue-200;
-
-  &:focus {
-    box-shadow: inset 0px 0px 0px 3px rgba(4, 17, 1, 1);
+@media (min-width: $breakpoint-tablet) {
+}
+@media (min-width: $breakpoint-laptop) {
+  .btnContainer {
+    display: flex;
   }
-}
-
-.navLink {
-  display: block;
-  width: 100%;
-  padding: $space-s $space-m;
-}
-
-.navItem {
-  color: $white;
-  font-family: SpaceMono;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 0.225rem;
-  list-style: none;
-  display: block;
-  transition: background-color 0.2s ease-out, color 0.2s ease-out;
-
-  &:hover {
-    color: $green-200;
-    background-color: rgba(46, 46, 46, 0.4);
-  }
-}
-
-.navLink:active {
-  color: $green-200;
-}
-
-.navList {
-  overflow: hidden;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: $black;
-  backdrop-filter: blur(5px);
-}
-
-hr {
-  display: block;
-  height: 2px;
-  border: 0;
-  border-top: 2px solid $blue-200;
-  margin: 0 $space-s;
-}
-
-.expanded {
-  max-height: 400px;
-}
-
-.collapsed {
-  max-height: 0px;
-}
-
-.navList {
-  @media (max-width: 768px) {
-    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  // Accessibility improvements
-  @media (prefers-reduced-motion: reduce) {
-    .navList,
-    .navLink,
-    .burgerMenu {
-      transition: none;
-    }
+  .currentPageTitle {
+    display: none;
   }
 }

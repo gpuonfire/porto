@@ -1,5 +1,8 @@
+@use "@/styles/main" as *;
+
 .stripeContainer {
   height: 50px;
+  width: 1280px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -9,6 +12,5 @@
 .stripe {
   width: 20px;
   height: 120px;
-  background-color: black;
   transform: rotate(45deg);
 }

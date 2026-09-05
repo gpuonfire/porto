@@ -1,9 +1,8 @@
 import ProjectTeaserCard from "@/components/ProjectTeaserCard/ProjectTeaserCard";
 import Stripes from "../../components/Stripes/Stripes";
 import styles from "./HomePage.module.scss";
-import TESTDATA from "@/assets/projects-data.json";
 import { Project } from "../../@types/youAreJustMyType";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import nuclearWaste from "@/assets/SiFi_Container.jpg";
 
@@ -13,9 +12,8 @@ export default function ProjectPage() {
   useEffect(() => {
     async function loadProjects() {
       const backendHost = import.meta.env.VITE_BACKEND_API;
-      console.log('Backend Host:', backendHost);
       if (!backendHost) {
-        throw new Error('Backend Host is not set');
+        throw new Error("Backend Host is not set");
       }
       await fetch(`${backendHost}/projects`)
         .then((response) => {
@@ -30,34 +28,48 @@ export default function ProjectPage() {
 
   return (
     <>
-      <div className={styles.heroSection}>
-        <div className={styles.sidePanel}>
-          <h1 className={styles.heroText}>PROJECTS</h1>
-        </div>
-        <Stripes number={16} gapSize={40} addedClass={styles.stripes} />
-        <div className={styles.imgContainer}>
-          <LazyLoadImage
-            className={styles.heroImage}
-            src={nuclearWaste}
-            alt="Nuclear Waste Containers"
-          />
-        </div>
-      </div>
-      <section className={styles.projectsSection}>
-        {projects ? (
-          projects.map((project: Project, index: number) => (
-            <ProjectTeaserCard
-              key={index}
-              projectId={project.id}
-              title={project.title}
-              thumbnailImg={project.thumbnailImg}
-              tags={project.tags}
+      <div className={styles.mainContent}>
+        <div className={styles.heroSection}>
+          <div className={styles.sidePanel}>
+            <h1 className={styles.heroText}>PROJECTS</h1>
+          </div>
+          <div className={styles.imgContainer}>
+            <LazyLoadImage
+              className={styles.heroImage}
+              src={nuclearWaste}
+              alt="Nuclear Waste Containers"
             />
-          ))
-        ) : (
-          <p>Loading projects...</p>
-        )}
-      </section>
+          </div>
+        </div>
+        <Stripes
+          number={16}
+          gapSize={40}
+          stripeWidth={42}
+          addedClass={styles.stripes}
+        />
+        <section className={styles.projectsSection}>
+          {projects ? (
+            projects.map((project: Project, index: number) => (
+              <div key={index} className={styles.projectCardWrapper}>
+                <ProjectTeaserCard
+                  projectId={project.id}
+                  title={project.title}
+                  thumbnailImg={project.thumbnailImg}
+                  tags={project.tags}
+                />
+                <Stripes
+                  number={16}
+                  gapSize={40}
+                  stripeWidth={42}
+                  addedClass={styles.stripes}
+                />
+              </div>
+            ))
+          ) : (
+            <p>Loading projects...</p>
+          )}
+        </section>
+      </div>
     </>
   );
 }
